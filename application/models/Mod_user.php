@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_user extends CI_Model {
 
-  protected $user 		       = 'em_users';
-  protected $userDetail 	   = 'em_user_details';
+  protected $user 		       = 'mj_user';
+  protected $userDetail 	   = 'mj_user_detail';
   protected $useradmin       = 'em_useradmins';
   protected $useradminDetail = 'em_useradmin_details';
   protected $userRole        = 'em_user_roles';
@@ -12,7 +12,7 @@ class Mod_user extends CI_Model {
   protected $userReset       = 'em_user_resets';
 
   public function logged_id(){ 
-    return $this->session->userdata('id'); 
+    return $this->session->has_userdata('id_user'); 
   }
   //fungsi check login 
   public function check_login($data_user){ 

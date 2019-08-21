@@ -241,7 +241,7 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="#" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
-						<img src="<?= img_url(getUser($_SESSION['id_user'])['img_path'])?>" alt="user" class="rounded-circle" width="40">
+						<img src="<?= img_url(getUser($_SESSION['id'])['img_path'])?>" alt="user" class="rounded-circle" width="40">
 						<span class="m-l-5 font-medium d-none d-sm-inline-block"><?php echo ucwords($_SESSION['fullname']);?><i
 								class="mdi mdi-chevron-down"></i></span>
 					</a>
@@ -251,7 +251,7 @@
 						</span>
 						<div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
 							<div class="">
-								<img src="<?= img_url(getUser($_SESSION['id_user'])['img_path'])?>" alt="user" class="rounded-circle" width="60">
+								<img src="<?= img_url(getUser($_SESSION['id'])['img_path'])?>" alt="user" class="rounded-circle" width="60">
 							</div>
 							
 							<div class="m-l-10">

@@ -556,19 +556,20 @@ $('#userEmail').change(function(e){
 	}
 });
 // console.log(location.origin);
-$(document).ready(function(){
-	setInterval(count_cart, 500);
-})
-function count_cart() {
-	$.ajax({
-		type:'POST',
-		url: location.origin+"/Cart/count",
-		'dataType':'json',
-		success: function(data){
-			$('.cart-b ').text(data);
-		}
-	});
-}
+// $(document).ready(function(){
+// 	setInterval(count_cart, 500);
+// })
+
+// function count_cart() {
+// 	$.ajax({
+// 		type:'POST',
+// 		url: location.origin+"/Cart/count",
+// 		'dataType':'json',
+// 		success: function(data){
+// 			$('.cart-b ').text(data);
+// 		}
+// 	});
+// }
 // format money
 function formatMoney(n, c, d, t) {
 	var c = isNaN(c = Math.abs(c)) ? 2 : c,

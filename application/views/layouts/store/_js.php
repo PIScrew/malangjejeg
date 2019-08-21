@@ -1,20 +1,20 @@
-<script src="<?php echo vendor_url('plugin/jquery/jquery.min.js'); ?>"></script>
-<script src="<?php echo vendor_url('plugin/popper.js/popper.min.js'); ?>"></script>
-<script src="<?php echo vendor_url('plugin/bootstrap/bootstrap.min.js'); ?>"></script>
-<script src="<?php echo vendor_url('plugin/perfect-scrollbar/perfect-scrollbar.min.js'); ?>"></script>
+<script src="<?php echo vendor_url('plugins/jquery/jquery.min.js'); ?>"></script>
+<script src="<?php echo vendor_url('plugins/popper/popper.min.js'); ?>"></script>
+<script src="<?php echo vendor_url('plugins/bootstrap/bootstrap.min.js'); ?>"></script>
+<script src="<?php echo vendor_url('plugins/perfect-scrollbar/perfect-scrollbar.min.js'); ?>"></script>
 <?php if ($code_page == "home") :?>
-  <script src="<?php echo vendor_url('plugin/swiper/swiper.min.js');?>"></script>
+  <script src="<?php echo vendor_url('plugins/swiper/swiper.min.js');?>"></script>
 <?php elseif ($code_page =="category"):?>
-  <script src="<?php echo vendor_url('plugin/nouislider/nouislider.min.js');?>"></script>
-  <script src="<?php echo vendor_url('plugin/raty-fa/jquery.raty-fa.min.js');?>"></script>
+  <script src="<?php echo vendor_url('plugins/nouislider/nouislider.min.js');?>"></script>
+  <script src="<?php echo vendor_url('plugins/raty-fa/jquery.raty-fa.min.js');?>"></script>
 <?php elseif ($code_page == "detail_produk" || $code_page =="search" || $code_page =="detailinvoice"):?>
-  <script src="<?php echo vendor_url('plugin/nouislider/nouislider.min.js');?>"></script>
-  <script src="<?php echo vendor_url('plugin/swiper/swiper.min.js');?>"></script>
-  <script src="<?php echo vendor_url('plugin/raty-fa/jquery.raty-fa.min.js');?>"></script>
-  <script src="<?php echo vendor_url('plugin/photoswipe/photoswipe.min.js');?>"></script>
-  <script src="<?php echo vendor_url('plugin/photoswipe/photoswipe-ui-default.min.js');?>"></script>
+  <script src="<?php echo vendor_url('plugins/nouislider/nouislider.min.js');?>"></script>
+  <script src="<?php echo vendor_url('plugins/swiper/swiper.min.js');?>"></script>
+  <script src="<?php echo vendor_url('plugins/raty-fa/jquery.raty-fa.min.js');?>"></script>
+  <script src="<?php echo vendor_url('plugins/photoswipe/photoswipe.min.js');?>"></script>
+  <script src="<?php echo vendor_url('plugins/photoswipe/photoswipe-ui-default.min.js');?>"></script>
 <?php elseif ($code_page == "profile"):?>
-  <script src="<?php echo vendor_url('plugin/select2/select2.full.min.js') ?>"></script>
+  <script src="<?php echo vendor_url('plugins/select2/select2.full.min.js') ?>"></script>
 <?php elseif ($code_page == "replayTicket" || $code_page =="addTicket"):?>
   <script src="<?php echo vendor_url('plugin/summernote/summernote-bs4.js') ?>"></script>
 <?php elseif ($code_page == "scanqr"):?>
@@ -22,8 +22,8 @@
   <script src="<?php echo assets_url('js/scanqr','webcodecamjs.js'); ?>"></script>
   <script src="<?php echo assets_url('js/scanqr','scanqr.js'); ?>"></script>
 <?php endif; ?>
-<script src="<?php echo vendor_url('plugin/sweetalert/sweetalert.min.js')?>"></script>
-<script src="<?php echo vendor_url('front/js/script.js');?>"></script>
+<script src="<?php echo vendor_url('plugins/sweetalert/sweetalert.min.js')?>"></script>
+<script src="<?php echo vendor_url('store/js/script.js');?>"></script>
 <script src="<?php echo assets_url('js','custom.store.js');?>"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
 <?php if (isset($_SESSION['status'])) { ?>

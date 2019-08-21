@@ -18,6 +18,7 @@ class Template {
         //edit
         $data['notif'] = $this->_ci->notif->getNotif()->result_array();
         $data['jumlah']    = $this->_ci->notif->countNotif(); 
+        
         //emd edit
         $data['_body']      = $this->_ci->load->view($template, $data, TRUE);
         $data['_preloader'] = $this->_ci->load->view('layouts/back/preloader', $data, TRUE);

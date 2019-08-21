@@ -7,13 +7,20 @@ class User extends PIS_Controller {
   {
     parent::__construct();
     $this->load->model('Mod_user','user');
+
   }
   
+  function checkLogin(){
+    if($this->session->has_userdata('id_user')){
+      redirect(base_url('sarimin'));
+    }
+  }
 
   public function index()
   {
     $data['codepage'] = "back_login";
     $data['page_title'] 	= 'Login';
+    print_r($_SESSION);
     if($this->user->logged_id()){ 
       base_url('sarimin'); 
     } else { 
@@ -31,11 +38,11 @@ class User extends PIS_Controller {
           foreach ($checking as $apps) {
             
               $session_data = array( 
-               'id'         => $apps->id,
-               'username'   => $apps->username,
-               'email'      => $apps->email, 
-               'fullname'   => $apps->fullname,
-               'is_ban'     => $apps->is_ban
+                'id'         => $apps->id,
+                'username'   => $apps->username,
+                'email'      => $apps->email, 
+                'fullname'   => $apps->fullname,
+                'is_ban'     => $apps->is_ban
               ); 
               $this->session->set_userdata($session_data); 
               redirect(base_url('admin/dashboard'));
@@ -49,7 +56,7 @@ class User extends PIS_Controller {
   }
   public function logout(){
     $this->session->sess_destroy();    
-    redirect(base_url('sarimin'));
+    // redirect(base_url('sarimin'));
   }
 
   public function create_user(){

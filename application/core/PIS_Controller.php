@@ -9,6 +9,7 @@ class PIS_Controller extends CI_Controller {
         $this->load->model('Mod_notification','notification');
         $this->load->model('Mod_system','system');        
         $this->load->model('Mod_category','category');
+        $this->load->model('Mod_guest','guest');
         $this->load->model('Mod_cart','Cart');
         $this->load->model('Mod_product','product');
 
@@ -23,12 +24,12 @@ class PIS_Controller extends CI_Controller {
         $id_user=$this->get_id_user();
         $data['cart']       = $this->Cart->get_cart_by_user($id_user);
        
-        if (isset($_SESSION['id_user'])) {
-            $data['notif_header']=$this->get_notification_user();
-        }
-        if (@$_SESSION['status']=="pmadmin") {
-            $data['message_header']=$this->get_message();
-        }
+        // if (isset($_SESSION['id_user'])) {
+        //     $data['notif_header']=$this->get_notification_user();
+        // }
+        // if (@$_SESSION['status']=="pmadmin") {
+        //     $data['message_header']=$this->get_message();
+        // }
         $this->load->vars($data);
     }
 

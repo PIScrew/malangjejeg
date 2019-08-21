@@ -18,7 +18,7 @@
 <!-- End Login Page -->
 
 <!-- Other Page -->
-<?php else:  print_r($data); die();?>
+<?php else: ?>
   <head>
     <?php echo @$_head ?>
     <?php echo @$_css ?>
