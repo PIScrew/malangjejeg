@@ -24,13 +24,15 @@
 			<a href="#" class="nav-link" id="search-toggle"><i class="fa fa-search fa-lg"></i></a>
 		</li>
 		<!-- /Search Toggle -->
-		<!-- Shopping Cart Toggle -->
+
+		<!-- QR CODE Toggle 
 		<li class="nav-item dropdown ml-1 ml-sm-3">
 			<a href="<?= base_url('home/scanqr'); ?>" class="nav-link">				
 				<i class="fa fa-qrcode fa-lg"></i>
 			</a>
 		</li>
-		<!-- /Shopping Cart Toggle -->
+		 QR CODE Toggle -->
+
 		<!-- Shopping Cart Toggle -->
 		<?php if(@$_SESSION['status']!="pmadmin"): ?>
 		<li class="nav-item dropdown ml-1 ml-sm-3">

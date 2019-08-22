@@ -5,16 +5,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Mod_product extends CI_Model {
 
   protected $product             = 'mj_products';
-  protected $product_img         = 'em_product_imgs';
-  protected $product_measurement = 'em_product_measurements';
-  protected $product_variant     = 'em_product_variations';
-  protected $product_view        = 'em_product_views';
-  protected $product_wishlist    = 'em_product_wishlists';
-  protected $product_review      = 'em_product_reviews';
-  protected $product_img_temp    = 'em_product_img_temps';
-  protected $cart                = 'em_carts';
-  protected $transaction          = 'em_transactions';
-  protected $transaction_detail   = 'em_transaction_details';
+  protected $product_img         = 'mj_product_imgs';
+  protected $product_measurement = 'mj_product_measurements';
+  protected $product_variant     = 'mj_product_variations';
+  protected $product_view        = 'mj_product_views';
+  protected $product_wishlist    = 'mj_product_wishlists';
+  protected $product_review      = 'mj_product_reviews';
+  protected $product_img_temp    = 'mj_product_img_temps';
+  protected $cart                = 'mj_carts';
+  protected $transaction          = 'mj_transactions';
+  protected $transaction_detail   = 'mj_transaction_details';
 
   public function getListProduct(){
     $this->db->select('*');

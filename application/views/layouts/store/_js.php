@@ -2,22 +2,22 @@
 <script src="<?php echo vendor_url('plugins/popper/popper.min.js'); ?>"></script>
 <script src="<?php echo vendor_url('plugins/bootstrap/bootstrap.min.js'); ?>"></script>
 <script src="<?php echo vendor_url('plugins/perfect-scrollbar/perfect-scrollbar.min.js'); ?>"></script>
-<?php if ($code_page == "home") :?>
+<?php if ($codepage == "home") :?>
   <script src="<?php echo vendor_url('plugins/swiper/swiper.min.js');?>"></script>
-<?php elseif ($code_page =="category"):?>
+<?php elseif ($codepage =="category"):?>
   <script src="<?php echo vendor_url('plugins/nouislider/nouislider.min.js');?>"></script>
   <script src="<?php echo vendor_url('plugins/raty-fa/jquery.raty-fa.min.js');?>"></script>
-<?php elseif ($code_page == "detail_produk" || $code_page =="search" || $code_page =="detailinvoice"):?>
+<?php elseif ($codepage == "detail_produk" || $code_page =="search" || $code_page =="detailinvoice"):?>
   <script src="<?php echo vendor_url('plugins/nouislider/nouislider.min.js');?>"></script>
   <script src="<?php echo vendor_url('plugins/swiper/swiper.min.js');?>"></script>
   <script src="<?php echo vendor_url('plugins/raty-fa/jquery.raty-fa.min.js');?>"></script>
   <script src="<?php echo vendor_url('plugins/photoswipe/photoswipe.min.js');?>"></script>
   <script src="<?php echo vendor_url('plugins/photoswipe/photoswipe-ui-default.min.js');?>"></script>
-<?php elseif ($code_page == "profile"):?>
+<?php elseif ($codepage == "profile"):?>
   <script src="<?php echo vendor_url('plugins/select2/select2.full.min.js') ?>"></script>
-<?php elseif ($code_page == "replayTicket" || $code_page =="addTicket"):?>
+<?php elseif ($codepage == "replayTicket" || $code_page =="addTicket"):?>
   <script src="<?php echo vendor_url('plugin/summernote/summernote-bs4.js') ?>"></script>
-<?php elseif ($code_page == "scanqr"):?>
+<?php elseif ($codepage == "scanqr"):?>
   <script src="<?php echo assets_url('js/scanqr','qrcodelib.js'); ?>"></script>
   <script src="<?php echo assets_url('js/scanqr','webcodecamjs.js'); ?>"></script>
   <script src="<?php echo assets_url('js/scanqr','scanqr.js'); ?>"></script>

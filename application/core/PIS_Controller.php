@@ -7,7 +7,7 @@ class PIS_Controller extends CI_Controller {
     {
         parent::__construct();        
         $this->load->model('Mod_notification','notification');
-        $this->load->model('Mod_system','system');        
+        // $this->load->model('Mod_system','system');        
         $this->load->model('Mod_category','category');
         $this->load->model('Mod_guest','guest');
         $this->load->model('Mod_cart','dbCart');
@@ -16,7 +16,7 @@ class PIS_Controller extends CI_Controller {
         //load category
         $data['category'] = $this->category->getCategoryAll()->result_array();
         // system
-        $data['system']   = $this->system->getSiteData()->row_array();
+        // $data['system']   = $this->system->getSiteData()->row_array();
         $this->load->vars($data);
     }
     public function getSystem(){

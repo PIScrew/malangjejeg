@@ -13,24 +13,25 @@ class Mod_system extends CI_Model {
   protected $site_bank        = 'em_site_banks';
   protected $site_payment     = 'em_site_payments';
   protected $site_rest        = 'em_site_rests';
-  protected $site_visitor        = 'em_site_visitors';
+  protected $site_visitor     = 'em_site_visitors';
   protected $homepage         = 'em_site_homepages';
 
-  // public function getSite()
+  // public function getSite($id)
   // {
   //   $this->db->select('*');
   //   $this->db->from($this->site);
-  //   $this->db->order_by('id_site', 'asc');
-  //   $this->db->where('id', 1 );
+  //   // $this->db->order_by('id_site', 'asc');
+  //   $this->db->where('id', $id );
   //   return $this->db->get();
   // }
-  public function getSiteData()
+
+  public function getSiteData($id)
   {
-    $this->db->select($this->site.'.*,'.$this->site_address.'.*');
-    $this->db->from($this->site);
-    $this->db->join($this->site_address, $this->site_address.'.id = '.$this->site.'.id');
-    $this->db->order_by($this->site.'.id', 'desc');
-    $this->db->limit(1); 
+    $this->db->select('*');
+    $this->db->from($this->site.' s');
+    $this->db->join($this->site_address.' sa', 's.id = sa.id', 'left');
+    $this->db->where('s.id',$id);
+    // $this->db->limit(1); 
     return $this->db->get();
   }
   public function setAddress($data){

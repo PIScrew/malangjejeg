@@ -11,7 +11,8 @@ class Template {
    
     function __construct() {
         $this->_ci = &get_instance();
-        $this->_ci->load->model('Mod_notification','notif');      
+        $this->_ci->load->model('Mod_notification','notif');
+        $this->_ci->load->model('Mod_guest','guest');
     }
     function admin_views( $template = NULL, $data = NULL ) {
         if( $template != NULL )
@@ -55,6 +56,8 @@ class Template {
     }
     
     function store_views( $template = NULL, $data = NULL ) {
+        (!isset($_COOKIE['id_guest'])?$this->_ci->guest->generate_guest():$this->_ci->guest->last_active_guest());
+
         if( $template != NULL )
         $data['_head']      = $this->_ci->load->view('layouts/store/_head', $data, TRUE);
         $data['_css']       = $this->_ci->load->view('layouts/store/_css', $data, TRUE);

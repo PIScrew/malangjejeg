@@ -10,22 +10,28 @@ class Home extends PIS_Controller {
     $this->load->model('Mod_product','product');
     $this->load->model('Mod_category','category');
     $this->load->model('Mod_review','review');
-    $this->load->model('Mod_user', 'user');
+    $this->load->model('Mod_guest', 'guest');
     // $this->load->model('Mod_tokens','mTokens');
     // $this->load->model('Mod_comment','comment');
     // $this->load->model('Mod_qrcode','qrcode');
     // $this->load->model('Mod_cart','cart');
-    // $this->load->model('Mod_site','site');
+    $this->load->model('Mod_system','system');
     $this->load->model('Mod_transaction','transaction');
     $this->load->library('pagination');
     $this->load->helper('url');
+
+    $data['system']   = $this->system->getSiteData(2)->row_array();
+    $this->load->vars($data);
+    // print_r( $data['system']); die();
   }
   
   public function index()
   {
     // print_r($_SESSION);die();
-    $data['code_page']		= "home";
-    // $data['slider']       = $this->slider->getAllSlider()->result_array();
+
+    $data['codepage']		  = "home";
+    $data['subpage']      = " ";
+    $data['slider']       = $this->slider->getAllSlider(1)->result_array();
     $data['productNew']   = $this->product->getListProduct()->result_array();
     // $data['populer']      = $this->product->productPopuler()->result_array();  
     $this->template->store_views('site/store/home', $data);
