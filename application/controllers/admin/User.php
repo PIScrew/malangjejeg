@@ -6,9 +6,15 @@ class User extends PIS_Controller {
   public function __construct()
   {
     parent::__construct();
+    $this->check_login();
     $this->load->model('Mod_user','user');
   }
   
+  function check_login() {   
+		if(!$this->session->has_userdata('username')) {
+			redirect(base_url('admin'));
+    } return true;
+  }
 
   // public function index()
   // {

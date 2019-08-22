@@ -31,7 +31,7 @@ class index extends PIS_Controller
       $this->form_validation->set_rules('email', 'E-mail', 'required'); 
       $this->form_validation->set_rules('password', 'Password', 'required'); //jika session belum terdaftar 
       if ($this->form_validation->run() == false) {
-        base_url('admin'); 
+        base_url('sarimin'); 
       } else { 
         $data_user = array(
           'email'     => $_POST['email'],
@@ -63,11 +63,11 @@ class index extends PIS_Controller
   }
   
   public function logout(){
-    if($this->user->logged_status()) {
-      $logout = array('id_user','username','email','role');
-      $this->session->unset_userdata($logout);
-
-      redirect(base_url('admin'));
+    if($this->session->has_userdata('username')) {
+      // $logout = array('id_user','username','email','role');
+      // $this->session->unset_userdata($logout);
+      $this->session->sess_destroy();
+      redirect(base_url('sarimin'));
     }
   }
 
