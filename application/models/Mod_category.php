@@ -3,7 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_category extends CI_Model {
 
-  protected $category            = 'mj_category';
+  protected $category            = 'mj_product_categories';
+  // protected $category            = 'em_product_categories';
 
   public function getCategoryAll(){
     $this->db->select('*');

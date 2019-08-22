@@ -11,7 +11,7 @@
 			<!-- Logo -->
 			<!-- ============================================================== -->
 			<div class="navbar-brand">
-				<a href="index.html" class="logo">
+				<a href="<?php echo base_url('admin/dashboard')?>" class="logo">
 					<!-- Logo icon -->
 					<b class="logo-icon">
 						<!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -169,61 +169,73 @@
 				<!-- ============================================================== -->
 				<!-- Comment -->
 				<!-- ============================================================== -->
-				<li class="nav-item dropdown border-right" id="notif-b">
+				<li class="nav-item dropdown border-right">
 					<a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
 						<i class="mdi mdi-bell-outline font-22"></i>
-						<span class="badge badge-pill badge-info noti"><?php echo $jumlah; ?></span>
+						<span class="badge badge-pill badge-info noti">3</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
 						<span class="with-arrow">
 							<span class="bg-primary"></span>
 						</span>
-						<ul class="list-style-none">   
+						<ul class="list-style-none">
 							<li>
 								<div class="drop-title bg-primary text-white">
-									<h4 class="mb-0 m-t-5"><?php echo $jumlah; ?> New</h4>
+									<h4 class="mb-0 m-t-5">4 New</h4>
 									<span class="font-light">Notifications</span>
 								</div>
 							</li>
 							<li>
 								<div class="message-center notifications">
 									<!-- Message -->
-									<?php foreach($notif as $n):?>
-									<a href="<?php echo base_url('admin/notification/linkNotif/'.$n['id']) ?>" class="message-item">
+									<a href="javascript:void(0)" class="message-item">
 										<span class="btn btn-danger btn-circle">
 											<i class="fa fa-link"></i>
 										</span>
 										<div class="mail-contnet">
-								  <?php 
-								  if($n['id_comment'] != 0 && $n['id_comment'] != null){ 
-									echo "Comment";
-								  }
-								  else if($n['id_ticket'] != 0 && $n['id_ticket'] != null){
-									echo "Ticket";
-								  }
-								  else if($n['id_transaction'] != 0 && $n['id_transaction'] != null){
-									echo "Transaksi";
-								  }
-								  else if($n['id_review'] != 0 && $n['id_review'] != null){
-									echo "Review";
-								  }
-								  ?>
-								  </h5>
-											
-											<span class="mail-desc"><?php echo $n['desc'];?></span>
-											<span class="time"><?php echo $n['created_at'];?></span>
+											<h5 class="message-title">Luanch Admin</h5>
+											<span class="mail-desc">Just see the my new admin!</span>
+											<span class="time">9:30 AM</span>
 										</div>
 									</a>
-									<?php endforeach ?> 
-								
-									
-									
-									
+									<!-- Message -->
+									<a href="javascript:void(0)" class="message-item">
+										<span class="btn btn-success btn-circle">
+											<i class="ti-calendar"></i>
+										</span>
+										<div class="mail-contnet">
+											<h5 class="message-title">Event today</h5>
+											<span class="mail-desc">Just a reminder that you have event</span>
+											<span class="time">9:10 AM</span>
+										</div>
+									</a>
+									<!-- Message -->
+									<a href="javascript:void(0)" class="message-item">
+										<span class="btn btn-info btn-circle">
+											<i class="ti-settings"></i>
+										</span>
+										<div class="mail-contnet">
+											<h5 class="message-title">Settings</h5>
+											<span class="mail-desc">You can customize this template as you want</span>
+											<span class="time">9:08 AM</span>
+										</div>
+									</a>
+									<!-- Message -->
+									<a href="javascript:void(0)" class="message-item">
+										<span class="btn btn-primary btn-circle">
+											<i class="ti-user"></i>
+										</span>
+										<div class="mail-contnet">
+											<h5 class="message-title">Pavan kumar</h5>
+											<span class="mail-desc">Just see the my admin!</span>
+											<span class="time">9:02 AM</span>
+										</div>
+									</a>
 								</div>
 							</li>
 							<li>
-								<a class="nav-link text-center m-b-5" href="<?php echo base_url('admin/notification')?>">
+								<a class="nav-link text-center m-b-5" href="javascript:void(0);">
 									<strong>Check all notifications</strong>
 									<i class="fa fa-angle-right"></i>
 								</a>
@@ -236,13 +248,12 @@
 				<!-- ============================================================== -->
 				<!-- ============================================================== -->
 				<!-- User profile and search -->
-				<!-- ============================================================== -->	
-				
+				<!-- ============================================================== -->
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="#" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
-						<img src="<?= img_url(getUser($_SESSION['id'])['img_path'])?>" alt="user" class="rounded-circle" width="40">
-						<span class="m-l-5 font-medium d-none d-sm-inline-block"><?php echo ucwords($_SESSION['fullname']);?><i
+						<img src="<?php echo vendor_url('back/images/users/2.jpg'); ?>" alt="user" class="rounded-circle" width="40">
+						<span class="m-l-5 font-medium d-none d-sm-inline-block">Hai <?php echo ucwords($_SESSION['username']);?><i
 								class="mdi mdi-chevron-down"></i></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
@@ -251,26 +262,24 @@
 						</span>
 						<div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
 							<div class="">
-								<img src="<?= img_url(getUser($_SESSION['id'])['img_path'])?>" alt="user" class="rounded-circle" width="60">
+								<img src="<?php echo vendor_url('back/images/users/2.jpg'); ?>" alt="user" class="rounded-circle" width="60">
 							</div>
-							
 							<div class="m-l-10">
 								<h4 class="mb-0"><?php echo ucwords($_SESSION['fullname']);?></h4>
-								<p class=" mb-0"><?php echo ucwords($_SESSION['email']); ?></p>
+								<p class=" mb-0"><?php echo $_SESSION['email'];?></p>
 							</div>
 						</div>
-						
 						<a class="dropdown-item" href="javascript:void(0)">
 							<i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
 						<a class="dropdown-item" href="javascript:void(0)">
 							<i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
 						<a class="dropdown-item" href="javascript:void(0)">
-							<i class="ti-email m-r-5 m-l-5"></i> Inbox</a>	
+							<i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="<?php echo base_url('admin/User/editPasswordAct/'.$_SESSION['id'])?>">
+						<a class="dropdown-item" href="javascript:void(0)">
 							<i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="<?php echo base_url('admin/User/logout')?>">
+						<a class="dropdown-item" href="<?php echo base_url('Admin/index/logout')?>">
 							<i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
 						<div class="dropdown-divider"></div>
 						<div class="p-l-30 p-10">

@@ -83,13 +83,12 @@ $db['default'] = array(
 	// 'password' => 'pisem1qaz',
 	// 'database' => 'pis_ecommerce',
 
-		// malang jejeg connection
-		'hostname' => '159.89.195.191',
-		'username' => 'dbmalangjejeg',
-		'password' => 'dbmalangjejeg1qaz',
-		'database' => 'malang-jejeg_dev',
-		// 'endof malang jejeg con db'
-
+	// malang jejeg connection
+	'hostname' => '159.89.195.191',
+	'username' => 'dbmalangjejeg',
+	'password' => 'dbmalangjejeg1qaz',
+	'database' => 'malang-jejeg_dev',
+	// 'endof malang jejeg con db'
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

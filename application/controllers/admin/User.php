@@ -7,57 +7,50 @@ class User extends PIS_Controller {
   {
     parent::__construct();
     $this->load->model('Mod_user','user');
-
   }
   
-  function checkLogin(){
-    if($this->session->has_userdata('id_user')){
-      redirect(base_url('sarimin'));
-    }
-  }
 
-  public function index()
-  {
-    $data['codepage'] = "back_login";
-    $data['page_title'] 	= 'Login';
-    print_r($_SESSION);
-    if($this->user->logged_id()){ 
-      base_url('sarimin'); 
-    } else { 
-      $this->form_validation->set_rules('email', 'E-mail', 'required'); 
-      $this->form_validation->set_rules('password', 'Password', 'required'); //jika session belum terdaftar 
-      if ($this->form_validation->run() == false) {
-        base_url('sarimin'); 
-      } else { 
-        $data_user = array(
-          'email'     => $_POST['email'],
-          'password'  => $_POST['password']
-        );
-        $checking = $this->user->checkLoginAdmin($data_user);
-        if ($checking == true) { 
-          foreach ($checking as $apps) {
+  // public function index()
+  // {
+  //   $data['codepage'] = "back_login";
+  //   $data['page_title'] 	= 'Login';
+  //   if($this->user->logged_id()){ 
+  //     base_url('sarimin'); 
+  //   } else { 
+  //     $this->form_validation->set_rules('email', 'E-mail', 'required'); 
+  //     $this->form_validation->set_rules('password', 'Password', 'required'); //jika session belum terdaftar 
+  //     if ($this->form_validation->run() == false) {
+  //       base_url('sarimin'); 
+  //     } else { 
+  //       $data_user = array(
+  //         'email'     => $_POST['email'],
+  //         'password'  => $_POST['password']
+  //       );
+  //       $checking = $this->user->checkLoginAdmin($data_user);
+  //       if ($checking == true) { 
+  //         foreach ($checking as $apps) {
             
-              $session_data = array( 
-                'id'         => $apps->id,
-                'username'   => $apps->username,
-                'email'      => $apps->email, 
-                'fullname'   => $apps->fullname,
-                'is_ban'     => $apps->is_ban
-              ); 
-              $this->session->set_userdata($session_data); 
-              redirect(base_url('admin/dashboard'));
-          } 
-        } else { 
-          redirect(base_url('sarimin'));
-        } 
-      } 
-    } 
-    $this->template->back_views('site/back/login',$data);
-  }
-  public function logout(){
-    $this->session->sess_destroy();    
-    // redirect(base_url('sarimin'));
-  }
+  //             $session_data = array( 
+  //              'id'         => $apps->id,
+  //              'username'   => $apps->username,
+  //              'email'      => $apps->email, 
+  //              'fullname'   => $apps->fullname,
+  //              'is_ban'     => $apps->is_ban
+  //             ); 
+  //             $this->session->set_userdata($session_data); 
+  //             redirect(base_url('admin/dashboard'));
+  //         } 
+  //       } else { 
+  //         redirect(base_url('sarimin'));
+  //       } 
+  //     } 
+  //   } 
+  //   $this->template->admin_views('site/back/login',$data);
+  // }
+  // public function logout(){
+  //   $this->session->sess_destroy();    
+  //   redirect(base_url('sarimin'));
+  // }
 
   public function create_user(){
     $data['codepage'] = "back_addProduct";

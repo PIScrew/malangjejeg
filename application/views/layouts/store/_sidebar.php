@@ -6,6 +6,7 @@
 		<a href="<?php echo base_url()?>" class="list-group-item list-group-item-action"><span class="lnr lnr-list"></span>
 			Kategori</a>
 		<?php 
+		// print_r($category); die();
 		$i = 0;
 		foreach ($category as $cg ):
 		if ($i < 7) :?>

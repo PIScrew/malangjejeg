@@ -8,17 +8,6 @@ class Mod_cart extends CI_Model {
     protected $product             = 'em_products';
     protected $product_variant     = 'em_product_variations';
 
-    function get_cart_by_user($id_user){
-        // $table=$this->get_table();
-        // if ($table=="ecs_cart") {
-        //     $query="SELECT c.id_affiliate,c.id_product,p.weight,p.slug_product,p.title_product,p.selling_price,c.*,p.qty as stok, (select img_path from ecs_img_product i where p.token=i.token and p.token_backup=i.token_backup limit 1) as image FROM ecs_product p, ecs_cart c where c.id_product=p.id_product and c.id_user=$id_user ORDER BY c.id_cart";
-        // } else {
-            // $query="SELECT c.id_affiliate,c.id_product,p.weight,p.slug_product,p.title_product,p.selling_price,c.id_cart_guest as id_cart,c.qty,p.qty as stok, (select img_path from ecs_img_product i where p.token=i.token and p.token_backup=i.token_backup limit 1) as image FROM ecs_product p, ecs_cart_guest c where c.id_product=p.id_product and c.id_guest=$id_user ORDER BY c.id_cart_guest";
-        // }
-        // $result=$this->db->query($query);
-        // return $result->result_array();
-        }
-
     public function getCount(){
         $this->db->where('id_user',$_SESSION['id']);
         $this->db->from($this->cart);

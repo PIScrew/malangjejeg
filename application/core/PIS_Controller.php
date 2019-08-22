@@ -10,43 +10,15 @@ class PIS_Controller extends CI_Controller {
         $this->load->model('Mod_system','system');        
         $this->load->model('Mod_category','category');
         $this->load->model('Mod_guest','guest');
-        $this->load->model('Mod_cart','Cart');
+        $this->load->model('Mod_cart','dbCart');
         $this->load->model('Mod_product','product');
-
-        if (!isset($_COOKIE['id_guest'])) {
-          $this->guest->generate_guest();
-      }
+        
         //load category
         $data['category'] = $this->category->getCategoryAll()->result_array();
         // system
-        $data['system']   = $this->system->getSite()->row_array();
-        // cart load
-        $id_user=$this->get_id_user();
-        $data['cart']       = $this->Cart->get_cart_by_user($id_user);
-       
-        // if (isset($_SESSION['id_user'])) {
-        //     $data['notif_header']=$this->get_notification_user();
-        // }
-        // if (@$_SESSION['status']=="pmadmin") {
-        //     $data['message_header']=$this->get_message();
-        // }
+        $data['system']   = $this->system->getSiteData()->row_array();
         $this->load->vars($data);
     }
-
-    public function get_id_user(){
-      if (isset($_SESSION['status'])) {
-        $id_user=$_SESSION['id_user'];
-      } else {
-          if (!isset($_COOKIE['id_guest'])) {
-              $result=$this->guest->generate_guest();
-              $id_user=$result;
-          } else {
-              $id_user=$_COOKIE['id_guest'];
-          }
-      }
-      return $id_user;
-  }
-
     public function getSystem(){
       $data   = $this->system->getData()->row_array();
       return $data;

@@ -3,7 +3,7 @@
 
 
 <!-- Login Page -->
-<?php if(@$codepage == "back_login"): ?>
+<?php if($codepage == "back_login"): ?>
   <head>
     <?php echo @$_head ?>
     <?php echo @$_css ?>

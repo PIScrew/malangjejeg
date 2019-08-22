@@ -1,1 +1,8 @@
-<footer class="footer text-center">Copyright &copy; 2018 All Rights Reserved<a href="https://profileimage.studio/"> Profile Image Studio</a>.</footer>
+ <!-- Footer -->
+ <footer class="footer-bar">
+    <div class="container">
+      <hr>
+      <p>&copy; Copyright 2019 piscommerce.com. Developed by Profile Image Studio</p>
+    </div>
+  </footer>
+  <!-- End Footer -->

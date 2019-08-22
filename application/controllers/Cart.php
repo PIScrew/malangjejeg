@@ -28,8 +28,6 @@ class Cart extends PIS_Controller {
     $this->template->front_views('site/front/cart', $data);
   }
 
-
-
   public function addCart(){
     if (@$_SESSION['id']) {
       $data = array(

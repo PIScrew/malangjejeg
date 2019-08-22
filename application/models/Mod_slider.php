@@ -3,15 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_slider extends CI_Model {
     
-    protected $slider         = 'mj_sliders';
+    protected $slider         = 'em_site_sliders';
 
-    public function getAllSlider()
-    {
-      $this->db->select('*');
-      $this->db->from($this->slider);
-      return $this->db->get();
-    }
-    
     public function getAllSliderAdmin(){
         $this->db->order_by('id', 'desc');
         return $this->db->get($this->slider);

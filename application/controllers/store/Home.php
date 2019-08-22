@@ -15,7 +15,7 @@ class Home extends PIS_Controller {
     // $this->load->model('Mod_comment','comment');
     // $this->load->model('Mod_qrcode','qrcode');
     // $this->load->model('Mod_cart','cart');
-    $this->load->model('Mod_site','site');
+    // $this->load->model('Mod_site','site');
     $this->load->model('Mod_transaction','transaction');
     $this->load->library('pagination');
     $this->load->helper('url');

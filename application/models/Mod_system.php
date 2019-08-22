@@ -3,26 +3,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_system extends CI_Model {
 
-  protected $site             = 'mj_site';
-  protected $site_address     = 'em_site_addresses';
+  protected $site             = 'mj_sites';
+  protected $site_address     = 'mj_site_addresses';
+  
+  // protected $site             = 'em_sites';
+  // protected $site_address     = 'em_site_addresses';
   protected $site_conf        = 'em_site_confs';
   protected $site_img_default = 'em_site_img_defaults';
   protected $site_bank        = 'em_site_banks';
   protected $site_payment     = 'em_site_payments';
   protected $site_rest        = 'em_site_rests';
-  protected $site_visitor     = 'em_site_visitors';
-  protected $homepage         = 'mj_site_homepages';
-  
-  public function getSite()
-  {
-    $this->db->select('*');
-    $this->db->from($this->site);
-    $this->db->order_by('id_site', 'asc');
-    $this->db->where('id_site', 1 );
-    return $this->db->get();
-  }
-  
-  public function getData()
+  protected $site_visitor        = 'em_site_visitors';
+  protected $homepage         = 'em_site_homepages';
+
+  // public function getSite()
+  // {
+  //   $this->db->select('*');
+  //   $this->db->from($this->site);
+  //   $this->db->order_by('id_site', 'asc');
+  //   $this->db->where('id', 1 );
+  //   return $this->db->get();
+  // }
+  public function getSiteData()
   {
     $this->db->select($this->site.'.*,'.$this->site_address.'.*');
     $this->db->from($this->site);
@@ -124,11 +126,9 @@ class Mod_system extends CI_Model {
      ORDER BY YEAR, MONTHNUM');
      return $query->result();
   }
-  
-  // public function homePage(){
-  //   return  $this->db->get($this->homepage, 1);
-  // }
-
+  public function homePage(){
+    return  $this->db->get($this->homepage, 1);
+  }
   public function updateHomePage($cb,$bs,$cc,$cr)
   {
     $data = array(

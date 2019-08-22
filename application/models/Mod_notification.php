@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_notification extends CI_Model {
 
-  protected $notification = 'mj_notification';
+  protected $notification = 'mj_site_notifications';
   protected $transaction = 'em_transactions';
   protected $transactionUser = 'em_transaction_users';
   protected $ticket = 'em_site_tickets';

@@ -1,33 +1,31 @@
-<?php if(@$codepage == "back_index"):?>
-  <link href="<?php echo vendor_url('plugins/c3/c3.min.css');?>" rel="stylesheet">
-  <link href="<?php echo vendor_url('plugins/chartist/chartist.min.css'); ?>" rel="stylesheet">
-<?php elseif(@$codepage == "back_product" ||
-            @$codepage == "back_slider" ||
-            @$codepage == "back_transaction"||
-            @$codepage == "back_category"||
-            @$codepage == "back_page" ):?>
-  <link rel="stylesheet" href="<?php echo vendor_url('plugins/datatables/dataTables.bootstrap4.css') ?>">
-  <link rel="stylesheet" href="<?php echo vendor_url('plugins/datatables/responsive.dataTables.css') ?>">
-  <link rel="stylesheet" href="<?php echo vendor_url('plugins/datatables/buttons.dataTables.min.css') ?>">
-<?php elseif(@$codepage == "back_addProduct" || 
-             @$codepage == "back_editProduct" ||
-             @$codepage == "back_user"):?>
-  <link rel="stylesheet" href="<?php echo vendor_url('plugins/summernote/summernote-bs4.css') ?>">
-  <link rel="stylesheet" href="<?php echo vendor_url('plugins/bootstrapswitch/bootstrap-switch.min.css') ?>">
-  <link rel="stylesheet" href="<?php echo vendor_url('plugins/dropzone/dropzone.min.css') ?>">
-  <link rel="stylesheet" href="<?php echo vendor_url('plugins/datatables/dataTables.bootstrap4.css') ?>">
-  <link rel="stylesheet" href="<?php echo vendor_url('plugins/datatables/responsive.dataTables.css') ?>">
-  <link rel="stylesheet" href="<?php echo vendor_url('plugins/datatables/buttons.dataTables.min.css') ?>">
-<?php elseif(@$codepage == "back_setting" ||
-            @$codepage == "back_setHomePage"||
-            @$codepage == "back_category_detail" ||
-            @$codepage == "back_slider_detail" ):?>
-  <link rel="stylesheet" href="<?php echo vendor_url('plugins/dropify/dropify.min.css') ?>">
-  <link rel="stylesheet" href="<?php echo vendor_url('plugins/tagsinput/jquery-tagsinput.min.css') ?>">
-<?php elseif (@$codepage == "back_addPage"):?>
-  <link rel="stylesheet" href="<?php echo vendor_url('plugins/dropify/dropify.min.css') ?>">
-  <link rel="stylesheet" href="<?php echo vendor_url('plugins/summernote/summernote-bs4.css') ?>">
-<?php endif;?>
-  <link href="<?php echo vendor_url('back/css/style.min.css'); ?>" rel="stylesheet">
-  <link href="<?php echo vendor_url('plugins/sweetalert/sweetalert.css') ?>" rel="stylesheet" type="text/css">
-  <link href="<?php echo assets_url('css','custom.back.css'); ?>" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Exo+2:400,700" rel="stylesheet">
+  <link href="<?php echo vendor_url('front/css/fontawesome-all.min.css'); ?>" rel="stylesheet">
+  <?php if ($codepage == "home"):?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+  <?php elseif($codepage == "category" ||
+              $codepage == "profile_order_detail"):?>
+    <link rel="stylesheet" href="<?php echo vendor_url('front/css/star-rating-svg.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo vendor_url('front/css/ion.rangeSlider.css'); ?>" />
+    
+    <link rel="stylesheet" href="<?php echo vendor_url('front/css/star-rating-svg.css'); ?>" />
+  <?php elseif($codepage == "product-detail"):?>
+    <link rel="stylesheet" href="<?php echo vendor_url('front/css/star-rating-svg.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo vendor_url('front/css/ion.rangeSlider.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo vendor_url('front/css/animate.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo vendor_url('front/css/jquery.desoslide.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo vendor_url('front/css/magnific-popup.min.css'); ?>" />
+  <?php elseif($codepage == "profile_order" ||
+    @$codepage == "profile_ticket" ||
+    @$codepage == "profile_address" ):?>
+    <link rel="stylesheet" href="<?php echo vendor_url('plugins/datatables/dataTables.bootstrap4.css') ?>">
+    <link rel="stylesheet" href="<?php echo vendor_url('plugins/datatables/responsive.dataTables.css') ?>">
+    <link rel="stylesheet" href="<?php echo vendor_url('plugins/datatables/buttons.dataTables.min.css') ?>">
+    <link rel="stylesheet" href="<?php echo vendor_url('plugins/sweetalert/sweetalert.css') ?>">
+  <?php elseif($codepage == "cart" ||
+    @$codepage == "checkout"):?>
+    <link rel="stylesheet" href="<?php echo vendor_url('plugins/sweetalert/sweetalert.css') ?>">
+  <?php endif;?>
+  <link rel="stylesheet" href="<?php echo vendor_url('front/css/style.css'); ?>">
+  <link href="<?php echo assets_url('css','custom.front.css'); ?>" rel="stylesheet">

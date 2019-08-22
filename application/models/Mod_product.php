@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_product extends CI_Model {
 
-  protected $product             = 'mj_product';
+  protected $product             = 'mj_products';
   protected $product_img         = 'em_product_imgs';
   protected $product_measurement = 'em_product_measurements';
   protected $product_variant     = 'em_product_variations';

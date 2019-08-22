@@ -1,205 +1,118 @@
-<script src="<?php echo vendor_url('plugins/jquery/jquery.min.js'); ?>"></script>
-<script src="<?php echo vendor_url('plugins/popper/popper.min.js'); ?>"></script>
-<script src="<?php echo vendor_url('plugins/bootstrap/bootstrap.min.js'); ?>"></script>
-<script src="<?php echo vendor_url('plugins/sweetalert/sweetalert.min.js')?>"></script>
-
-<?php if (@$codepage == "back_login") :?>
- <!-- ============================================================== -->
- <script>
-  $('[data-toggle="tooltip"]').tooltip();
-  $(".preloader").fadeOut();
-    // ==============================================================
-    // Login and Recover Password
-    // ==============================================================
-    $('#to-recover').on("click", function() {
-      $("#loginform").slideUp();
-      $("#recoverform").fadeIn();
+<script src="<?php echo vendor_url('front/js/jquery.min.js'); ?>"></script>
+<script src="<?php echo vendor_url('front/js/popper.min.js'); ?>"></script>
+<script src="<?php echo vendor_url('front/js/bootstrap.min.js'); ?>"></script>
+<?php if ($codepage == "home"):?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+<script>
+  var owlHero = $('.owl-home');
+  owlHero.owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: false,
+    items: 1,
+    dots: false
+  })
+  owlHero.owlCarousel();
+  // Go to the next item
+  $('.slide-prev').click(function () {
+    owlHero.trigger('next.owl.carousel');
+  })
+  // Go to the previous item
+  $('.slide-next').click(function () {
+    owlHero.trigger('prev.owl.carousel', [300]);
+  })
+</script>
+<?php elseif($codepage == "category"||
+              $codepage == "profile_order_detail"):?>
+<script src="<?php echo vendor_url('front/js/jquery.star-rating-svg.js'); ?>"></script>
+<script src="<?php echo vendor_url('front/js/ion.rangeSlider.js'); ?>"></script>
+<script src="<?php echo vendor_url('front/js/bootstrap-input-spinner.js'); ?>"></script>
+  <script>
+   $(".rating-product").starRating({
+      starSize: 23,
+      readOnly: true,
+      initialRating: 5,
+      useGradient: false,
+      activeColor: "#F9EF3C",
+      strokeColor: "#F9EF3C"
+    });
+    $(".rating-filter").starRating({
+      starSize: 23,
+      useGradient: false
+    });
+    $("#price-filter").ionRangeSlider({
+      type: "double",
+      hide_min_max: "hide",
+      min: 0
+    });
+    $(".modal-cart__count").InputSpinner({
+      buttonsWidth: "1.5em"
     });
   </script>
-
-<?php elseif (@$codepage == "back_index" ||
-  @$codepage == "back_index" ||
-  @$codepage == "back_product" ||
-  @$codepage == "back_member"||
-  @$codepage == "banned_member"||
-  @$codepage == "back_transaction"||
-  @$codepage == "back_ticket"||
-  @$codepage == "back_page" ||
-  @$codepage == "back_user" ||
-  @$codepage == "profile" ||
-  @$codepage == "detail_profile" ||
-  @$codepage == "back_addProduct" ||
-  @$codepage == "list_category" ||
-  @$codepage == "back_setting"||
-  @$codepage == "back_slider" ||
-  @$codepage == "back_addPage" || 
-  @$codepage == "back_editProduct" ||
-  @$codepage == "detail_profile" || 
-  @$codepage == "back_transaction_detail" ||
-  @$codepage == "back_earning"||
-  @$codepage == "back_contact"||
-  @$codepage == "back_setHomePage"||
-  @$codepage == "back_setOngkir"||
-  @$codepage == "back_category" ||
-  @$codepage == "set_address" || 
-  @$codepage == "back_category_detail" ||
-  @$codepage == "back_slider_detail" ||
-  @$codepage == "back_useradmin" ||
-  @$codepage == "back_useradmin_detail"  ||
-  @$codepage == "back_page"):?>
-  <script src="<?php echo vendor_url('back/js/app.min.js'); ?>"></script>
-  <script src="<?php echo vendor_url('back/js/app.init.js'); ?>"></script>
-  <script src="<?php echo vendor_url('back/js/app-style-switcher.js'); ?>"></script>
-  <script src="<?php echo vendor_url('plugins/perfect-scrollbar/perfect-scrollbar.jquery.min.js'); ?>"></script>
-  <script src="<?php echo vendor_url('plugins/sparkline/sparkline.js'); ?>"></script>
-  <script src="<?php echo vendor_url('back/js/waves.js'); ?>"></script>
-  <script src="<?php echo vendor_url('back/js/sidebarmenu.js'); ?>"></script>
-  <script src="<?php echo vendor_url('back/js/custom.js'); ?>"></script>
-  
-
-  <?php if (@$codepage =="back_index"):?>
-    <!-- charts -->
-    <script src="<?php echo vendor_url('plugins/chartist/chartist.min.js'); ?>"></script>
-    <script src="<?php echo vendor_url('plugins/chartist/chartist-plugin-tooltip.min.js');?>"></script>
-    <!-- End charts -->
-    <!-- Ci3 -->
-    <script src="<?php echo vendor_url('plugins/c3/c3.min.js'); ?>"></script>
-    <script src="<?php echo vendor_url('plugins/c3/d3.min.js'); ?>"></script>
-    <!-- End charts -->
-    <script src="<?php echo vendor_url('back/js/dashboard3.js'); ?>"></script>
-    <script src="<?php echo vendor_url('plugins/datatables/datatables.min.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/datatables/dataTables.responsive.js') ?>"></script>
-
-  <?php elseif (@$codepage == "back_product" ||
-    @$codepage == "back_member" ||
-    @$codepage == "banned_member"||
-    @$codepage == "back_transaction"||
-    @$codepage == "back_ticket"||
-    @$codepage == "back_page"||
-    @$codepage == "back_user"||
-    @$codepage == "back_slider"||
-    @$codepage == "back_earning" ||
-    @$codepage == "back_list_message"||
-    @$codepage == "back_category" ||
-    @$codepage == "back_page"):?>
-    <script src="<?php echo vendor_url('plugins/datatables/datatables.min.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/datatables/dataTables.responsive.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/datatables/vfs_fonts.js') ?>"></script>
-
-  <?php elseif (@$codepage == "back_addProduct" ||
-    @$codepage == "back_editProduct" ||
-    @$codepage == "back_contact" ):?>
-    <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/bootstrapswitch/bootstrap-switch.min.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/dropzone/dropzone.min.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/datatables/datatables.min.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/datatables/dataTables.responsive.js') ?>"></script>
-    <!--This page JavaScript -->
-    <script src="<?php echo vendor_url('plugins/jqueryrepeater/jquery.repeater.min.js') ?>"></script>
-    <!-- <script src="<?php echo vendor_url('plugins/jqueryrepeater/repeater-init.js') ?>"></script>   -->
-    <script src="<?php echo vendor_url('plugins/jqueryrepeater/dff.js') ?>"></script>
-    <script>
-    $(document).ready(function(){
-		$('#description').summernote({
-			height: "300px",
-			callbacks: {
-				onImageUpload: function(image) {
-					uploadImage(image[0]);
-				},
-				onMediaDelete : function(target) {
-					deleteImage(target[0].src);
-				}
-			}
-		});
-		function uploadImage(image) {
-			var data = new FormData();
-			data.append("image", image);
-			$.ajax({
-				url: '<?php echo site_url('admin/Product/upload_image')?>',
-				cache: false,
-				contentType: false,
-				processData: false,
-				data: data,
-				type: "POST",
-				success: function(url) {
-					$('#description').summernote("insertImage", url);
-				},
-				error: function(data) {
-					console.log(data);
-				}
-			});
-    }
+<?php elseif($codepage == "cart" ||
+    @$codepage == "checkout"):?>
+<script src="<?php echo vendor_url('front/js/bootstrap-input-spinner.js'); ?>"></script>
+<script src="<?php echo vendor_url('plugins/sweetalert/sweetalert.min.js')?>"></script>
+<!-- script for product page -->
+<script>
+  $(".cart-item__count").InputSpinner({
+    buttonsWidth: "1.5em"
   });
-    </script>
+</script>
+<?php elseif($codepage == "product-detail"):?>
+<script src="<?php echo vendor_url('front/js/jquery.star-rating-svg.js'); ?>"></script>
+  <script src="<?php echo vendor_url('front/js/bootstrap-input-spinner.js'); ?>"></script>
+  <script src="<?php echo vendor_url('front/js/jquery.desoslide.min.js'); ?>"></script>
+  <script src="<?php echo vendor_url('front/js/jquery.magnific-popup.js'); ?>"></script>
+  <script>
+    $(".rating-product").starRating({
+      starSize: 23,
+      readOnly: true,
+      initialRating: 5,
+      useGradient: false,
+      activeColor: "#F9EF3C",
+      strokeColor: "#F9EF3C"
+    });
+    $(".rating-review").starRating({
+      starSize: 16,
+      readOnly: true,
+      initialRating: 4.5,
+      useGradient: false,
+      activeColor: "#F9EF3C",
+      strokeColor: "#F9EF3C"
+    });
+    $(".product__count input").InputSpinner({
+      buttonsWidth: "1em"
+    });
+    $("#product__main").desoSlide({
+      thumbs: $("#product__thumbs li > a"),
+      imageClass: "img-fluid",
+      effect: {
+        provider: "animate",
+        name: "fade"
+      },
+      controls: {
+        show: false,
+        keys: false
+      },
+      overlay: "none"
+    });
 
-  <!-- <script>
-      $('body').on('submit', '#form-file-manager', function (e) {
-        e.preventDefault();
-        alert('Success');
-      });
-      $('#description').summernote({
-        height: 350,
-        toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['fontname', ['fontname']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['table', ['table']],
-          ['insert', ['link', 'image', 'video']],
-          ['view', ['fullscreen', 'codeview', 'help']]
-        ],
-        buttons: {
-          image: function() {
-            var ui = $.summernote.ui;
-            // create button
-            var button = ui.button({
-              contents: '<i class="note-icon-picture" />',
-              click: function () {
-                $('#modal-image').remove();
-                $.ajax({
-                  url: '<?php echo site_url('filemanager')?>'',
-                  dataType: 'html',
-                  beforeSend: function() {
-                    $('#button-image i').replaceWith('<i class="fa fa-circle-o-notch fa-spin"></i>');
-                    $('#button-image').prop('disabled', true);
-                  },
-                  complete: function() {
-                    $('#button-image i').replaceWith('<i class="fa fa-upload"></i>');
-                    $('#button-image').prop('disabled', false);
-                  },
-                  success: function(html) {
-                    $('body').append('<div id="modal-image" class="modal">' + html + '</div>');
-                    
-                    $('#modal-image').modal('show');
-                    
-                    $('#modal-image').delegate('a.thumbnail', 'click', function(e) {
-                      e.preventDefault();
-                      
-                      $('#description').summernote('insertImage', $(this).attr('href'));
-                                    
-                      $('#modal-image').modal('hide');
-                    });
-                  }
-                });						
-              }
-            });          
-            return button.render();
-          }
-        }
-      });
-    </script>
-  <?php elseif (@$codepage == "back_listCategory" || @$codepage =="back_setting"||
-              @$codepage == "back_setHomePage"||
-              @$codepage == "back_category_detail" ||
-              @$codepage == "back_slider_detail" ):?>
-    <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/tagsinput/jquery-tagsinput.min.js') ?>"></script>
-  <?php elseif (@$codepage == "back_transaction_detail"):?>
-    <script src="<?php echo vendor_url('plugins/jquery/jquery.PrintArea.js'); ?>"></script>
-  <?php elseif (@$codepage == "back_addPage"):?>
-    <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
-  <?php endif; ?>
-<script src="<?php echo assets_url('js','custom.back.js'); ?>"></script>
-<?php endif; ?>
+    $('.popup-youtube').magnificPopup({
+      // disableOn: 700,
+      type: 'iframe',
+      mainClass: 'mfp-fade',
+      removalDelay: 160,
+      preloader: false,
+
+      fixedContentPos: false
+    });
+  </script>
+  <?php elseif($codepage == "profile_order" ||
+    $codepage == "profile_ticket" ||
+    $codepage == "profile_address"):?>
+    <script src="<?php echo vendor_url('plugins/datatables/datatables.min.js') ?>"></script>
+    <script src="<?php echo vendor_url('plugins/datatables/dataTables.responsive.js') ?>"></script>
+    <script src="<?php echo vendor_url('plugins/sweetalert/sweetalert.min.js')?>"></script>
+<?php endif;?>
+<script src="<?php echo assets_url('js','custom.front.js'); ?>"></script>
