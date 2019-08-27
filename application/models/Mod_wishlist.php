@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_wishlist extends CI_Model {
 
-    protected $product_wishlist    = 'em_product_wishlists';
-    protected $product             = 'em_products';
+    protected $product_wishlist    = 'mj_product_wishlists';
+    protected $product             = 'mj_products';
 
     public function getWislistByUser($id_user){
         $this->db->select($this->product_wishlist.'.id as id_wishlist,'.$this->product_wishlist.'.*,'.$this->product.'.*');

@@ -18,7 +18,6 @@
   </script>
 
 <?php elseif (@$codepage == "back_index" ||
-  @$codepage == "back_index" ||
   @$codepage == "back_product" ||
   @$codepage == "back_member"||
   @$codepage == "banned_member"||
@@ -86,7 +85,7 @@
     <script src="<?php echo vendor_url('plugins/datatables/dataTables.responsive.js') ?>"></script>
     <script src="<?php echo vendor_url('plugins/datatables/vfs_fonts.js') ?>"></script>
 
-  <?php elseif (@$codepage == "back_addProduct" ||
+  <?php elseif (@$codepage == "back_product" ||
     @$codepage == "back_editProduct" ||
     @$codepage == "back_contact" ):?>
     <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>

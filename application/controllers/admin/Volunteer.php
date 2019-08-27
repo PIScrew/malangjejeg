@@ -1,27 +1,25 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Category extends PIS_Controller {
+class Volunteer extends PIS_Controller {
 
     public function __construct()
     {
       parent::__construct();
-      $this->load->model('Mod_category','category');
-      $this->load->model('Mod_product','product');
-      $this->load->model('Mod_user','user');
+      $this->load->model('Mod_volunteer','volunteer');
     }
     
 
     public function index()
     {
-        $data['codepage']       = "back_category";
-        $data['subpage']        = "list_category";
-        $data['page_title']     = "Daftar Category";
-        $data['category']        = $this->category->getCategoryAll()->result_array();
+        $data['codepage']       = "back_product";
+        $data['subpage']        = "list_volunteer";
+        $data['page_title']     = "Daftar Volunteer";
+        $data['volunteer']        = $this->volunteer->getVolunteerAll()->result_array();
         $id = $_SESSION['id'];
-        $data['image']    = $this->user->getImage($id)->result_array();
+        //$data['image']    = $this->user->getImage($id)->result_array();
 
-        $this->template->admin_views('site/back/categoryList',$data);    
+        $this->template->admin_views('site/back/volunteerList',$data);    
     }
 
     public function detail($id){

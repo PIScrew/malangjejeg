@@ -11,38 +11,26 @@
 				
 				<li class="nav-small-cap">
 					<i class="mdi mdi-dots-horizontal"></i>
-					<span class="hide-menu">CMS Peta</span>
+					<span class="hide-menu">E-Commerce</span>
 				</li>
 
 			<!-- Street -->
 				<li class="sidebar-item">
 					<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
 						<i class="mdi mdi-comment-multiple-outline"></i>
-						<span class="hide-menu">Jalan</span>
+						<span class="hide-menu">Manage Product</span>
 					</a>
 					<ul aria-expanded="false" class="collapse  first-level">
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Street')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/Product/index')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> Peta Jalan</span>
+								<span class="hide-menu"> List Product</span>
 							</a>
 						</li>
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Street/list')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/Product/addProduct')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> Daftar Jalan </span>
-							</a>
-						</li>
-						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Street/add')?>" class="sidebar-link">
-								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> Tambah Jalan</span>
-							</a>
-						</li>
-						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Street/upgrade')?>" class="sidebar-link">
-								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> Perbaharui Jalan</span>
+								<span class="hide-menu"> Add Product</span>
 							</a>
 						</li>
 					</ul>
@@ -53,27 +41,20 @@
 				<li class="sidebar-item">
 					<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
 						<i class="mdi mdi-comment-multiple-outline"></i>
-						<span class="hide-menu">Filter Peta</span>
+						<span class="hide-menu">Manage Kategori</span>
 					</a>
 					<ul aria-expanded="false" class="collapse  first-level">
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Filter/DistrictList')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/Category/index')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu">Filter Kecamatan</span>
+								<span class="hide-menu">List Kategori</span>
 							</a>
 						</li>
 
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Filter/VillageList')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/Category/create')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> Filter Desa</span>
-							</a>
-						</li>
-
-						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Filter/other')?>" class="sidebar-link">
-								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> Daftar Filter Lain</span>
+								<span class="hide-menu">Tambah Kategori</span>
 							</a>
 						</li>
 
@@ -85,21 +66,21 @@
 				<li class="sidebar-item">
 					<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
 						<i class="mdi mdi-comment-multiple-outline"></i>
-						<span class="hide-menu">Pengaturan Peta</span>
+						<span class="hide-menu">Manage Resource</span>
 					</a>
 					<ul aria-expanded="false" class="collapse  first-level">
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Map/list')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/Volunteer/index')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu">Daftar Peta Dasar</span>
+								<span class="hide-menu">List Volunteer</span>
 							</a>
 						</li>
 
 						</li>
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Map/setting')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/Donator/index')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> Map Setting</span>
+								<span class="hide-menu"> List Donatur</span>
 							</a>
 						</li>
 					</ul>

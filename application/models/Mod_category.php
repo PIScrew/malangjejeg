@@ -8,7 +8,7 @@ class Mod_category extends CI_Model {
 
   public function getCategoryAll(){
     $this->db->select('*');
-    // $this->db->where('deleted_at',null);
+    $this->db->where('deleted_at',null);
     return $this->db->get($this->category);
   }
   public function getCategoryBySlug($slug_category)

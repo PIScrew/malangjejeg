@@ -3,18 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_transaction extends CI_Model {
 
-  protected $transaction          = 'em_transactions';
-  protected $transaction_detail   = 'em_transaction_details';
-  protected $transaction_user     = 'em_transaction_users';
-  protected $transaction_address  = 'em_transaction_addresses';
-  protected $user                 = 'em_users';
-  protected $userDetail 	        = 'em_user_details';
-  protected $product              = 'em_products';
-  protected $product_variant      = 'em_product_variations';
-  protected $payment              = 'em_site_payments';
-  protected $payment_type         = 'em_site_payment_type';
-  protected $payment_bank         = 'em_site_banks';
-  protected $category            = 'em_product_categories';
+  protected $transaction          = 'mj_transactions';
+  protected $transaction_detail   = 'mj_transaction_details';
+  protected $transaction_user     = 'mj_transaction_users';
+  protected $transaction_address  = 'mj_transaction_addresses';
+  protected $user                 = 'mj_users';
+  protected $userDetail 	        = 'mj_user_details';
+  protected $product              = 'mj_products';
+  protected $product_variant      = 'mj_product_variations';
+  protected $payment              = 'mj_site_payments';
+  protected $payment_type         = 'mj_site_payment_type';
+  protected $payment_bank         = 'mj_site_banks';
+  protected $category            = 'mj_product_categories';
 
   public function listTransaction(){
     $this->db->select($this->transaction.'.*,'.$this->user.'.id,'.$this->user.'.fullname');
@@ -228,9 +228,9 @@ class Mod_transaction extends CI_Model {
     }
     public function listProductDash(){
       $query ="SELECT p.id,p.title_product,p.slug_product,p.status, p.deleted_at, 
-      COALESCE((select sum(td.qty) from em_transaction_details td JOIN em_transactions t ON td.id_transaction=t.id where p.id=td.id_product AND t.status=3),0) as sell,
-      COALESCE((select sum(v.qty) from em_product_variations v JOIN em_products p ON v.id_product=p.id AND p.status=1 and p.deleted_at=000),0) as qty
-      FROM em_products p, em_product_categories c where c.id=p.id_category AND p.deleted_at=000  ORDER BY qty ASC limit 50";
+      COALESCE((select sum(td.qty) from mj_transaction_details td JOIN mj_transactions t ON td.id_transaction=t.id where p.id=td.id_product AND t.status=3),0) as sell,
+      COALESCE((select sum(v.qty) from mj_product_variations v JOIN mj_products p ON v.id_product=p.id AND p.status=1 and p.deleted_at=000),0) as qty
+      FROM mj_products p, mj_product_categories c where c.id=p.id_category AND p.deleted_at=000  ORDER BY qty ASC limit 50";
       return $this->db->query($query);
   }
   // endstatistik

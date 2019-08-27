@@ -8,13 +8,13 @@ class Mod_system extends CI_Model {
   
   // protected $site             = 'em_sites';
   // protected $site_address     = 'em_site_addresses';
-  protected $site_conf        = 'em_site_confs';
-  protected $site_img_default = 'em_site_img_defaults';
-  protected $site_bank        = 'em_site_banks';
-  protected $site_payment     = 'em_site_payments';
-  protected $site_rest        = 'em_site_rests';
-  protected $site_visitor        = 'em_site_visitors';
-  protected $homepage         = 'em_site_homepages';
+  protected $site_conf        = 'mj_site_confs';
+  protected $site_img_default = 'mj_site_img_defaults';
+  protected $site_bank        = 'mj_site_banks';
+  protected $site_payment     = 'mj_site_payments';
+  protected $site_rest        = 'mj_site_rests';
+  protected $site_visitor        = 'mj_site_visitors';
+  protected $homepage         = 'mj_site_homepages';
 
   // public function getSite()
   // {

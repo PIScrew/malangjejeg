@@ -3,10 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_comment extends CI_Model {
 
-  protected $comment    = 'em_product_comments';  
-  protected $user       = 'em_users';
-  protected $userDetail = 'em_user_details';  
-  protected $product             = 'em_products';
+  protected $comment    = 'mj_product_comments';  
+  protected $user       = 'mj_users';
+  //protected $userDetail = 'mj_user_details';  
+  protected $product             = 'mj_products';
 
   public function getCommentByProduct($id_product){
     $this->db->select($this->comment.'.*,'.$this->user.'.is_ban,'.$this->user.'.username,'.$this->userDetail.'.*');
@@ -36,27 +36,27 @@ class Mod_comment extends CI_Model {
     $this->db->where('id', $id);
     return $this->db->get($this->comment);    
   }
-  public function getAllComment(){
-    $this->db->select($this->comment.'.*,'.$this->user.'.is_ban,'.$this->user.'.username,'.$this->userDetail.'.*,'.$this->product.'.slug_product');
-    $this->db->from($this->comment);
-    $this->db->join($this->userDetail, $this->userDetail.'.id_user = '.$this->comment.'.id_user');
-    $this->db->join($this->user, $this->user.'.id = '.$this->comment.'.id_user');
-    $this->db->join($this->product, $this->product.'.id = '.$this->comment.'.id_product');
-    $this->db->where($this->comment.'.parent',0);
-    $this->db->order_by($this->comment.'.id', 'desc');
-    return $this->db->get();
-  }
-  public function getReplayComment(){
-    $this->db->select($this->comment.'.*,'.$this->user.'.is_ban,'.$this->user.'.username,'.$this->userDetail.'.*,'.$this->product.'.slug_product');
-    $this->db->from($this->comment);
-    $this->db->join($this->userDetail, $this->userDetail.'.id_user = '.$this->comment.'.id_user');
-    $this->db->join($this->user, $this->user.'.id = '.$this->comment.'.id_user');
-    $this->db->join($this->product, $this->product.'.id = '.$this->comment.'.id_product');
-    $this->db->where($this->comment.'.parent',0);
-    $this->db->order_by($this->comment.'.id', 'desc');
-    $this->db->where('parent !=',0);;
-    return $this->db->get();
-  }
+  // public function getAllComment(){
+  //   $this->db->select($this->comment.'.*,'.$this->user.'.is_ban,'.$this->user.'.username,'.$this->userDetail.'.*,'.$this->product.'.slug_product');
+  //   $this->db->from($this->comment);
+  //   $this->db->join($this->userDetail, $this->userDetail.'.id_user = '.$this->comment.'.id_user');
+  //   $this->db->join($this->user, $this->user.'.id = '.$this->comment.'.id_user');
+  //   $this->db->join($this->product, $this->product.'.id = '.$this->comment.'.id_product');
+  //   $this->db->where($this->comment.'.parent',0);
+  //   $this->db->order_by($this->comment.'.id', 'desc');
+  //   return $this->db->get();
+  // }
+  // public function getReplayComment(){
+  //   $this->db->select($this->comment.'.*,'.$this->user.'.is_ban,'.$this->user.'.username,'.$this->userDetail.'.*,'.$this->product.'.slug_product');
+  //   $this->db->from($this->comment);
+  //   $this->db->join($this->userDetail, $this->userDetail.'.id_user = '.$this->comment.'.id_user');
+  //   $this->db->join($this->user, $this->user.'.id = '.$this->comment.'.id_user');
+  //   $this->db->join($this->product, $this->product.'.id = '.$this->comment.'.id_product');
+  //   $this->db->where($this->comment.'.parent',0);
+  //   $this->db->order_by($this->comment.'.id', 'desc');
+  //   $this->db->where('parent !=',0);;
+  //   return $this->db->get();
+  // }
 }
 
 /* End of file Mod_comment.php */
