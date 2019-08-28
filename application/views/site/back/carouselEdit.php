@@ -8,7 +8,7 @@
                 <div class="form-group">
                   <label for="img_path" class="control-label col-form-label">Image<span
                       class="text-danger">*</span></label>
-                      <input type="file"  placeholder="Image"   class="form-control form-control-line" name="img_path" value="<?= $carousel['img_path'] ?> ">
+                      <input type="file"  placeholder="Image"   class="form-control form-control-line"  name="img_path" data-default-file="<?= img_url($carousel['img_path']); ?> ">
                 
                 </div>
               </div>

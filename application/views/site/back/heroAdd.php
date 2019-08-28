@@ -15,7 +15,7 @@
               <div class="col-md-12" col-md-8>
                 <div class="form-group">               
                   <label for="productpicture" class="control-label col-form-label">Background Image</label><br>
-                  <input type="file" id="input-file-events" name="hero_path" class="dropify"  data-show-remove="false" />
+                  <input type="file" id="input-file-events" name="hero_path" class="dropify" data-default-file=""  data-show-remove="false" />
                 </div>
               </div>
 			  
