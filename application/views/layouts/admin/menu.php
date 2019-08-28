@@ -152,7 +152,7 @@
 					</a>
 					<ul aria-expanded="false" class="collapse  first-level">
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/User/UserList')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/visiMisi/index')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
 								<span class="hide-menu"> List Visi Misi  </span>
 							</a>
@@ -217,13 +217,13 @@
 					</a>
 					<ul aria-expanded="false" class="collapse  first-level">
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/User/UserList')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/Youtube/index')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
 								<span class="hide-menu"> List Video Youtube  </span>
 							</a>
 						</li>
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/User/UserList')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/Youtube/formAddYoutube')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
 								<span class="hide-menu"> Add Video Youtube  </span>
 							</a>
