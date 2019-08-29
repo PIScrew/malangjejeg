@@ -13,14 +13,12 @@
                 </div>
               </div>
               
-            <div class="col-sm-12 col-md-8">
-                <div class="form-group">
-                  <label for="img_path" class="control-label col-form-label">Image<span
-                      class="text-danger">*</span></label>
-                      <input type="file"  placeholder="Image"   class="form-control form-control-line" name="img_path" value="<?= $option['img_path'] ?> ">
-                
+              <div class="col-md-12" col-md-8>
+                <div class="form-group">               
+                  <label for="productpicture" class="control-label col-form-label">Image</label><br>
+                  <input type="file" id="input-file-events" name="img_path" class="dropify w-100" data-height="200" data-default-file="<?= img_url($option['img_path']); ?>"  data-show-remove="false" />
                 </div>
-              </div>
+            </div>
 
               <div class="col-sm-12 col-md-8">
                 <div class="form-group">

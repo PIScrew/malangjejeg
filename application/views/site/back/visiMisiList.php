@@ -26,6 +26,8 @@
                                     <th>Type</th>
                                     <th>Text</th>
                                     <th>Created At</th>
+									<th>Updated At</th>
+
 								</tr>
 							</thead>
 							<tbody>
@@ -41,6 +43,7 @@
                          else {echo "Visi";}; ?></td>
                     <td><?= $v['text']?></td>
                     <td><?= $v['created_at']?></td>
+					<td><?= $v['updated_at']?></td>
                     <td>
                       
                       <a href="<?php echo base_url('admin/visiMisi/editVisiMisi/'.$v['id'])?>"><button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>

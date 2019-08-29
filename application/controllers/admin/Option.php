@@ -21,13 +21,13 @@ class Option extends PIS_Controller {
 
   public function index()
   {
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title']   = 'Option';
     $data['option']       = $this->option->getOptionAll()->result_array();
     $this->template->admin_views('site/back/OptionList',$data);    
   }
   public function addOption(){
-    $data['codepage']       = "back_index";
+    $data['codepage']       = "back_hero";
     $data['page_title'] 	= 'Tambah Option';
     $data['option']         = $this->option->getOptionAll()->result_array();
   
@@ -58,34 +58,52 @@ class Option extends PIS_Controller {
 }
 
   public function formAddOption(){
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title'] 	= 'Add Option';
     $this->template->admin_views('site/back/OptionAdd',$data);
 
   }
 
   public function listOption(){
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title'] 	= 'List Option';
     $data['option']      = $this->option->getOptionAll()->result_array();
     $this->template->admin_views('site/back/optionList',$data);
   }
 
   public function editOption($id=0){
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title']   = 'Edit Option';
     $data['option']       = $this->option->getOptionById($id)->row_array();
    
    
     if(isset($_POST['submit'])){
-      
-      $data_edit = array(
-        'title'                    => $_POST['title'] ,
-       'content'                   => $_POST['content'] ,
-        'updated_at'               => date('Y-m-j H:i:s')
+      $config['upload_path']='./assets/img/content/option/';
+      $config['allowed_types']='jpg|png|ico';
+      $config['encrypt_name'] = TRUE;
+      $this->load->library('upload');
+      $this->upload->initialize($config);
+      if(!empty($_FILES['img_path']['name'])){
+      if($this->upload->do_upload('img_path')){
+            
+      $img = 'img/content/option/';
+      $img.= $this->upload->data('file_name');
+      $data = array(
+        'title'             => $_POST['title'] ,
+        'img_path'          => @$img,
+        'content'           => $_POST['content'] ,
+        'updated_at'        => date('Y-m-j H:i:s')
       );
+    }
+  }else{
+      $data = array(
+        'title'              => $_POST['title'] ,
+        'content'            => $_POST['content'] ,
+        'updated_at'         => date('Y-m-j H:i:s')
+      );
+    }
       $id_option = $_POST['id'];
-      $data = $this->option->updateOption($id_option,$data_edit);
+      $data = $this->option->updateOption($id_option,$data);
       redirect(base_url("Admin/option/index"));
     }
     $this->template->admin_views('site/back/optionEdit',$data); 

@@ -21,13 +21,13 @@ class VisiMisi extends PIS_Controller {
 
   public function index()
   {
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title']   = 'Visi Misi';
     $data['visi_misi']       = $this->visi_misi->getVisiMisiAll()->result_array();
     $this->template->admin_views('site/back/visiMisiList',$data);    
   }
   public function addVisiMisi(){
-    $data['codepage']       = "back_index";
+    $data['codepage']       = "back_hero";
     $data['page_title'] 	= 'Tambah Visi Misi';
     $data['visi_misi']         = $this->visi_misi->getVisiMisiAll()->result_array();
   
@@ -53,21 +53,21 @@ class VisiMisi extends PIS_Controller {
 }
 
   public function formAddVisiMisi(){
-    $data['codepage']       = "back_index";
+    $data['codepage']       = "back_hero";
     $data['page_title'] 	= 'Add Visi Misi';
     $this->template->admin_views('site/back/visiMisiAdd',$data);
 
   }
 
   public function listVisiMisi(){
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title'] 	= 'List Visi Misi';
     $data['visi_misi']      = $this->visi_misi->getVisiMisiAll()->result_array();
     $this->template->admin_views('site/back/visiMisiList',$data);
   }
 
   public function editVisiMisi($id=0){
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title']   = 'Edit Galery';
     $data['visi_misi']       = $this->visi_misi->getVisiMisiById($id)->row_array();
    

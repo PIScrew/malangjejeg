@@ -17,9 +17,9 @@
   <?php endif;?>
 <?php elseif(@$codepage == "back_hero"):?>
 <link rel="stylesheet" href="<?php echo vendor_url('plugins/dropify/dropify.min.css') ?>">
-<?php endif;?>
 
-<link rel="stylesheet" href="<?php echo vendor_url('plugins/dropify/dropify.min.css') ?>">
+
   <link href="<?php echo vendor_url('back/css/style.min.css'); ?>" rel="stylesheet">
   <link href="<?php echo vendor_url('plugins/sweetalert/sweetalert.css') ?>" rel="stylesheet" type="text/css">
   <link href="<?php echo assets_url('css','custom.back.css'); ?>" rel="stylesheet"> 
+  <?php endif;?>

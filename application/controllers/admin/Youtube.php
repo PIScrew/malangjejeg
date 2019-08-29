@@ -21,13 +21,13 @@ class Youtube extends PIS_Controller {
 
   public function index()
   {
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title'] 	= 'Youtube';
     $data['youtube']      = $this->youtube->getYoutubeAll()->result_array();
     $this->template->admin_views('site/back/youtubeList',$data);    
   }
   public function addYoutube(){
-    $data['codepage']       = "back_index";
+    $data['codepage']       = "back_hero";
     $data['page_title'] 	  = 'Tambah Youtube';
     $data['youtube']      = $this->youtube->getYoutubeAll()->result_array();
   
@@ -50,21 +50,21 @@ class Youtube extends PIS_Controller {
 }
 
   public function formAddYoutube(){
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title'] 	= 'Add Youtube';
     $this->template->admin_views('site/back/youtubeAdd',$data);
 
   }
 
   public function listYoutube(){
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title'] 	= 'List Youtube';
     $data['youtube']      = $this->youtube->getYoutubeAll()->result_array();
     $this->template->admin_views('site/back/index',$data);
   }
 
   public function editYoutube($id=0){
-    $data['codepage']           = "back_index";
+    $data['codepage']           = "back_hero";
     $data['page_title'] 	    = 'Edit Youtube';
     $data['youtube']            = $this->youtube->getYoutubeById($id)->row_array();
    

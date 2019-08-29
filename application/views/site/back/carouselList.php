@@ -27,6 +27,9 @@
 									<th>Text</th>
                                     <th>Figure Name</th>
                                     <th>Figure Title</th>
+									<th>Created At</th>
+									<th>Updated At</th>
+
 								</tr>
 							</thead>
 							<tbody>
@@ -39,6 +42,8 @@
                     <td><?= $c['text']?></td>
                     <td><?= $c['figure_name']?></td>
                     <td><?= $c['figure_title']?></td>
+					<td><?= $c['created_at']?></td>
+					<td><?= $c['updated_at']?></td>
                     <td>
                       
                       <a href="<?php echo base_url('admin/carousel/editCarousel/'.$c['id_carousel_figure'])?>"><button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>

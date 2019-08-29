@@ -21,13 +21,13 @@ class Carousel extends PIS_Controller {
 
   public function index()
   {
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title'] 	= 'Carousel';
     $data['carousel']      = $this->carousel->getCarouselAll()->result_array();
     $this->template->admin_views('site/back/carouselList',$data);    
   }
   public function addCarousel(){
-    $data['codepage']       = "back_index";
+    $data['codepage']       = "back_hero";
     $data['page_title'] 	  = 'Tambah Carousel';
     $data['carousel']      = $this->carousel->getCarouselAll()->result_array();
   
@@ -51,8 +51,8 @@ class Carousel extends PIS_Controller {
        'id_carousel_figure'       => $_POST['id_carousel_figure'],
        'img_path'                 => @$img ,
        'text'                     => $_POST['text'] ,
-       'figure_name'        => $_POST['figure_name'] ,
-       'figure_title'       => $_POST['figure_title'] ,
+       'figure_name'              => $_POST['figure_name'] ,
+       'figure_title'             => $_POST['figure_title'] ,
        'created_at'               => date('Y-m-j H:i:s'),
     );
 
@@ -63,40 +63,60 @@ class Carousel extends PIS_Controller {
 }
 
   public function formAddCarousel(){
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title'] 	= 'Add Carousel';
     $this->template->admin_views('site/back/carouselAdd',$data);
 
   }
 
   public function listCarousel(){
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title'] 	= 'List About';
     $data['carousel']      = $this->carousel->getCarouselAll()->result_array();
     $this->template->admin_views('site/back/carouselList',$data);
   }
 
   public function editCarousel($id=0){
-    $data['codepage']     = "back_index";
-    $data['page_title'] 	= 'Edit About';
+    $data['codepage']     = "back_hero";
+    $data['page_title'] 	= 'Edit Carousel';
     $data['carousel']     = $this->carousel->getCarouselById($id)->row_array();
    
    
     if(isset($_POST['submit'])){
-    
       
-      $data_edit = array(
-        'img_path'           => "img/content/carousel/740fc7a8c7ac5bc71e4b441c52d272cf.jpg", 
-        'text'               => $_POST['text'] ,
-        'figure_name'        => $_POST['figure_name'] ,
-        'figure_title'       => $_POST['figure_title'] ,
-        'updated_at'         => date('Y-m-j H:i:s')
+      $config['upload_path']='./assets/img/content/carousel/';
+      $config['allowed_types']='jpg|png|ico';
+      $config['encrypt_name'] = TRUE;
+      $this->load->library('upload');
+      $this->upload->initialize($config);
+      if(!empty($_FILES['img_path']['name'])){
+      if($this->upload->do_upload('img_path')){
+            
+      $img = 'img/content/carousel/';
+      $img.= $this->upload->data('file_name');
+      $data = array(
+        'img_path'          => @$img,
+        'text'              => $_POST['text'] ,
+        'figure_name'       => $_POST['figure_name'] ,
+        'figure_title'      => $_POST['figure_title'] ,
+        'updated_at'        => date('Y-m-j H:i:s')
       );
-      $id_figure = $_POST['id'];
-      $data = $this->carousel->updateCarousel($id_figure,$data_edit);
-      redirect(base_url("Admin/carousel/index"));
     }
+  }else{
+      $data = array(
+      'text'              => $_POST['text'] ,
+      'figure_name'       => $_POST['figure_name'] ,
+      'figure_title'      => $_POST['figure_title'] ,
+      'updated_at'        => date('Y-m-j H:i:s')
+      );
+    }
+      $id_carousel = $_POST['id_carousel_figure'];
+      $this->carousel->updateCarousel($id_carousel,$data);
+      redirect(base_url("Admin/carousel/index"));
+    
+  }
     $this->template->admin_views('site/back/carouselEdit',$data); 
+
 }
   public function deleteCarousel($id){
     $this->carousel->deleteCarousel($id);

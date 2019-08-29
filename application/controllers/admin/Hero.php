@@ -91,8 +91,9 @@ class Hero extends PIS_Controller {
       $config['upload_path']='./assets/img/content/hero/';
       $config['allowed_types']='jpg|png|ico';
       $config['encrypt_name'] = TRUE;
-      $this->load->library('upload', $config);
-      
+      $this->load->library('upload');
+      $this->upload->initialize($config);
+      if(!empty($_FILES['hero_path']['name'])){
       if($this->upload->do_upload('hero_path')){
             
       $img = 'img/content/hero/';
@@ -103,11 +104,12 @@ class Hero extends PIS_Controller {
         'updated_at'         => date('Y-m-j H:i:s')
       );
     }
-  
+  }else{
       $data = array(
         'hero_title'         => $_POST['hero_title'] ,
         'updated_at'         => date('Y-m-j H:i:s')
       );
+    }
       $id_hero = $_POST['id'];
       $this->hero->updateHero($id_hero,$data);
       redirect(base_url("Admin/hero/index"));

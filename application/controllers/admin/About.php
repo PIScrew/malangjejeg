@@ -21,7 +21,7 @@ class About extends PIS_Controller {
 
   public function index()
   {
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title'] 	= 'About';
     $data['about']      = $this->about->getAboutAll()->result_array();
     $this->template->admin_views('site/back/aboutList',$data);    
@@ -45,27 +45,27 @@ class About extends PIS_Controller {
     );
 
     $data = $this->about->create_about($data);
-    redirect(base_url('admin/About/aboutList'));
+    redirect(base_url('admin/About/index'));
 
     }
 }
 
   public function formAddAbout(){
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title'] 	= 'Add About';
     $this->template->admin_views('site/back/addAbout',$data);
 
   }
 
   public function listAbout(){
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title'] 	= 'List About';
     $data['about']      = $this->about->getAboutAll()->result_array();
     $this->template->admin_views('site/back/aboutList',$data);
   }
 
   public function editAbout($id=0){
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_hero";
     $data['page_title'] 	= 'Edit About';
     $data['about']           = $this->about->getAboutById($id)->row_array();
    

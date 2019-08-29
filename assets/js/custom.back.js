@@ -859,4 +859,46 @@ else if(codepage == "back_hero"){
 		drDestroy = drDestroy.data('dropify')
 	});
 
+	$('#listProduct').on("click",'.del-product',function () {
+		var id = $(this).attr('data-id');
+		var dir = $(this).attr('data-dir');
+		var _url = dir + id;
+		swal({
+			title: "Apakah Anda yakin untuk menghapus  ini?",
+			text: "Anda tidak akan dapat memulihkan  ini!",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "Yes",
+			cancelButtonText: "No",
+			closeOnConfirm: false,
+			closeOnCancel: false
+		}, function (isConfirm) {
+			if (isConfirm) {
+				$.ajax({
+					type: "POST",
+					//data:{id:id},
+					url: _url,
+					//dataType: 'json',
+					success: function (data) {
+						swal({
+							title: "Hapus Berhasil!",
+							text: "Data Berhasil Dihapus.",
+							type: "success"
+						},
+							function () {
+								location.reload();
+							}
+						);
+					},
+					error: function (data) {
+						// console.log(data);
+						swal("Error", "Server Error", "error");
+					}
+				})
+			} else {
+				swal("Cancelled", "", "error");
+			}
+		});
+	});
 }

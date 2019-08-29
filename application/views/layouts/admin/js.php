@@ -90,6 +90,8 @@
     <?php endif;?>
   <?php elseif(@$codepage == "back_hero"):?>
     <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
+    <script src="<?php echo vendor_url('plugins/sweetalert/sweetalert.min.js')?>"></script>
+
   <?php endif;?>
   <script src="<?php echo assets_url('js','custom.back.js'); ?>"></script>
 <?php endif;?>

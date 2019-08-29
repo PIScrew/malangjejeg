@@ -25,6 +25,8 @@
 									<th></th>
 									<th width="65%" >Video Url</th>
 									<th>Text</th>
+									<th>Created At</th>
+									<th>Updated At</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -35,10 +37,14 @@
                     <td><?= $no?></td>
                     <td><?= $a['video_url']?></td>
                     <td><?= $a['text']?></td>
+					<td><?= $a['created_at']?></td>
+					<td><?= $a['updated_at']?></td>
+
+
                     <td>
                       
                       <a href="<?php echo base_url('admin/about/editAbout/'.$a['id_about'])?>"><button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>
-					  <a href="<?php echo base_url('admin/about/deleteAbout/'.$a['id_about'])?>"><button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button"><i class="fas fa-trash-alt"></i></button></a>
+					  <a href="<?php echo base_url('admin/about/deleteAbout/'.$a['id_about'])?>"><button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button"><i id="listProduct" class="fas fa-trash-alt "></i></button></a>
                     </td>
                 </tr>                
               <?php
