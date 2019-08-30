@@ -51,7 +51,7 @@ class index extends PIS_Controller
               'role'      => $apps->id_role
             ); 
             $this->session->set_userdata($user_data); 
-            $this->user->lastLogin($apps->username);
+            // $this->user->lastLogin($apps->username);
             redirect(base_url('admin/dashboard'));
           } 
         } else { 
