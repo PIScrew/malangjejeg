@@ -4,11 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Mod_notification extends CI_Model {
 
   protected $notification = 'mj_site_notifications';
-  protected $transaction = 'em_transactions';
-  protected $transactionUser = 'em_transaction_users';
-  protected $ticket = 'em_site_tickets';
-  protected $ticketDetail = 'em_site_ticket_details';
-  protected $user = 'em_users';
+  protected $transaction = 'mj_transactions';
+  protected $transactionUser = 'mj_transaction_users';
+  protected $ticket = 'mj_site_tickets';
+  protected $ticketDetail = 'mj_site_ticket_details';
+  protected $user = 'mj_users';
 
   public function addNotif($data){
     return $this->db->insert($this->notification, $data); 

@@ -1,6 +1,6 @@
 <!-- Container fluid  -->
 <!-- ============================================================== -->
-<div class="container-fluid" data-codepage="<?php echo $codepage ?>">
+<div class="container-fluid" data-codepage="<?= $codepage ?>" data-subpage="<?= $subpage ?>">
 	<!-- ============================================================== -->
 	<!-- Start Page Content -->
 	<!-- ============================================================== -->
@@ -14,18 +14,19 @@
           <!-- <h6 class="card-subtitle">Untuk mengatur ongkos kirim.</h6> -->
         </div>
         <hr class="m-t-0">
-        <?php echo form_open_multipart('admin/Category/detail/'.$category['id'], array("class" => "form-horizontal r-separator"));?>
+        <form id="add_donatur" method="post" action="<?php if($isEdit) echo base_url('admin/Donator/editDonator/'.$d['id_donator']); else echo base_url('admin/Donator/create');?>" data-dir="" data-url="">
           <div class="card-body">
             <div class="form-group row p-b-15">
-              <label for="inputEmail3" class="col-sm-3 text-right control-label col-form-label">Judul Kategori</label>
+              <label for="inputEmail3" class="col-sm-3 text-right control-label col-form-label">Nama Donatur</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" name="name" id="inputEmail3" placeholder="Host" value="<?= $category['title_category']?>">
+                <input type="text" class="form-control" name="name" id="inputEmail3" placeholder="Host" value="<?= $category['donatur_name']?>">
               </div>
             </div>
             <div class="form-group row p-b-15">
-              <div class="offset-md-3 col-sm-9">
-                <input type="file" id="input-file-disable-remove" name="img" class="dropify w-100" data-height="200" data-default-file="<?= img_url($category['img_path']); ?>" data-show-remove="false" />
-              </div>              
+              <label for="inputEmail3" class="col-sm-3 text-right control-label col-form-label">Nominal</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="name" id="inputEmail3" placeholder="Host" value="<?= $category['nominal']?>">
+              </div>
             </div>
           </div>
           <hr>

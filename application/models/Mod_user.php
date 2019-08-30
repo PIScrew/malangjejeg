@@ -3,13 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_user extends CI_Model {
 
-  protected $user 		       = 'em_users';
-  protected $userDetail 	   = 'em_user_details';
-  protected $useradmin       = 'em_useradmins';
-  protected $useradminDetail = 'em_useradmin_details';
-  protected $userRole        = 'em_user_roles';
-  protected $userAdminRole   = 'em_useradmin_roles';
-  protected $userReset       = 'em_user_resets';
+  protected $user 		       = 'mj_users';
+  protected $userDetail 	   = 'mj_user_details';
+  protected $useradmin       = 'mj_useradmins';
+  protected $useradminDetail = 'mj_useradmin_details';
+  protected $userRole        = 'mj_user_roles';
+  protected $userAdminRole   = 'mj_useradmin_roles';
+  protected $userReset       = 'mj_user_resets';
 
 
   public function logged_id(){ 
@@ -50,9 +50,9 @@ class Mod_user extends CI_Model {
 
   // admin
   public function checkLoginAdmin($data_user){ 
-    $this->db->select($this->useradmin.'.*,'.$this->useradminDetail.'.*');
+    $this->db->select($this->useradmin.'.*');
     $this->db->from($this->useradmin);    
-    $this->db->join($this->useradminDetail, $this->useradminDetail.'.id_useradmin ='.$this->useradmin.'.id');
+    //$this->db->join($this->useradminDetail, $this->useradminDetail.'.id_useradmin ='.$this->useradmin.'.id');
     $this->db->where($this->useradmin.'.username', $data_user['email']);
     $this->db->or_where($this->useradmin.'.email', $data_user['email']);
     $query = $this->db->get();

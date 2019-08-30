@@ -2,9 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_page extends CI_Model {
-    protected $help = 'em_page_help';
-    protected $faq = 'em_page_faq';
-    protected $about = 'em_page_about';
+    protected $help = 'mj_page_help';
+    protected $faq = 'mj_page_faq';
+    protected $about = 'mj_page_about';
 
     //help
     public function getHelp(){

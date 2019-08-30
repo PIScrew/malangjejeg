@@ -7,9 +7,7 @@ class Slider extends PIS_Controller {
     {
         parent::__construct();
         $this->load->model('Mod_slider','slider');  
-        $this->load->model('Mod_user','user');
-        
-        
+        $this->load->model('Mod_user','user');        
     }
 
     public function index(){

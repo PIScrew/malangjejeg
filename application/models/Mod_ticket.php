@@ -3,13 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_ticket extends CI_Model {
 
-  protected $ticket       = 'em_site_tickets';
-  protected $ticket_reply = 'em_site_ticket_replys';
-  protected $ticket_type  = 'em_site_ticket_types';
-  protected $ticket_file  = 'em_site_ticket_files';
-  protected $ticket_detail = 'em_site_ticket_details';
-  protected $userDetail 	   = 'em_user_details';
-  protected $useradminDetail = 'em_useradmin_details';
+  protected $ticket       = 'mj_site_tickets';
+  protected $ticket_reply = 'mj_site_ticket_replys';
+  protected $ticket_type  = 'mj_site_ticket_types';
+  protected $ticket_file  = 'mj_site_ticket_files';
+  protected $ticket_detail = 'mj_site_ticket_details';
+  protected $userDetail 	   = 'mj_user_details';
+  protected $useradminDetail = 'mj_useradmin_details';
   
   public function userTicket($id_user){
     $this->db->select($this->ticket.'.*,'.$this->ticket_type.'.*');

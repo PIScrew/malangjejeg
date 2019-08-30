@@ -18,15 +18,17 @@ class Product extends PIS_Controller {
   public function index()
   {
     $data['codepage']     = "back_product";
+    $data['subpage']      = "list_product";
     $data['page_title'] 	= 'Produk';
     $data['product']      = $this->product->getListProduct()->result_array();
     $id = $_SESSION['id'];
     $data['image']    = $this->user->getImage($id)->result_array();
-    $this->template->back_views('site/back/productList',$data);    
+    $this->template->admin_views('site/back/productList',$data);    
   }
   public function addProduct(){
-    $data['codepage']       = "back_addProduct";
-    $data['page_title'] 	  = 'Tambah Produk';
+    $data['codepage']       = "back_product";
+    $data['subpage']        = "add_product";
+    $data['page_title'] 	  = "Tambah Produk";
     $data['measurement']    = $this->product->getMeasurement()->result_array();
     $data['category']       = $this->category->getCategoryAll()->result_array();
     $id = $_SESSION['id'];
@@ -92,7 +94,7 @@ class Product extends PIS_Controller {
       $this->session->set_flashdata('success_msg', 'Tambah Produk berhasil');
       redirect(base_url("Admin/product"));           
     }
-    $this->template->back_views('site/back/productAdd',$data);  
+    $this->template->admin_views('site/back/productAdd',$data);  
   }
   public function delImg($id){
     $this->product->deleteImage($id);
@@ -137,7 +139,8 @@ class Product extends PIS_Controller {
   }
 
   public function editProduct($id){
-    $data['codepage']     = "back_editProduct";
+    $data['codepage']     = "back_product";
+    $data['subpage']      = "edit_product";
     $data['page_title'] 	= 'Perbarui Produk';
     $data['pr']           = $this->product->getProductbyId($id)->row_array();
     $data['vr']           = $this->product->getVariantByProduct($id)->result_array();
@@ -185,7 +188,7 @@ class Product extends PIS_Controller {
       redirect(base_url("Admin/product"));    
     }
     
-    $this->template->back_views('site/back/productAdd',$data);   
+    $this->template->admin_views('site/back/productAdd',$data);   
   }
   public function listProductDraft(){
     $data['codepage']     = "back_product";

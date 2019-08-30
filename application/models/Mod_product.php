@@ -13,14 +13,14 @@ class Mod_product extends CI_Model {
   protected $product_review      = 'mj_product_reviews';
   protected $product_img_temp    = 'mj_product_img_temps';
   protected $cart                = 'mj_cart_guest';
-  protected $transaction          = 'mj_transactions';
-  protected $transaction_detail   = 'mj_transaction_details';
+  protected $transaction         = 'mj_transactions';
+  protected $transaction_detail  = 'mj_transaction_details';
 
   public function getListProduct(){
     $this->db->select('*');
     $this->db->from($this->product);
     $this->db->where('status', 1);
-    // $this->db->where('deleted_at',null);
+    $this->db->where('deleted_at',null);
     $this->db->order_by('created_at', 'desc');        
     return $this->db->get();
   }

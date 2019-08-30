@@ -38,17 +38,17 @@ class index extends PIS_Controller
           'password'  => $_POST['password']
         );
 
-        $checking = $this->user->checkLoginPos($data_user); 
+        $checking = $this->user->checkLoginAdmin($data_user); 
 
         if ($checking == true) { 
           
           foreach ($checking as $apps) {
             $user_data = array( 
-              'id_user'   => $apps->id_user,
+              'id'   => $apps->id,
               'username'  => $apps->username,
               'email'     => $apps->email, 
-              'fullname'  => $apps->fullname,
-              'role'      => $apps->role
+              //'fullname'  => $apps->fullname,
+              'role'      => $apps->id_role
             ); 
             $this->session->set_userdata($user_data); 
             $this->user->lastLogin($apps->username);
