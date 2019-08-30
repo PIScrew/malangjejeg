@@ -2,6 +2,7 @@
 <script src="<?php echo vendor_url('plugins/popper/popper.min.js'); ?>"></script>
 <script src="<?php echo vendor_url('plugins/bootstrap/bootstrap.min.js'); ?>"></script>
 <script src="<?php echo vendor_url('plugins/sweetalert/sweetalert.min.js')?>"></script>
+<script src="<?php echo vendor_url('plugins/dropzone/dropzone.min.js') ?>"></script>
 
 <?php if (@$codepage == "back_login") :?>
  <!-- ============================================================== -->
@@ -29,6 +30,7 @@
   @$codepage == "profile" ||
   @$codepage == "detail_profile" ||
   @$codepage == "back_addProduct" ||
+  @$codepage == "add_hero" ||
   @$codepage == "list_category" ||
   @$codepage == "back_setting"||
   @$codepage == "back_slider" ||
@@ -41,6 +43,7 @@
   @$codepage == "back_setHomePage"||
   @$codepage == "back_setOngkir"||
   @$codepage == "back_category" ||
+  @$codepage == "back_hero" ||
   @$codepage == "set_address" || 
   @$codepage == "back_category_detail" ||
   @$codepage == "back_slider_detail" ||

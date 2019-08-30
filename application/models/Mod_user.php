@@ -52,7 +52,6 @@ class Mod_user extends CI_Model {
   public function checkLoginAdmin($data_user){ 
     $this->db->select($this->useradmin.'.*');
     $this->db->from($this->useradmin);    
-    //$this->db->join($this->useradminDetail, $this->useradminDetail.'.id_useradmin ='.$this->useradmin.'.id');
     $this->db->where($this->useradmin.'.username', $data_user['email']);
     $this->db->or_where($this->useradmin.'.email', $data_user['email']);
     $query = $this->db->get();

@@ -1,5 +1,3 @@
-
-
 <?php if(@$codepage == "back_index"):?>
   <link href="<?php echo vendor_url('plugins/c3/c3.min.css');?>" rel="stylesheet">
   <link href="<?php echo vendor_url('plugins/chartist/chartist.min.css'); ?>" rel="stylesheet">

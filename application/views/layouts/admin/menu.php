@@ -18,21 +18,23 @@
 				<li class="sidebar-item">
 					<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
 						<i class="mdi mdi-comment-multiple-outline"></i>
-						<span class="hide-menu">Manage Product</span>
+						<span class="hide-menu">Manage Produk</span>
 					</a>
 					<ul aria-expanded="false" class="collapse  first-level">
 						<li class="sidebar-item">
 							<a href="<?php echo base_url('admin/Product/index')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> List Product</span>
+								<span class="hide-menu"> List Produk</span>
 							</a>
 						</li>
 						<li class="sidebar-item">
 							<a href="<?php echo base_url('admin/Product/addProduct')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> Add Product</span>
+								<span class="hide-menu"> Add Produk </span>
 							</a>
 						</li>
+						
+						
 					</ul>
 				</li>
 			<!-- End Street -->
@@ -90,25 +92,25 @@
 			<!-- Setting -->
 			<li class="nav-small-cap">
 					<i class="mdi mdi-dots-horizontal"></i>
-					<span class="hide-menu">System</span>
+					<span class="hide-menu">Manage Front</span>
 				</li>
 
 				<li class="sidebar-item">
 					<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
 						<i class="mdi mdi-comment-multiple-outline"></i>
-						<span class="hide-menu">Kontraktor</span>
+						<span class="hide-menu">Hero</span>
 					</a>
 					<ul aria-expanded="false" class="collapse  first-level">
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Contractor/list')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/Hero/index')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> Kontraktor List</span>
+								<span class="hide-menu"> List Hero</span>
 							</a>
 						</li>
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/User/roleList')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/Hero/formAddHero')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> </span>
+								<span class="hide-menu"> Add Hero </span>
 							</a>
 						</li>
 					</ul>
@@ -118,51 +120,126 @@
 				<li class="sidebar-item">
 					<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
 						<i class="mdi mdi-comment-multiple-outline"></i>
-						<span class="hide-menu">User</span>
+						<span class="hide-menu">About</span>
 					</a>
 					<ul aria-expanded="false" class="collapse  first-level">
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/User/UserList')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/About/listAbout')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> User List</span>
+								<span class="hide-menu"> List Data  </span>
 							</a>
 						</li>
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/User/RoleList')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/About/formAddAbout')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> User Role</span>
+								<span class="hide-menu"> Add Data </span>
 							</a>
 						</li>
 					</ul>
 				</li>
+
 				<li class="sidebar-item">
 					<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-						<i class="mdi mdi-settings"></i>
-						<span class="hide-menu">Pengaturan</span>
+						<i class="mdi mdi-comment-multiple-outline"></i>
+						<span class="hide-menu">Visi Misi</span>
 					</a>
 					<ul aria-expanded="false" class="collapse  first-level">
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Setting/general')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/visiMisi/index')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> Pengaturan General</span>
+								<span class="hide-menu"> List Visi Misi  </span>
 							</a>
 						</li>
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Setting/imgdefault')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/visiMisi/formAddVisiMisi')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> Pengaturan Image Default</span>
+								<span class="hide-menu"> Add Visi Misi </span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+
+				<li class="sidebar-item">
+					<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+						<i class="mdi mdi-comment-multiple-outline"></i>
+						<span class="hide-menu">Carousel Toko</span>
+					</a>
+					<ul aria-expanded="false" class="collapse  first-level">
+						<li class="sidebar-item">
+							<a href="<?php echo base_url('admin/Carousel/index')?>" class="sidebar-link">
+								<i class="mdi mdi-adjust"></i>
+								<span class="hide-menu"> List Carousel Toko</span>
 							</a>
 						</li>
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Setting/address')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/Carousel/formAddCarousel')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> Pengatur Alamat</span>
+								<span class="hide-menu"> Add Carousel Toko </span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="sidebar-item">
+					<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+						<i class="mdi mdi-comment-multiple-outline"></i>
+						<span class="hide-menu">Optional</span>
+					</a>
+					<ul aria-expanded="false" class="collapse  first-level">
+						<li class="sidebar-item">
+							<a href="<?php echo base_url('admin/option/index')?>" class="sidebar-link">
+								<i class="mdi mdi-adjust"></i>
+								<span class="hide-menu"> List Option </span>
 							</a>
 						</li>
 						<li class="sidebar-item">
-							<a href="<?php echo base_url('admin/Setting/pageSetting')?>" class="sidebar-link">
+							<a href="<?php echo base_url('admin/Option/formAddOption')?>" class="sidebar-link">
 								<i class="mdi mdi-adjust"></i>
-								<span class="hide-menu"> Pengaturan Halaman</span>
+								<span class="hide-menu"> Add Option </span>
+							</a>
+						</li>
+						
+					</ul>
+				</li>
+
+				<li class="sidebar-item">
+					<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+						<i class="mdi mdi-comment-multiple-outline"></i>
+						<span class="hide-menu">Video Youtube</span>
+					</a>
+					<ul aria-expanded="false" class="collapse  first-level">
+						<li class="sidebar-item">
+							<a href="<?php echo base_url('admin/Youtube/index')?>" class="sidebar-link">
+								<i class="mdi mdi-adjust"></i>
+								<span class="hide-menu"> List Video Youtube  </span>
+							</a>
+						</li>
+						<li class="sidebar-item">
+							<a href="<?php echo base_url('admin/Youtube/formAddYoutube')?>" class="sidebar-link">
+								<i class="mdi mdi-adjust"></i>
+								<span class="hide-menu"> Add Video Youtube  </span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="sidebar-item">
+					<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+						<i class="mdi mdi-comment-multiple-outline"></i>
+						<span class="hide-menu">Galery</span>
+					</a>
+					<ul aria-expanded="false" class="collapse  first-level">
+						<li class="sidebar-item">
+							<a href="<?php echo base_url('admin/Galery/index')?>" class="sidebar-link">
+								<i class="mdi mdi-adjust"></i>
+								<span class="hide-menu"> List Galery  </span>
+							</a>
+						</li>
+						<li class="sidebar-item">
+							<a href="<?php echo base_url('admin/Galery/formAddGalery')?>" class="sidebar-link">
+								<i class="mdi mdi-adjust"></i>
+								<span class="hide-menu"> Add Galery </span>
 							</a>
 						</li>
 					</ul>

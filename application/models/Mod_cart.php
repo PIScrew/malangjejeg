@@ -18,7 +18,10 @@ class Mod_cart extends CI_Model {
         $this->db->from($this->cart);
         return $this->db->count_all_results();
     }
-
+    public function getListCart(){
+        $this->db->where('id_user',$_SESSION['id']);
+        return $this->db->get($this->cart);
+    }
     
     public function insert($data){
         $this->db->insert($this->cart, $data);

@@ -563,7 +563,7 @@ if (codepage == "back_product") {
 	$("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
 		earning.responsive.recalc();
 	});
-} else if(codepage == "back_addProduct"){
+} else if(codepage == "back_addProduct" ){
 	var url_upload = $('#myDropzone').attr('data-url');
 	$('#myDropzone').empty();
 	Dropzone.autoDiscover = false;
@@ -1061,5 +1061,68 @@ if (codepage == "back_product") {
 		placeholder: 'Silahkan isi berita',
 		tabsize: 2,	
 		height: 250
+	});
+}
+else if(codepage == "back_hero"){
+	$(document).ready(function () {
+		// Basic
+		$('.dropify').dropify();
+		// Translated
+		// Used events
+		var drEvent = $('#input-file-events').dropify();
+		drEvent.on('dropify.beforeClear', function (event, element) {
+			return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+		});
+		drEvent.on('dropify.afterClear', function (event, element) {
+			alert('File deleted');
+		});
+		drEvent.on('dropify.errors', function (event, element) {
+			console.log('Has Errors');
+		});
+		var drDestroy = $('#input-file-to-destroy').dropify();
+		drDestroy = drDestroy.data('dropify')
+	});
+
+	$('#listProduct').on("click",'.del-product',function () {
+		var id = $(this).attr('data-id');
+		var dir = $(this).attr('data-dir');
+		var _url = dir + id;
+		swal({
+			title: "Apakah Anda yakin untuk menghapus  ini?",
+			text: "Anda tidak akan dapat memulihkan  ini!",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "Yes",
+			cancelButtonText: "No",
+			closeOnConfirm: false,
+			closeOnCancel: false
+		}, function (isConfirm) {
+			if (isConfirm) {
+				$.ajax({
+					type: "POST",
+					//data:{id:id},
+					url: _url,
+					//dataType: 'json',
+					success: function (data) {
+						swal({
+							title: "Hapus Berhasil!",
+							text: "Data Berhasil Dihapus.",
+							type: "success"
+						},
+							function () {
+								location.reload();
+							}
+						);
+					},
+					error: function (data) {
+						// console.log(data);
+						swal("Error", "Server Error", "error");
+					}
+				})
+			} else {
+				swal("Cancelled", "", "error");
+			}
+		});
 	});
 }

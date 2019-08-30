@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="<?php echo vendor_url('plugins/datatables/responsive.dataTables.css') ?>">
     <link rel="stylesheet" href="<?php echo vendor_url('plugins/datatables/buttons.dataTables.min.css')?>">
   <?php endif;?>
-<?php endif;?>
+<?php elseif(@$codepage == "back_hero"):?>
+<link rel="stylesheet" href="<?php echo vendor_url('plugins/dropify/dropify.min.css') ?>">
 
 
   <link href="<?php echo vendor_url('back/css/style.min.css'); ?>" rel="stylesheet">

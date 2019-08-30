@@ -41,7 +41,6 @@ class Mod_system extends CI_Model {
     $this->db->select('*');
     $this->db->from($this->site);
     return $this->db->get();
-    
   }
   public function setGeneral($data){
     $id = 1;

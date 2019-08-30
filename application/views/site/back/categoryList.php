@@ -34,6 +34,7 @@
                   <td>
                     <a href="<?php echo base_url('admin/Category/detail/'.$c['id'])?>"><button type="button" class="btn btn-info btn-circle btn-sm"><i class="fas fa-search-plus"></i> </button></a>
                     <button class="btn btn-danger btn-circle btn-sm deleted_category" type="button" data-id="<?= $c['id']?>" data-dir="<?php echo base_url('admin/Category/deleted/'.$c['id'])?>"><i class="fas fa-trash-alt"></i></button>
+                    <button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm deleted_category" type="button" data-id="<?= $c['id']?>" data-dir="<?php echo base_url('admin/Category/deleted/')?>"><i class="fas fa-trash-alt"></i></button>
                   </td>
                 </tr>
               <?php  $no++; endforeach;?>

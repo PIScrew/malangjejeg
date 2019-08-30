@@ -44,18 +44,18 @@ class index extends PIS_Controller
           
           foreach ($checking as $apps) {
             $user_data = array( 
-              'id'   => $apps->id,
+              'id'        => $apps->id,
               'username'  => $apps->username,
               'email'     => $apps->email, 
-              //'fullname'  => $apps->fullname,
               'role'      => $apps->id_role
             ); 
+            
             $this->session->set_userdata($user_data); 
-            // $this->user->lastLogin($apps->username);
+            $this->user->logged_id($apps->username);
             redirect(base_url('admin/dashboard'));
           } 
         } else { 
-          redirect(base_url('admin'));
+          redirect(base_url('sarimin'));
         } 
       } 
     } 

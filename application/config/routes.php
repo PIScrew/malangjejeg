@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'store/Home';
 $route['(sarimin)']     ="admin/index/login";
+$route['toko']         ="store/Home";
 $route['(auth)']        ="User"; 
 $route['logout']        ="User/logout";
 $route['(register)']    ="User/register";
@@ -71,6 +72,3 @@ $route['admin/useradmin']  = "admin/User/listUser";
 $route['admin/useradmin/(:any)']  = "admin/User/detailAdmin";
 $route['404_override']  = '';
 $route['translate_uri_dashes'] = FALSE;
-
-// Route Toko
-$route['toko']         ="store/Home";

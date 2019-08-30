@@ -5,7 +5,8 @@ class PIS_Controller extends CI_Controller {
 
   public function __construct()
     {
-        parent::__construct();        
+        parent::__construct();
+        $this->load->library('upload');           
         $this->load->model('Mod_notification','notification');
         $this->load->model('Mod_system','system');        
         $this->load->model('Mod_category','category');
