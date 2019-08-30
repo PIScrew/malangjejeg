@@ -6,10 +6,8 @@ class index extends PIS_Controller
   public function __construct()
   {
     parent::__construct();
-    
     // $this->checkLogin();
     $this->load->model('Mod_user','user');
-    
     // $this->load->model('Mod_site','site');
   }
 

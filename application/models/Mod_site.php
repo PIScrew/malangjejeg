@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Mod_site extends CI_Model {
 
   protected $site = 'mj_site';
-  protected $email = 'ecs_template_email';
+  protected $email = 'mj_template_email';
 
   public function getSite()
   {

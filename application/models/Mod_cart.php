@@ -4,9 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_cart extends CI_Model {
 
-    protected $cart     = 'em_carts';
-    protected $product             = 'em_products';
-    protected $product_variant     = 'em_product_variations';
+    protected $cart                = 'mj_cart_guest';
+    protected $product             = 'mj_products';
+    protected $product_variant     = 'mj_product_variations';
+
+    public function getListCart(){
+        $this->db->where('id_guest',$_COOKIE['id_guest']);
+        return $this->db->get($this->cart);
+    }
 
     public function getCount(){
         $this->db->where('id_user',$_SESSION['id']);

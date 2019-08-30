@@ -6,31 +6,30 @@ class Mod_system extends CI_Model {
   protected $site             = 'mj_sites';
   protected $site_address     = 'mj_site_addresses';
   
-  // protected $site             = 'em_sites';
-  // protected $site_address     = 'em_site_addresses';
-  protected $site_conf        = 'em_site_confs';
-  protected $site_img_default = 'em_site_img_defaults';
-  protected $site_bank        = 'em_site_banks';
-  protected $site_payment     = 'em_site_payments';
-  protected $site_rest        = 'em_site_rests';
- // protected $site_visitor        = 'em_site_visitors';
-  protected $homepage         = 'em_site_homepages';
+  protected $site_conf        = 'mj_site_confs';
+  protected $site_img_default = 'mj_site_img_defaults';
+  protected $site_bank        = 'mj_site_banks';
+  protected $site_payment     = 'mj_site_payments';
+  protected $site_rest        = 'mj_site_rests';
+  protected $site_visitor        = 'mj_site_visitors';
+  protected $homepage         = 'mj_site_homepages';
 
-  // public function getSite()
+  // public function getSite($id)
   // {
   //   $this->db->select('*');
   //   $this->db->from($this->site);
-  //   $this->db->order_by('id_site', 'asc');
-  //   $this->db->where('id', 1 );
+  //   // $this->db->order_by('id_site', 'asc');
+  //   $this->db->where('id', $id );
   //   return $this->db->get();
   // }
-  public function getSiteData()
+
+  public function getSiteData($id)
   {
-    $this->db->select($this->site.'.*,'.$this->site_address.'.*');
-    $this->db->from($this->site);
-    $this->db->join($this->site_address, $this->site_address.'.id = '.$this->site.'.id');
-    $this->db->order_by($this->site.'.id', 'desc');
-    $this->db->limit(1); 
+    $this->db->select('*');
+    $this->db->from($this->site.' s');
+    $this->db->join($this->site_address.' sa', 's.id = sa.id', 'left');
+    $this->db->where('s.id',$id);
+    // $this->db->limit(1); 
     return $this->db->get();
   }
   public function setAddress($data){
@@ -106,26 +105,26 @@ class Mod_system extends CI_Model {
 		curl_close($ch);
 		return $j;
   }
-  // public function getChartVisitor()
-	// {
-	// 	$query = $this->db->query('SELECT MONTHNAME(g.created_at) as month, MONTH (g.created_at) as monthnum, YEAR(g.created_at) as year,
-	// 	 COUNT(g.id) as count,
-	// 	 COUNT(g.id) +
-	// 	 (
-	// 	  SELECT COUNT(t.id)
-	// 	  FROM '.$this->site_visitor.' t
-	// 	  WHERE t.created_at < g.created_at
-	// 	 ) 
-	// 	 AS accumulate
-	// 	  FROM     (
-	// 		SELECT id, created_at
-	// 		from '.$this->site_visitor.'
-	// 		WHERE created_at > DATE_SUB(now(), INTERVAL 6 MONTH)
-	// 	  ) g
-	// 	 GROUP BY MONTHNAME(g.created_at)
-  //    ORDER BY YEAR, MONTHNUM');
-  //    return $query->result();
-  // }
+  public function getChartVisitor()
+	{
+		$query = $this->db->query('SELECT MONTHNAME(g.created_at) as month, MONTH (g.created_at) as monthnum, YEAR(g.created_at) as year,
+		 COUNT(g.id) as count,
+		 COUNT(g.id) +
+		 (
+		  SELECT COUNT(t.id)
+		  FROM '.$this->site_visitor.' t
+		  WHERE t.created_at < g.created_at
+		 ) 
+		 AS accumulate
+		  FROM     (
+			SELECT id, created_at
+			from '.$this->site_visitor.'
+			WHERE created_at > DATE_SUB(now(), INTERVAL 6 MONTH)
+		  ) g
+		 GROUP BY MONTHNAME(g.created_at)
+     ORDER BY YEAR, MONTHNUM');
+     return $query->result();
+  }
   public function homePage(){
     return  $this->db->get($this->homepage, 1);
   }

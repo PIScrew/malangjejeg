@@ -5,8 +5,8 @@ class Mod_comment extends CI_Model {
 
   protected $comment    = 'mj_product_comments';  
   protected $user       = 'mj_users';
- // protected $userDetail = 'mj_user_details';  
-  protected $product    = 'mj_products';
+  //protected $userDetail = 'mj_user_details';  
+  protected $product             = 'mj_products';
 
   public function getCommentByProduct($id_product){
     $this->db->select($this->comment.'.*,'.$this->user.'.is_ban,'.$this->user.'.username,'.$this->userDetail.'.*');

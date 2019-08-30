@@ -58,7 +58,7 @@
   <script src="<?php echo vendor_url('back/js/waves.js'); ?>"></script>
   <script src="<?php echo vendor_url('back/js/sidebarmenu.js'); ?>"></script>
   <script src="<?php echo vendor_url('back/js/custom.js'); ?>"></script>
-
+  
 
   <?php if (@$codepage =="back_index"):?>
     <!-- charts -->
@@ -72,26 +72,19 @@
     <script src="<?php echo vendor_url('back/js/dashboard3.js'); ?>"></script>
     <script src="<?php echo vendor_url('plugins/datatables/datatables.min.js') ?>"></script>
     <script src="<?php echo vendor_url('plugins/datatables/dataTables.responsive.js') ?>"></script>
-
+    
   <?php elseif (@$codepage == "back_product"):?>
     <?php if (@$subpage == "list_product" || @$subpage == "list_category" || @$subpage == "list_volunteer" || @$subpage == "list_donator"):?>
       <script src="<?php echo vendor_url('plugins/datatables/datatables.min.js') ?>"></script>
       <script src="<?php echo vendor_url('plugins/datatables/dataTables.responsive.js') ?>"></script>
       <script src="<?php echo vendor_url('plugins/datatables/vfs_fonts.js') ?>"></script>
-      <script src="<?php echo vendor_url('plugins/dropzone/dropzone.min.js') ?>"></script>
-      <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
-    <?php elseif (@$codepage == "add_product" || 
-    @$codepage == "edit_product" || @$codepage == "back_product"):?>
-      <script src="<?php echo vendor_url('plugins/dropzone/dropzone.min.js') ?>"></script>
-      <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
+    <?php elseif (@$subpage == "add_product" || 
+    @$subpage == "edit_product" ||
+    @$subpage == "edit_product"):?>
       <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>
       <script src="<?php echo vendor_url('plugins/bootstrapswitch/bootstrap-switch.min.js') ?>"></script>
-      
+      <script src="<?php echo vendor_url('plugins/dropzone/dropzone.min.js') ?>"></script>
     <?php endif;?>
-  <?php elseif(@$codepage == "back_hero"):?>
-    <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/sweetalert/sweetalert.min.js')?>"></script>
-
   <?php endif;?>
   <script src="<?php echo assets_url('js','custom.back.js'); ?>"></script>
 <?php endif;?>

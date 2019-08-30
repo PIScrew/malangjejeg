@@ -26,12 +26,12 @@
 		<a href="<?php echo base_url('about-us')?>" class="list-group-item list-group-item-action sub">About Us</a>
 		<a href="<?php echo base_url('contact')?>" class="list-group-item list-group-item-action sub">Contact Us</a>
 		<a href="<?php echo base_url('faq')?>" class="list-group-item list-group-item-action sub">FAQ</a>
-		<?php  if($this->session->userdata('status') == "pmmember" && $_SESSION['role'] == 3 ):?>
+		<!-- <?php  if($this->session->userdata('status') == "pmmember" && $_SESSION['role'] == 3 ):?>
 		<a href="<?php echo base_url('User/logout')?>" class="list-group-item list-group-item-action sub">Keluar</a>
-		<?php else:?>
-		<?php if(@$_SESSION['status']!="pmadmin"): ?>
+		<?php else:?> -->
+		<!-- <?php if(@$_SESSION['status']!="pmadmin"): ?>
 		<a href="<?php echo base_url('Login')?>" class="list-group-item list-group-item-action sub">Login / Register</a>
-		<?php endif; ?>
+		<?php endif; ?> -->
 		<?php endif;?>
 		<a href="<?php echo base_url('help')?>" class="list-group-item list-group-item-action"><span class="lnr lnr-question-circle"></span> Help</a>
 	</div>

@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mod_review extends CI_Model {
 
-  protected $review     = 'em_product_reviews';
-  protected $user       = 'em_users';
-  protected $userDetail = 'em_user_details';
-  protected $product    = 'em_products';
-  protected $transaction_detail   = 'em_transaction_details';
+  protected $review     = 'mj_product_reviews';
+  protected $user       = 'mj_users';
+  protected $userDetail = 'mj_user_details';
+  protected $product    = 'mj_products';
+  protected $transaction_detail   = 'mj_transaction_details';
 
   public function getReviewByProduct($id_product){
     $this->db->select($this->review.'.*,'.$this->user.'.id,'.$this->user.'.is_ban,'.$this->user.'.username,'.$this->userDetail.'.*');

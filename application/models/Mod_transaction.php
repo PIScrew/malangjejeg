@@ -238,7 +238,7 @@ class Mod_transaction extends CI_Model {
   
 }
 // SELECT p.id,p.title_product,p.slug_product,p.status, p.deleted_at, 
-// COALESCE((select sum(td.qty) from mj_transaction_details td JOIN mj_transactions t ON td.id_transaction=t.id where p.id=td.id_product AND t.status=3),0) as sell,
-// COALESCE((select sum(v.qty) from mj_product_variations v JOIN mj_products p ON v.id_product=p.id AND p.status=1 and p.deleted_at=000),0) as qty
-// FROM mj_products p, mj_product_categories c where c.id=p.id_category AND p.deleted_at=000  ORDER BY qty ASC limit 50;
+// COALESCE((select sum(td.qty) from em_transaction_details td JOIN em_transactions t ON td.id_transaction=t.id where p.id=td.id_product AND t.status=3),0) as sell,
+// COALESCE((select sum(v.qty) from em_product_variations v JOIN em_products p ON v.id_product=p.id AND p.status=1 and p.deleted_at=000),0) as qty
+// FROM em_products p, em_product_categories c where c.id=p.id_category AND p.deleted_at=000  ORDER BY qty ASC limit 50;
 /* End of file Mod_transaction.php */

@@ -19,30 +19,31 @@
 					</div>
 					<?php endif;?>
 					<div class="table-responsive">
+                        <div class="mb-4 text-right">
+                            <a href="<?= base_url('admin/Donator/create');?>"><button type="button" class="btn btn-primary btn-rounded"><i class="mdi mdi-open-in-new"></i> Tambah Donatur</button></a>
+                        </div>
 						<table id="listProduct" class="table table-striped" style="width:100%">
 							<thead>
 								<tr>
-									<th></th>
-									<th width="65%" >Nama Produk</th>
-									<th>Dilihat</th>
-									<th>Qty</th>
+									<th>No</th>
+									<th width="40%" >Nama Donatur</th>
+									<th>Nominal</th>
 									<th>Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
               <?php
               $no = 1;
-              foreach ($product as $p):?>
+              foreach ($donator as $d):?>
                 <tr>
                     <td><?= $no?></td>
-                    <td><?= $p['title_product']?></td>
-                    <td><?= count_view_product($p['id'])?></td>
-                    <td><?= count_variant_product($p['id'])?></td>
-                    <td>
-                      <button class="btn btn-twitter waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button" onclick="location.href='<?php echo base_url('admin/product/edit/'.$p['slug_product'])?>" ><i class="fas fa-pencil-alt"></i></button>
-                      <a href="<?php echo base_url('admin/product/editProduct/'.$p['id'])?>"><button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>
-                      <button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button" data-id="<?= $p['id']?>" data-dir="<?php echo base_url('admin/Product/del_product/')?>"><i class="fas fa-trash-alt"></i></button>
-                    </td>
+                    <td><?= $d['donatur_name']?></td>
+                    <td><?= $d['nominal']?></td>
+                    <!-- <td>
+                      <a href="<?php echo base_url('admin/volunteer/editVolunteer/'.$p['id'])?>">
+					  <button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>
+                      <button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button" data-id="<?= $p['id']?>" data-dir="<?php echo base_url('admin/Volunteer/del_volunteer/')?>"><i class="fas fa-trash-alt"></i></button>
+                    </td> -->
                 </tr>                
               <?php
               $no++; 

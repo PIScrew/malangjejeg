@@ -10,7 +10,7 @@ class Home extends PIS_Controller {
     $this->load->model('Mod_product','product');
     $this->load->model('Mod_category','category');
     $this->load->model('Mod_review','review');
-    $this->load->model('Mod_user', 'user');
+    $this->load->model('Mod_guest', 'guest');
     // $this->load->model('Mod_tokens','mTokens');
     // $this->load->model('Mod_comment','comment');
     // $this->load->model('Mod_qrcode','qrcode');
@@ -24,9 +24,11 @@ class Home extends PIS_Controller {
   public function index()
   {
     // print_r($_SESSION);die();
-    $data['code_page']		= "home";
-    // $data['slider']       = $this->slider->getAllSlider()->result_array();
-    $data['productNew']   = $this->product->getListProduct()->result_array();
+
+    $data['codepage']		  = "home";
+    $data['subpage']      = " ";
+    $data['slider']       = $this->slider->getAllSlider(1)->result_array();
+    $data['productNew']   = $this->product->getListProduct()->result();
     // $data['populer']      = $this->product->productPopuler()->result_array();  
     $this->template->store_views('site/store/home', $data);
   }

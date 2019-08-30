@@ -18,7 +18,6 @@
   </script>
 
 <?php elseif (@$codepage == "back_index" ||
-  @$codepage == "back_index" ||
   @$codepage == "back_product" ||
   @$codepage == "back_member"||
   @$codepage == "banned_member"||

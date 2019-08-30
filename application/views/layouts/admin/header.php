@@ -265,7 +265,7 @@
 								<img src="<?php echo vendor_url('back/images/users/2.jpg'); ?>" alt="user" class="rounded-circle" width="60">
 							</div>
 							<div class="m-l-10">
-								<h4 class="mb-0"><?php echo ucwords($_SESSION['username']);?></h4>
+								<h4 class="mb-0"><?php echo ucwords($_SESSION['fullname']);?></h4>
 								<p class=" mb-0"><?php echo $_SESSION['email'];?></p>
 							</div>
 						</div>

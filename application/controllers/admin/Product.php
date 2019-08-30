@@ -17,7 +17,8 @@ class Product extends PIS_Controller {
 
   public function index()
   {
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_product";
+    $data['subpage']      = "list_product";
     $data['page_title'] 	= 'Produk';
     $data['product']      = $this->product->getListProduct()->result_array();
     $id = $_SESSION['id'];
@@ -25,8 +26,9 @@ class Product extends PIS_Controller {
     $this->template->admin_views('site/back/productList',$data);    
   }
   public function addProduct(){
-    $data['codepage']       = "back_index";
-    $data['page_title'] 	  = 'Tambah Produk';
+    $data['codepage']       = "back_product";
+    $data['subpage']        = "add_product";
+    $data['page_title'] 	  = "Tambah Produk";
     $data['measurement']    = $this->product->getMeasurement()->result_array();
     $data['category']       = $this->category->getCategoryAll()->result_array();
     $id = $_SESSION['id'];
@@ -137,7 +139,8 @@ class Product extends PIS_Controller {
   }
 
   public function editProduct($id){
-    $data['codepage']     = "back_index";
+    $data['codepage']     = "back_product";
+    $data['subpage']      = "edit_product";
     $data['page_title'] 	= 'Perbarui Produk';
     $data['pr']           = $this->product->getProductbyId($id)->row_array();
     $data['vr']           = $this->product->getVariantByProduct($id)->result_array();
