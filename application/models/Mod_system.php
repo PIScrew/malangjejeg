@@ -6,8 +6,6 @@ class Mod_system extends CI_Model {
   protected $site             = 'mj_sites';
   protected $site_address     = 'mj_site_addresses';
   
-  // protected $site             = 'em_sites';
-  // protected $site_address     = 'em_site_addresses';
   protected $site_conf        = 'em_site_confs';
   protected $site_img_default = 'em_site_img_defaults';
   protected $site_bank        = 'em_site_banks';
@@ -43,6 +41,7 @@ class Mod_system extends CI_Model {
     $this->db->select('*');
     $this->db->from($this->site);
     return $this->db->get();
+    
   }
   public function setGeneral($data){
     $id = 1;

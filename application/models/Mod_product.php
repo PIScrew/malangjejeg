@@ -12,7 +12,7 @@ class Mod_product extends CI_Model {
   protected $product_wishlist    = 'mj_product_wishlists';
   protected $product_review      = 'mj_product_reviews';
   protected $product_img_temp    = 'mj_product_img_temps';
-  protected $cart                = 'mj_carts';
+  protected $cart                = 'mj_cart_guest';
   protected $transaction          = 'mj_transactions';
   protected $transaction_detail   = 'mj_transaction_details';
 
@@ -24,6 +24,7 @@ class Mod_product extends CI_Model {
     $this->db->order_by('created_at', 'desc');        
     return $this->db->get();
   }
+
   public function getListDraftProduct(){
     $this->db->select('*');
     $this->db->from($this->product);

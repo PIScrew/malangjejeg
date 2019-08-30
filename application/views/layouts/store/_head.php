@@ -6,4 +6,4 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo img_url($system['favicon']);?>">
-    <title><?php echo $system['title_site']?></title>
+    <title><?= $system['site_title']?></title>

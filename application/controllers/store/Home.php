@@ -15,13 +15,13 @@ class Home extends PIS_Controller {
     // $this->load->model('Mod_comment','comment');
     // $this->load->model('Mod_qrcode','qrcode');
     // $this->load->model('Mod_cart','cart');
-    $this->load->model('Mod_system','system');
+    // $this->load->model('Mod_system','system');
     $this->load->model('Mod_transaction','transaction');
     $this->load->library('pagination');
     $this->load->helper('url');
 
-    $data['system']   = $this->system->getSiteData(2)->row_array();
-    $this->load->vars($data);
+    // $data['system']   = $this->system->getSiteData(2)->row_array();
+    // $this->load->vars($data);
     // print_r( $data['system']); die();
   }
   
@@ -32,7 +32,7 @@ class Home extends PIS_Controller {
     $data['codepage']		  = "home";
     $data['subpage']      = " ";
     $data['slider']       = $this->slider->getAllSlider(1)->result_array();
-    $data['productNew']   = $this->product->getListProduct()->result_array();
+    $data['productNew']   = $this->product->getListProduct()->result();
     // $data['populer']      = $this->product->productPopuler()->result_array();  
     $this->template->store_views('site/store/home', $data);
   }

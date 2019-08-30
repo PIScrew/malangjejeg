@@ -4,7 +4,7 @@
 	<span class="toggle-menu"><i class="fa fa-bars fa-lg"></i></span>
 
 	<!-- Logo -->
-	<a class="navbar-brand" href="<?php echo base_url()?>"><img src="<?php echo img_url($system['logo']);?>" class="logo" alt="<?php echo $system['title_site']?>"></a>
+	<a class="navbar-brand" href="<?php echo base_url()?>"><img src="<?php echo img_url($system['logo']);?>" class="logo" alt="<?= $system['site_title']?>"></a>
 
 	<!-- Search Form -->
 	<form class="form-inline form-search d-none d-sm-inline" action="<?php echo base_url('Home/Search'); ?>" method="get">
