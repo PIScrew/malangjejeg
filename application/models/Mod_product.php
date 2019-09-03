@@ -16,12 +16,13 @@ class Mod_product extends CI_Model {
   protected $transaction         = 'mj_transactions';
   protected $transaction_detail  = 'mj_transaction_details';
 
-  public function getListProduct(){
+  function getListProduct(){
     $this->db->select('*');
-    $this->db->from($this->product);
-    $this->db->where('status', 1);
-    $this->db->where('deleted_at',null);
-    $this->db->order_by('created_at', 'desc');        
+    $this->db->from($this->product .' p');
+    $this->db->join($this->product_img. ' i','p.id = i.id_product','left');
+    $this->db->group_by('p.id');
+    $this->db->where(array('p.status'=> 1,'p.deleted_at'=>null));
+    $this->db->order_by('p.created_at', 'desc');        
     return $this->db->get();
   }
 
@@ -33,11 +34,27 @@ class Mod_product extends CI_Model {
     $this->db->order_by('updated_at', 'desc');        
     return $this->db->get();
   }
-  public function getView($id){
+
+  // Product Views
+  function getView($id){
     $this->db->where('id_product', $id);
     $this->db->from($this->product_view);
     return $this->db->count_all_results();
   }
+
+  function addViews($id){
+    $this->load->library('user_agent');
+    $data = array(
+        'id_product' => $id,
+        'created_at' => date('Y-m-d h:m:s'),
+        'browser'    =>$this->agent->browser(),
+        'ipaddress' => $this->input->ip_address(),
+        'platform'   => $this->agent->platform()
+    );
+    $this->db->insert($this->product_view,$data);
+  }
+  // end Product Views
+  
   public function getStock($id){
     $this->db->select_sum('qty');
     $this->db->from($this->product_variant);
@@ -125,11 +142,11 @@ class Mod_product extends CI_Model {
   }
   // end get Variant by id
   // get img by id_product
-  public function getImgByProduct($id){
-    $this->db->select('*');
-    $this->db->where('id_product', $id);
-    $this->db->from($this->product_img); 
-    return $this->db->get();
+  function getImgByProduct($id){
+    // $this->db->select('*');
+    // $this->db->where('id_product', $id);
+    // $this->db->from($this->product_img); 
+    return $this->db->get($this->product_img,array('id_product'=>$id));
   }
   public function deleteImage($id){
     $this->db->where('id',$id);
@@ -173,22 +190,27 @@ class Mod_product extends CI_Model {
     $this->db->limit(1);
     return $this->db->get();
   }
-  public function getProductBySlug($slug){
-    if(isset($_SESSION['id'])){
-      return $this->db->query("select p.*,(select id from $this->product_wishlist w where w.id_product = p.id and w.id_user=".$_SESSION['id'].") as id_wishlist from $this->product p where
-         slug_product='$slug' and p.deleted_at = 0"); 
-    } else{
-      $this->db->where('slug_product', $slug);
-      $this->db->where('deleted_at', 0);
-      return $this->db->get($this->product);
-    }
+
+  function getProductBySlug($slug){
+    return $this->db->get($this->product,array('slug_product'=>$slug,'status'=> 1 ));
+    
+    // if(isset($_SESSION['id'])){
+    //   return $this->db->query("select p.*,(select id from $this->product_wishlist w where w.id_product = p.id and w.id_user=".$_SESSION['id'].") as id_wishlist from $this->product p where
+    //      slug_product='$slug' and p.deleted_at = 0"); 
+    // } else{
+    //   $this->db->where('slug_product', $slug);
+    //   $this->db->where('deleted_at', 0);
+    //   return $this->db->get($this->product);
+    // }
   }
-  public function getImgProduct($id){
+
+  function getImgProduct($id){
     $this->db->where('id_product', $id);
     $this->db->from($this->product_img);
     $this->db->order_by('id', 'ASC');
     return $this->db->get();
   }
+
   public function getRecentProduct($id_category){
     if(isset($_SESSION['id']) and $id_category != null){
       return $this->db->query

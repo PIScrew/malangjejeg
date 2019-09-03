@@ -17,21 +17,21 @@
   <h3 class="title mt-4">Produk Baru </h3>
   <div class="row no-gutters gutters-2">
     <!-- List Produk -->
-    <?php foreach($productNew as $pn){ ?>
-      <div class="col-6 col-md-3 mb-2">
-				<div class="card card-product">
-          <div class="badge badge-danger badge-pill">Tersedia 5</div>
-            <button class="add-cart  "  data-product=170 data-cart=add data-url=https://pasarmbois.com/cart/add_cart title="Added to cart" data-id="170"><i class="fa fa-shopping-cart fa-lg"></i></button>
-								<a href="https://pasarmbois.com/p/peyek-bu-mut">
-				<img src="https://pasarmbois.com/assets//img/product/1557811913-1088892458/PRODUCT-MCF1414.jpg" alt="Peyek Bu Mut" class="card-img-top img-product">
-				</a>
-				<div class="card-body">
-					<span class="price">Rp <?= number_format($pn->price,0,",",".") ?></span>
-					<a href="https://pasarmbois.com/p/peyek-bu-mut" class="card-title h6"><?= $pn->title_product ?></a>
-					<div class="d-flex justify-content-between align-items-center">
-            <button type="button" data-id="170" onclick="window.location.href='https://pasarmbois.com/p/peyek-bu-mut';" class="btn btn-outline-info btn-sm btn-block detail-product">Lihat Detail</button>
+  <?php foreach($product as $p){ ?>
+    <div class="col-6 col-md-3 mb-2">
+      <div class="card card-product">
+        <div class="badge badge-danger badge-pill">Tersedia 5</div>
+          <button class="add-cart  "  data-product=170 data-cart=add data-url=https://pasarmbois.com/cart/add_cart title="Added to cart" data-id="170"><i class="fa fa-shopping-cart fa-lg"></i></button>
+          <a href="<?php echo base_url("p/".$p->slug_product)?>">
+            <img src="https://pasarmbois.com/assets//img/product/1557811913-1088892458/PRODUCT-MCF1414.jpg" alt="<?= $p->title_product?>" class="card-img-top img-product">
+          </a>
+        <div class="card-body">
+          <span class="price">Rp <?= number_format($p->price,0,",",".") ?></span>
+            <a href="<?php echo base_url("p/".$p->slug_product)?>" class="card-title h6"><?= $p->title_product?></a>
+          <div class="d-flex justify-content-between align-items-center">
+            <button type="button" data-id="<?= $p->id ?>" onclick="window.location.href='<?= base_url('p/'.$p->slug_product) ?>';" class="btn btn-outline-info btn-sm btn-block detail-product">Lihat Detail</button>
           </div>
-				</div>
+        </div>
 			</div>
 		</div>
     <?php } ?>
