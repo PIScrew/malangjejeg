@@ -50,15 +50,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'store/Home';
+// route admin
 $route['(sarimin)']     ="admin/index/login";
-$route['toko']         ="store/Home";
 $route['(auth)']        ="User"; 
 $route['logout']        ="User/logout";
 $route['(register)']    ="User/register";
 $route['(forgotpwd)']   ="User/forgotPwd";
-$route['Category/(:any)'] ="Category/index";
-$route['Category/(:any)/(:num)'] ="Category/index";
-$route['Product/(:any)'] ="Product/detail";
+
 $route['User/(:any)']   = "User/userDashboard";
 $route['User/(:any)/order']   = "Transaction/userOrder";
 // $route['User/(:any)/order/(:any)']   = "Transaction/getDetailByinvoice";
@@ -72,3 +70,9 @@ $route['admin/useradmin']  = "admin/User/listUser";
 $route['admin/useradmin/(:any)']  = "admin/User/detailAdmin";
 $route['404_override']  = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// route toko
+$route['toko']         ="store/Home";
+$route['Category/(:any)'] ="Category/index";
+$route['Category/(:any)/(:num)'] ="Category/index";
+$route['p/(:any)'] ="store/Home/detail/";
