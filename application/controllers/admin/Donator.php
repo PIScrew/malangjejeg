@@ -13,7 +13,7 @@ class Donator extends PIS_Controller {
     public function index()
     {
         $data['codepage']       = "back_product";
-        $data['subpage']        = "list_donator";
+        $data['subpage']        = "list_product";
         $data['page_title']     = "Daftar Donator";
         $data['donator']        = $this->donator->getDonatorAll()->result_array();
         $id = $_SESSION['id'];
@@ -47,34 +47,40 @@ class Donator extends PIS_Controller {
     //   $this->template->admin_views('site/back/Detail',$data);   
     // }
 
-    public function create(){
+    public function addDonator(){
       if(isset($_POST['submit'])){
-        $config['upload_path']='./assets/img/content/site/';
-        $config['allowed_types']='jpg|png|ico';
-        $config['encrypt_name'] = TRUE;
-        $this->load->library('upload',$config);
-        if($this->upload->do_upload('img'))
-        {
-            $img='img/content/site/';
-            $img.=  $this->upload->data('file_name');
-        }
         $data = array(
-          'donatur_name'    => $_POST['name'],
-          'nominal'         => slug($_POST['name']),
-          'img_path'        => @$img,
+          'donatur_name'    => $_POST['donatur_name'],
+          'nominal'         => slug($_POST['nominal']),
           'created_at'      => date('Y-m-d H:m:s')
         );
-        $this->category->create($data);
+        $this->donator->create($data);
         redirect(base_url('admin/Donator'),'refresh');
       }
       $data['codepage']       = "back_product";
-      $data['subpage']       = "add_donator";
-      $data['page_title']     = "Donatur Baru";
-      $this->template->admin_views('site/back/donatorAdd',$data);
+      //$data['subpage']       = "add_donator";
+      $data['page_title']     = "Tambah Donatur";
+       $this->template->admin_views('site/back/donatorAdd',$data);
+    }
+    public function editDonator($id){
+        $data['codepage']  = "back_product";
+        $data['page_title'] = "Perbarui Donatur";
+        $data['d']          = $this->donator->getDonatorByid($id)->row_array();    
+        if(isset($_POST['submit'])){
+       
+        $data_donatur = array(
+            'donatur_name' => $_POST['donatur_name'],
+            'nominal'         => slug($_POST['nominal']),
+            'updated_at'      => date('Y-m-d H:m:s')
+        );
+        $this->donator->update($id,$data_donatur);
+        redirect(base_url('admin/Donator'),'refresh');
+    }
+    $this->template->admin_views('site/back/donatorAdd',$data);
     }
 
     public function deleted($id){
-      return $this->category->delete($id,array('deleted_at' => date('Y-m-j H:i:s')));        
+      $this->category->delete($id);        
     }
 
 }

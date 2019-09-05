@@ -19,30 +19,51 @@
 					</div>
 					<?php endif;?>
 					<div class="table-responsive">
-                        <div class="mb-4 text-right">
+                        <!-- <div class="mb-4 text-right">
                             <a href="<?= base_url('admin/Donator/addDonator');?>"><button type="button" class="btn btn-primary btn-rounded"><i class="mdi mdi-open-in-new"></i> Tambah Donatur</button></a>
-                        </div>
+                        </div> -->
 						<table id="listProduct" class="table table-striped" style="width:100%">
 							<thead>
 								<tr>
 									<th>No</th>
-									<th width="40%" >Nama Donatur</th>
-									<th>Nominal</th>
-									<th>Aksi</th>
+									<th>Nama Pemesan</th>
+                                    <th>Telepon</th>
+                                    <th>Alamat</th>
+                                    <th>Nomer Transaksi</th>
+                                    <th>Kurir</th>
+									<th>Total</th>
+                                    <th>Status</th>
 								</tr>
 							</thead>
 							<tbody>
               <?php
               $no = 1;
-              foreach ($donator as $d):?>
+              foreach ($order as $o):?>
                 <tr>
                     <td><?= $no?></td>
-                    <td><?= $d['donatur_name']?></td>
-                    <td><?= $d['nominal']?></td>
+                    <td><?= $o['firstname']?></td>
+                    <td><?= $o['telephone']?></td>
+                    <td><?= $o['complete_address']?></td>
+                    <td><?= $o['id_transaction']?></td>
+                    <td><?= $o['courier']?></td>
+                    <td><?= $o['total_price_unique']?></td>
                     <td>
-                      <a href="<?php echo base_url('admin/Donator/editDonator/'.$d['id_donator'])?>">
-					  <button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>
-                      <button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button" data-id="<?= $d['id_donator']?>" data-dir="<?php echo base_url('admin/Donator/deleted/')?>"><i class="fas fa-trash-alt"></i></button>
+                        <?php
+                            $status = $o['status'];
+                            if($status == 1)
+                            {
+                        ?>      
+                                <a href="/admin/Order/update_status?$id=<?php echo $o['id_invoice'];?>&$val=<?php echo $o['status']; ?>
+                                <button type="button" class="btn btn-success btn-rounded">Proses</button></a>
+                        <?php    
+                            }
+                            else{
+                            ?>
+                                <a href="/admin/Order/update_status?$id=<?php echo $o['id_invoice'];?>&$val=<?php echo $o['status']; ?>
+                                <button type="button" class="btn btn-danger btn-rounded">Selesai</button></a>
+                        <?php
+                            }
+                        ?>
                     </td>
                 </tr>                
               <?php

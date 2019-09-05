@@ -118,6 +118,20 @@
 							</div>
 							<!-- End Product Description -->
 	  				</div>
+
+            <!-- Product Simple Description -->
+            <div class="col-sm-12 col-md-12">
+                <div class="form-group">
+                  <label for="productname" class="control-label col-form-label">Simple description<span
+                      class="text-danger">*</span></label>
+                      <?php if($isEdit) {?>
+                      <input type="hidden" class="form-control" name="id" id="id" required value="<?php if($isEdit) echo $pr['id_produk'] ?>" >    
+                      <?php } ?>
+                  <input type="text" class="form-control" name="simple_description" id="simple_description" required value="<?php if($isEdit) echo $pr['simple_description'] ?>" >
+                </div>
+              </div>
+              <!-- End Product Simple Description -->
+
             <div class="row">            
               <!-- Product lenght -->
               <div class="col-sm-6 col-md-4">
@@ -161,84 +175,7 @@
                 </div>
               </div>
               <!-- End product height -->
-               <!-- Variation Product -->
-              <div class="col-md-12">
-                  <h4 class="card-title">Variasi Product</h4>               
-                  <div id="product_variation" class="m-t-20"></div>
-                 <!-- Add Variation -->
-                 <?php if(!$isEdit) { ?>
-                  <div class="row m-t-20">
-                    <div class="col-sm-4">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Variasi</span>
-                        </div>
-                        <input type="text" class="form-control" name="variation[]" id="variation" value=" ">
-                      </div>
-                    </div>
-                    <div class="col-sm-3">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Stok</span>
-                        </div>
-                        <input type="number" class="form-control" name="qty[]" id="qty" value=" " >
-                      </div>
-                    </div>
-                    <div class="col-sm-3">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Ukuran</span>
-                        </div>
-                        <input type="text" class="form-control" name="size[]" id="size" value=" " >
-                      </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <button class="btn btn-success" type="button" onclick="product_variation();"><i class="fas fa-plus"></i></button>
-                        </div>
-                    </div>
-                  </div>
-                  <?php } ?>
-                  <!-- end add variatin -->
-                   <!-- Edit Variation -->
-                   <?php if($isEdit) { ?>
-                   <div class="row m-t-15">
-                   <?php foreach($vr as $v) {?>
-                    <div class="col-sm-4">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Variasi</span>
-                        </div>
-                        
-                        <input type="text" class="form-control" name="variation[]" id="variation" value="<?php echo $v['variation'] ?>">
-                      </div>
-                    </div>
-                    <div class="col-sm-3">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Stok</span>
-                        </div>
-                        <input type="number" class="form-control" name="qty[]" id="qty" value="<?php echo $v['qty'] ?>" >
-                      </div>
-                    </div>
-                    <div class="col-sm-3">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Ukuran</span>
-                        </div>
-                        <input type="text" class="form-control" name="size[]" id="size" value="<?php echo $v['size'] ?>" >
-                      </div>
-                    </div>
-                    <?php } ?>
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <button class="btn btn-success" type="button" onclick="product_variation();"><i class="fas fa-plus"></i></button>
-                        </div>
-                    </div>
-                  </div>
-                   <?php } ?>
-                  <!-- end edit variatin -->
-              </div>
+              
             </div>
           </div>
         </div>
@@ -260,7 +197,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="productpicture" class="control-label col-form-label">Link Video produk</label>
-                  <input type="textarea" class="form-control" name="productlink" id="productlink" value="<?php if($isEdit) echo $pr['url_vidio'] ?>">
+                  <input type="textarea" class="form-control" name="url_vidio" id="url_vidio" value="<?php if($isEdit) echo $pr['url_vidio'] ?>">
                 </div>
               </div>
             </div>

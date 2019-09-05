@@ -23,9 +23,9 @@
 							<thead>
 								<tr>
 									<th></th>
-									<th width="65%" >Nama Produk</th>
-									<th>Dilihat</th>
-									<th>Qty</th>
+									<th>Nama Produk</th>
+									<th>Price</th>
+									<th>Deskripsi</th>
 									<th>Aksi</th>
 								</tr>
 							</thead>
@@ -36,8 +36,10 @@
                 <tr>
                     <td><?= $no?></td>
                     <td><?= $p['title_product']?></td>
-                    <td><?= count_view_product($p['id'])?></td>
-                    <td><?= count_variant_product($p['id'])?></td>
+					<td><?= $p['price']?></td>
+					<td><?= $p['simple_description']?></td>
+                    <!-- <td><?= count_view_product($p['id'])?></td>
+                    <td><?= count_variant_product($p['id'])?></td> -->
                     <td>
                       <button class="btn btn-twitter waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button" onclick="location.href='<?php echo base_url('admin/product/edit/'.$p['slug_product'])?>" ><i class="fas fa-pencil-alt"></i></button>
                       <a href="<?php echo base_url('admin/product/editProduct/'.$p['id'])?>"><button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>

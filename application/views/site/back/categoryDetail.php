@@ -59,6 +59,7 @@
               </div>
             </div>
             <div class="form-group row p-b-15">
+            <label for="inputEmail3" class="col-sm-3 text-right control-label col-form-label">Gambar Kategori</label>
               <div class="offset-md-3 col-sm-9">
                 <input type="file" id="input-file-disable-remove" name="img" class="dropify w-100" data-height="200" data-default-file="" data-show-remove="false" />
               </div>              

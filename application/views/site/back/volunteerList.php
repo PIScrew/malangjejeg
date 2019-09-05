@@ -19,6 +19,9 @@
 					</div>
 					<?php endif;?>
 					<div class="table-responsive">
+                        <div class="mb-4 text-right">
+                            <a href="<?= base_url('admin/Volunteer/addVolunteer');?>"><button type="button" class="btn btn-primary btn-rounded"><i class="mdi mdi-open-in-new"></i> Tambah Volunteer</button></a>
+                        </div>
 						<table id="listProduct" class="table table-striped" style="width:100%">
 							<thead>
 								<tr>
@@ -27,7 +30,7 @@
 									<th>NIK</th>
 									<th>Telepon</th>
                                     <th>Alamat</th>
-									<th>Aksi</th>
+									<!-- <th>Aksi</th> -->
 								</tr>
 							</thead>
 							<tbody>
@@ -42,7 +45,7 @@
                     <td><?= $v['address']?></td>
                    
                     <!-- <td>
-                      <a href="<?php echo base_url('admin/volunteer/editVolunteer/'.$p['id'])?>">
+                      <a href="<?php echo base_url('admin/volunteer/editVolunteer/'.$v['id'])?>">
 					  <button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>
                       <button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button" data-id="<?= $p['id']?>" data-dir="<?php echo base_url('admin/Volunteer/del_volunteer/')?>"><i class="fas fa-trash-alt"></i></button>
                     </td> -->
