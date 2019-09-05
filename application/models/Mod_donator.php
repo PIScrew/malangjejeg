@@ -22,22 +22,21 @@ class Mod_donator extends CI_Model {
 //   }
   public function getDonatorByid($id)
   {
-      $this->db->where('id', $id);
+      $this->db->where('id_donator', $id);
       $this->db->limit(1);
       return $this->db->get($this->donator); 
   }
-  public function update($data,$id){
+  public function update($id,$data){
     $this->db->set($data);
-    $this->db->where('id', $id);
+    $this->db->where('id_donator', $id);
     $this->db->update($this->donator);
   }
   public function create($data){
     $this->db->insert($this->donator, $data);
   }
   public function delete($id){
-    $this->db->set('deleted_at',date('Y-m-d H:m:s'));
-    $this->db->where('id', $id);
-    $this->db->update($this->donator);
+    $this->db->where('id_donator', $id);
+    return $this->db->delete($this->donator);
   }
 }
 

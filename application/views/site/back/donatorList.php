@@ -20,7 +20,7 @@
 					<?php endif;?>
 					<div class="table-responsive">
                         <div class="mb-4 text-right">
-                            <a href="<?= base_url('admin/Donator/create');?>"><button type="button" class="btn btn-primary btn-rounded"><i class="mdi mdi-open-in-new"></i> Tambah Donatur</button></a>
+                            <a href="<?= base_url('admin/Donator/addDonator');?>"><button type="button" class="btn btn-primary btn-rounded"><i class="mdi mdi-open-in-new"></i> Tambah Donatur</button></a>
                         </div>
 						<table id="listProduct" class="table table-striped" style="width:100%">
 							<thead>
@@ -39,11 +39,11 @@
                     <td><?= $no?></td>
                     <td><?= $d['donatur_name']?></td>
                     <td><?= $d['nominal']?></td>
-                    <!-- <td>
-                      <a href="<?php echo base_url('admin/volunteer/editVolunteer/'.$p['id'])?>">
+                    <td>
+                      <a href="<?php echo base_url('admin/Donator/editDonator/'.$d['id_donator'])?>">
 					  <button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>
-                      <button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button" data-id="<?= $p['id']?>" data-dir="<?php echo base_url('admin/Volunteer/del_volunteer/')?>"><i class="fas fa-trash-alt"></i></button>
-                    </td> -->
+                      <button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button" data-id="<?= $d['id_donator']?>" data-dir="<?php echo base_url('admin/Donator/deleted/')?>"><i class="fas fa-trash-alt"></i></button>
+                    </td>
                 </tr>                
               <?php
               $no++; 
