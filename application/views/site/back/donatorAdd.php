@@ -19,13 +19,13 @@
             <div class="form-group row p-b-15">
               <label for="inputEmail3" class="col-sm-3 text-right control-label col-form-label">Nama Donatur</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" name="donatur_name" id="inputEmail3" placeholder="Host" value="<?php if($isEdit) echo $d['donatur_name'];?>" >
+                <input type="text" class="form-control" name="donatur_name" id="inputEmail3" placeholder="Masukkan Nama" value="<?php if($isEdit) echo $d['donatur_name'];?>" >
               </div>
             </div>
             <div class="form-group row p-b-15">
               <label for="inputEmail3" class="col-sm-3 text-right control-label col-form-label">Nominal</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" name="nominal" id="inputEmail3" placeholder="Host" value="<?php if($isEdit) echo $d['nominal'];?>">
+              <input type="text" class="form-control" name="nominal" id="inputEmail3" placeholder="Masukkan Nominal" value="<?php if($isEdit) echo $d['nominal'];?>">
               </div>
             </div>
           </div>

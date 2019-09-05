@@ -6,7 +6,7 @@ class index extends PIS_Controller
   public function __construct()
   {
     parent::__construct();
-    // $this->checkLogin();
+    //$this->checkLogin();
     $this->load->model('Mod_user','user');
     // $this->load->model('Mod_site','site');
   }
@@ -51,7 +51,7 @@ class index extends PIS_Controller
               'role'      => $apps->id_role
             ); 
             $this->session->set_userdata($user_data); 
-            $this->user->lastLogin($apps->username);
+            //$this->user->lastLogin($apps->username);
             redirect(base_url('admin/dashboard'));
           } 
         } else { 

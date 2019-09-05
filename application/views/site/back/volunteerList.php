@@ -30,7 +30,7 @@
 									<th>NIK</th>
 									<th>Telepon</th>
                                     <th>Alamat</th>
-									<th>Aksi</th>
+									<!-- <th>Aksi</th> -->
 								</tr>
 							</thead>
 							<tbody>
@@ -44,11 +44,11 @@
                     <td><?= $v['phone']?></td>
                     <td><?= $v['address']?></td>
                    
-                    <td>
+                    <!-- <td>
                       <a href="<?php echo base_url('admin/volunteer/editVolunteer/'.$v['id'])?>">
 					  <button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>
                       <button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button" data-id="<?= $p['id']?>" data-dir="<?php echo base_url('admin/Volunteer/del_volunteer/')?>"><i class="fas fa-trash-alt"></i></button>
-                    </td>
+                    </td> -->
                 </tr>                
               <?php
               $no++; 
