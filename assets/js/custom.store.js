@@ -1,4 +1,5 @@
-var codepage = $(".section").attr('data-codepage');
+var codepage = $(".container-fluid").attr('data-codepage');
+
 if (codepage == "category") {
   $('.wishlist').on('click', function() {
     var id_wishlist=$(this).attr('data-id');

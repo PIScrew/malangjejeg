@@ -5,7 +5,8 @@ class PIS_Controller extends CI_Controller {
 
   public function __construct()
     {
-        parent::__construct();        
+        parent::__construct();
+        $this->load->library('upload');           
         $this->load->model('Mod_notification','notification');
         $this->load->model('Mod_system','system');        
         $this->load->model('Mod_category','category');
@@ -15,14 +16,26 @@ class PIS_Controller extends CI_Controller {
         
         //load category
         $data['category'] = $this->category->getCategoryAll()->result_array();
+        $id_site = $this->site_id();
         // system
-        $data['system']   = $this->system->getSiteData()->row_array();
+        $data['system']   = $this->system->getSiteData($id_site)->row_array();
         $this->load->vars($data);
     }
+
+  function site_id(){
+    $dir = $this->router->fetch_directory();
+    if($dir == "front/"){
+      return 1;  
+    } else if($dir == "store/"){
+      return 2;
+    } else if($dir == "admin/"){
+      return 3;
+    }
+  }
     public function getSystem(){
       $data   = $this->system->getData()->row_array();
       return $data;
-  }
+    }
     public function send_notification_member($id_user,$desc,$id_transaction,$id_ticket,$id_comment,$id_review){
       $data=array(
         'id_user'       => $id_user,

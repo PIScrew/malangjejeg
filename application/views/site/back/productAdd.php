@@ -18,7 +18,7 @@
                   <label for="productname" class="control-label col-form-label">Nama produk<span
                       class="text-danger">*</span></label>
                       <?php if($isEdit) {?>
-                      <input type="hidden" class="form-control" name="id" id="id" required value="<?php if($isEdit) echo $pr['id_produk'] ?>" >    
+                      <input type="hidden" class="form-control" name="id" id="id" required value="<?php if($isEdit) echo $pr['id'] ?>" >    
                       <?php } ?>
                   <input type="text" class="form-control" name="title_product" id="title_product" required value="<?php if($isEdit) echo $pr['title_product'] ?>" >
                 </div>
@@ -58,11 +58,34 @@
                 <div class="form-group">
                   <label class="control-label col-form-label" for="productcategory">Satuan<span
                       class="text-danger">*</span></label>
-                      <select class="custom-select form-control" name="measurement" required>
-                          <?php foreach($measurement as $ca){?>
-											      <option value="<?php echo $ca['id'] ?>" ><?php echo $ca['title']; ?></option>
-										      <?php }?>
-                      </select>
+                  <select name="measurement" class="custom-select form-control">
+                    <?php foreach($measurement as $s){
+										if($s['type']==""){ ?>
+											<option value="<?php echo $s['id'] ?>" ><?php echo $s['title']; ?></option>
+										<?php }
+											} ?>
+										<optgroup label="Berat">
+											<?php foreach($measurement as $s){
+												if($s['type']=="Berat"){ ?>
+														<option value="<?php echo $s['id'] ?>"><?php echo $s['title']; ?></option>
+												<?php }
+													} ?>
+										</optgroup>
+										<optgroup label="Volume">
+											<?php foreach($measurement as $s){
+												if($s['type']=="Volume"){ ?>
+														<option value="<?php echo $s['id'] ?>" ><?php echo $s['title']; ?></option>
+												<?php }
+													} ?>
+										</optgroup>
+										<optgroup label="Panjang">
+											<?php foreach($measurement as $s){
+												if($s['type']=="Panjang"){ ?>
+														<option value="<?php echo $s['id'] ?>" ><?php echo $s['title']; ?></option>
+												<?php }
+													} ?>
+										</optgroup>
+                  </select>
                 </div>
               </div>
               <!-- End Satuan -->

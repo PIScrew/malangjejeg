@@ -207,7 +207,7 @@ class Product extends PIS_Controller {
     $data['product']      = $this->product->getListDraftProduct()->result_array();
     $id = $_SESSION['id'];
     $data['image']    = $this->user->getImage($id)->result_array();
-    $this->template->back_views('site/back/productList',$data);
+    $this->template->admin_views('site/back/productList',$data);
   }
   // Dellete Product
   public function del_product($id)

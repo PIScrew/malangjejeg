@@ -6,8 +6,6 @@ class Mod_system extends CI_Model {
   protected $site             = 'mj_sites';
   protected $site_address     = 'mj_site_addresses';
   
-  // protected $site             = 'em_sites';
-  // protected $site_address     = 'em_site_addresses';
   protected $site_conf        = 'mj_site_confs';
   protected $site_img_default = 'mj_site_img_defaults';
   protected $site_bank        = 'mj_site_banks';
@@ -16,21 +14,22 @@ class Mod_system extends CI_Model {
   protected $site_visitor        = 'mj_site_visitors';
   protected $homepage         = 'mj_site_homepages';
 
-  // public function getSite()
+  // public function getSite($id)
   // {
   //   $this->db->select('*');
   //   $this->db->from($this->site);
-  //   $this->db->order_by('id_site', 'asc');
-  //   $this->db->where('id', 1 );
+  //   // $this->db->order_by('id_site', 'asc');
+  //   $this->db->where('id', $id );
   //   return $this->db->get();
   // }
-  public function getSiteData()
+
+  public function getSiteData($id)
   {
-    $this->db->select($this->site.'.*,'.$this->site_address.'.*');
-    $this->db->from($this->site);
-    $this->db->join($this->site_address, $this->site_address.'.id = '.$this->site.'.id');
-    $this->db->order_by($this->site.'.id', 'desc');
-    $this->db->limit(1); 
+    $this->db->select('*');
+    $this->db->from($this->site.' s');
+    $this->db->join($this->site_address.' sa', 's.id = sa.id', 'left');
+    $this->db->where('s.id',$id);
+    // $this->db->limit(1); 
     return $this->db->get();
   }
   public function setAddress($data){

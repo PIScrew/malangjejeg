@@ -11,7 +11,10 @@ class Template {
    
     function __construct() {
         $this->_ci = &get_instance();
-        $this->_ci->load->model('Mod_notification','notif');      
+        $this->_ci->load->model('Mod_notification','notif');
+        $this->_ci->load->model('Mod_guest','guest');
+        $this->_ci->load->model('Mod_cart','mcart');
+
     }
     function admin_views( $template = NULL, $data = NULL ) {
         if( $template != NULL )
@@ -54,17 +57,23 @@ class Template {
         echo $data['_template']  = $this->_ci->load->view('layouts/front/template', $data, TRUE);
     }
     
-    function store_views( $template = NULL, $data = NULL ) {
-        if( $template != NULL )
-        $data['_head']      = $this->_ci->load->view('layouts/store/_head', $data, TRUE);
-        $data['_css']       = $this->_ci->load->view('layouts/store/_css', $data, TRUE);
-        $data['_header']    = $this->_ci->load->view('layouts/store/_header', $data, TRUE);
-        $data['_sidebar']   = $this->_ci->load->view('layouts/store/_sidebar', $data, TRUE);
-        $data['_body']      = $this->_ci->load->view($template, $data, TRUE);
-        $data['_cart']      = $this->_ci->load->view('layouts/store/_cart', $data, TRUE);
-        $data['_footer']    = $this->_ci->load->view('layouts/store/_footer', $data, TRUE);
-        $data['_js']        = $this->_ci->load->view('layouts/store/_js', $data, TRUE);
-        echo $data['_template']  = $this->_ci->load->view('layouts/store/_template', $data, TRUE);
+    function store_views($template = null, $data = null)
+    {
+        (!isset($_COOKIE['id_guest'])?$this->_ci->guest->generate_guest():$this->_ci->guest->last_active_guest());
+        
+        if ($template != null) {
+            $data['cart']       = $this->_ci->mcart->getListCart()->result();
+
+            $data['_head']      = $this->_ci->load->view('layouts/store/_head', $data, true);
+            $data['_css']       = $this->_ci->load->view('layouts/store/_css', $data, true);
+            $data['_header']    = $this->_ci->load->view('layouts/store/_header', $data, true);
+            $data['_sidebar']   = $this->_ci->load->view('layouts/store/_sidebar', $data, true);
+            $data['_body']      = $this->_ci->load->view($template, $data, true);
+            $data['_cart']      = $this->_ci->load->view('layouts/store/_cart', $data, true);
+            $data['_footer']    = $this->_ci->load->view('layouts/store/_footer', $data, true);
+            $data['_js']        = $this->_ci->load->view('layouts/store/_js', $data, true);
+            echo $data['_template']  = $this->_ci->load->view('layouts/store/_template', $data, true);
+        }
     }
 }
 ?>

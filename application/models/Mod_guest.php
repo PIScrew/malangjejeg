@@ -5,19 +5,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Mod_guest extends CI_Model {
 
 	protected $guest = 'mj_guest';
+
     function generate_guest(){
 			$this->load->library('user_agent');
     	$string= $this->generateRandomString(25);
-			$timestamp= date("Y-m-d h:i:s");
+			$timestamp= date(DATE_ATOM, time()+(7*60*60));
 			$browser =$this->agent->browser();
 			$ip 		=$this->input->ip_address();
+
     	$insert=$this->db->query("insert into $this->guest (unique_text,created_at,browser,ip) values ('$string','$timestamp','$browser','$ip')");
     	if ($insert) {
     		$guest=$this->db->query("select * from $this->guest where unique_text='$string' and created_at='$timestamp'")->result_array();
     		setcookie("id_guest",$guest[0]['id_guest'],0);
-    	}
+			}
         return $guest[0]['id_guest'];	
 	}
+
+		function last_active_guest(){
+
+			$date = date(DATE_ATOM, time()+(7*60*60));
+			$this->db->set('last_active', $date);
+			$this->db->where('id_guest',$_COOKIE['id_guest']);
+			return $this->db->update($this->guest);
+		}
+
 	// getGrafik Visitor
 	public function getChartVisitor()
 	{

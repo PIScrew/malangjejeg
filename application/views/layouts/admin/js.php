@@ -2,6 +2,7 @@
 <script src="<?php echo vendor_url('plugins/popper/popper.min.js'); ?>"></script>
 <script src="<?php echo vendor_url('plugins/bootstrap/bootstrap.min.js'); ?>"></script>
 <script src="<?php echo vendor_url('plugins/sweetalert/sweetalert.min.js')?>"></script>
+<script src="<?php echo vendor_url('plugins/dropzone/dropzone.min.js') ?>"></script>
 
 <?php if (@$codepage == "back_login") :?>
  <!-- ============================================================== -->
@@ -29,6 +30,7 @@
   @$codepage == "profile" ||
   @$codepage == "detail_profile" ||
   @$codepage == "back_addProduct" ||
+  @$codepage == "add_hero" ||
   @$codepage == "list_category" ||
   @$codepage == "back_setting"||
   @$codepage == "back_slider" ||
@@ -41,6 +43,7 @@
   @$codepage == "back_setHomePage"||
   @$codepage == "back_setOngkir"||
   @$codepage == "back_category" ||
+  @$codepage == "back_hero" ||
   @$codepage == "set_address" || 
   @$codepage == "back_category_detail" ||
   @$codepage == "back_slider_detail" ||
@@ -85,3 +88,24 @@
   <?php endif;?>
   <script src="<?php echo assets_url('js','custom.back.js'); ?>"></script>
 <?php endif;?>
+
+<?php if (@$codepage =="back_hero"):?>
+
+    <!-- <script src="<?php echo vendor_url('plugins/dropzone/dropzone.min.js') ?>"></script> -->
+    <script src="<?php echo vendor_url('plugins/dropzone/dropzone.js') ?>"></script>
+    <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
+    <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>
+
+
+    <!-- charts -->
+    <script src="<?php echo vendor_url('plugins/chartist/chartist.min.js'); ?>"></script>
+    <script src="<?php echo vendor_url('plugins/chartist/chartist-plugin-tooltip.min.js');?>"></script>
+    <!-- End charts -->
+    <!-- Ci3 -->
+    <script src="<?php echo vendor_url('plugins/c3/c3.min.js'); ?>"></script>
+    <script src="<?php echo vendor_url('plugins/c3/d3.min.js'); ?>"></script>
+    <!-- End charts -->
+    <script src="<?php echo vendor_url('back/js/dashboard3.js'); ?>"></script>
+    <script src="<?php echo vendor_url('plugins/datatables/datatables.min.js') ?>"></script>
+    <script src="<?php echo vendor_url('plugins/datatables/dataTables.responsive.js') ?>"></script>
+    <?php endif;?>
