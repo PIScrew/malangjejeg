@@ -91,10 +91,14 @@
 
 <?php if (@$codepage =="back_hero"):?>
 
-    <!-- <script src="<?php echo vendor_url('plugins/dropzone/dropzone.min.js') ?>"></script> -->
+    <script src="<?php echo vendor_url('plugins/dropzone/dropzone.min.js') ?>"></script>
     <script src="<?php echo vendor_url('plugins/dropzone/dropzone.js') ?>"></script>
     <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
     <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>
+    <script src="<?php echo vendor_url('plugins/repeater/repeater.js') ?>"></script>
+    <script src="<?php echo vendor_url('plugins/repeater/repeater.min.js') ?>"></script>
+
+
 
 
     <!-- charts -->

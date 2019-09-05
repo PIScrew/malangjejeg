@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="<?php echo vendor_url('plugins/dropify/dropify.min.css') ?>">
   <link rel="stylesheet" href="<?php echo vendor_url('plugins/summernote/summernote-bs4.css') ?>">
   <link rel="stylesheet" href="<?php echo vendor_url('plugins/dropzone/dropzone.css') ?>">
-  <!-- <link rel="stylesheet" href="<?php echo vendor_url('plugins/dropzone/dropzone.min.css') ?>"> -->
+  <link rel="stylesheet" href="<?php echo vendor_url('plugins/dropzone/dropzone.min.css') ?>">
   <link rel="stylesheet" href="<?php echo vendor_url('plugins/bootstrapswitch/bootstrap-switch.min.css') ?>">
 
 

@@ -1081,7 +1081,7 @@ else if(codepage == "back_hero"){
 		});
 		var drDestroy = $('#input-file-to-destroy').dropify();
 		drDestroy = drDestroy.data('dropify')
-	
+	});
 
 	$('#listProduct').on("click",'.del-product',function () {
 		var id = $(this).attr('data-id');
@@ -1185,5 +1185,29 @@ else if(codepage == "back_hero"){
 		addRemoveLinks: true,
 		autoProcessQueue:true
 	});
-});
+
+	//Repeat Form
+	$(document).ready(function(){
+
+        $("#repeater").createRepeater();
+
+        $('#repeater_form').on('submit', function(event){
+            event.preventDefault();
+            $.ajax({
+                url:"insert.php",
+                method:"POST",
+                data:$(this).serialize(),
+                success:function(data)
+                {
+                    $('#repeater_form')[0].reset();
+                    $("#repeater").createRepeater();
+                    $('#success_result').html(data);
+                    /*setInterval(function(){
+                        location.reload();
+                    }, 3000);*/
+                }
+            });
+        });
+
+    });
 }

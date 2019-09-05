@@ -36,7 +36,7 @@
               foreach ($galery as $g):?>
                 <tr>
                     <td><?= $no?></td>
-					td><?= $g['title']?></td>
+					<td><?= $g['title']?></td>
                     <td><img src="<?= img_url($g['img_path'])?>" alt="user" class="img-tumbnail" width="100"/></td>
                     <td><?= $g['desc']?></td>
                     <td><?= $g['created_at']?></td>
