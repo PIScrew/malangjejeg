@@ -7,26 +7,28 @@
 
     	<div class="col-sm-12 col-md-8">
                 <div class="form-group">
+                  <label for="title" class="control-label col-form-label">Judul<span
+                      class="text-danger">*</span></label>
+                      <input type="text" placeholder="Judul" name="title"  class="form-control form-control-line" value="<?= $galery['title']?>">
+                </div>
+              </div>
+      
+      <div class="col-sm-12 col-md-8">
+                <div class="form-group">
                   <label for="img_path" class="control-label col-form-label">Image<span
                       class="text-danger">*</span></label>
                       <input type="file"  placeholder="Image"   class="form-control form-control-line" name="img_path" value="<?= $galery['img_path'] ?> ">
                 
                 </div>
               </div>
-			  <div class="col-sm-12 col-md-8">
+              <div class="col-sm-12 col-md-8">
                 <div class="form-group">
                   <label for="desc" class="control-label col-form-label">Description<span
                       class="text-danger">*</span></label>
-                      <input type="text" placeholder="Description" name="desc"  class="form-control form-control-line" value="<?= $galery['desc']?>">
+                      <textarea rows="4"  class="form-control" name="desc" id="desc"  required ><?php echo htmlspecialchars($galery['desc']); ?></textarea>
                 </div>
               </div>
-              <div class="col-sm-12 col-md-8">
-                <div class="form-group">
-                  <label for="updated_at" class="control-label col-form-label">Updated at<span
-                      class="text-danger">*</span></label>
-                      <input type="date" placeholder="Updated At" name="updated_at"  class="form-control form-control-line" value="<?= $galery['updated_at']?>">
-                </div>
-              </div>
+             
 			  
 					<div class="form-group text-right">
 						<button class="btn btn-danger btn-sm waves-effect waves-light" type="submit" name="submit"><span

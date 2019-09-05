@@ -13,30 +13,22 @@
                 </div>
               </div>
             
-            <div class="col-sm-12 col-md-8">
-                <div class="form-group">
-                  <label for="img_path" class="control-label col-form-label">Image<span
-                      class="text-danger">*</span></label>
-                  <input type="file" class="form-control" name="img_path" id="img_path" required >
-                
+              <div class="col-md-12" col-md-8>
+                <div class="form-group">               
+                  <label for="productpicture" class="control-label col-form-label">Image Content</label><br>
+                  <input type="file" id="input-file-events" name="img_path" class="dropify" data-default-file=""  data-show-remove="false" />
                 </div>
               </div>
+
               <div class="col-sm-12 col-md-8">
                 <div class="form-group">
                   <label for="content" class="control-label col-form-label">Content<span
                       class="text-danger">*</span></label>
-                  <input type="text" class="form-control" name="content" id="content" required>
+                      <textarea rows="4"  class="form-control" name="content" id="content" required> </textarea>
                 </div>
               </div>
 			  
-              <div class="col-sm-12 col-md-8">
-                <div class="form-group">
-                  <label for="created_at" class="control-label col-form-label">Created At<span
-                      class="text-danger">*</span></label>
-                  <input type="date" class="form-control" name="created_at" id="created_at" required>
-                </div>
-              </div>
-              
+             
                   
 					<div class="form-group text-right">
 						<button class="btn btn-danger btn-sm waves-effect waves-light" type="submit" name="submit"><span

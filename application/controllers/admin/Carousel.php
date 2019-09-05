@@ -41,14 +41,15 @@ class Carousel extends PIS_Controller {
       $config['upload_path']='./assets/img/content/carousel/';
       $config['allowed_types']='jpg|png|ico';
       $config['encrypt_name'] = TRUE;
-      $this->load->library('upload',$config);
+      $this->load->library('upload');
+      $this->upload->initialize($config);
+      if(!empty($_FILES['img_path']['name'])){
       if($this->upload->do_upload('img_path'))
       {
           $img='img/content/carousel/';
           $img.=  $this->upload->data('file_name');
       }
      $data = array(
-       'id_carousel_figure'       => $_POST['id_carousel_figure'],
        'img_path'                 => @$img ,
        'text'                     => $_POST['text'] ,
        'figure_name'              => $_POST['figure_name'] ,
@@ -57,6 +58,7 @@ class Carousel extends PIS_Controller {
     );
 
     $data = $this->carousel->createCarousel($data);
+  }
     redirect(base_url('admin/Carousel/index'));
 
     }

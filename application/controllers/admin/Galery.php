@@ -47,6 +47,7 @@ class Galery extends PIS_Controller {
       }
      $data = array(
        'id_galery'                => $_POST['id_galery'],
+       'title'                    => $_POST['title'],
        'img_path'                 => @$img ,
        'desc'                     => $_POST['desc'] ,
        'created_at'               => date('Y-m-j H:i:s'),

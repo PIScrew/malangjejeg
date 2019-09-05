@@ -24,13 +24,7 @@
                   <input type="text" class="form-control" name="text" id="text" required>
                 </div>
               </div>
-              <div class="col-sm-12 col-md-8">
-                <div class="form-group">
-                  <label for="created_at" class="control-label col-form-label">Created At<span
-                      class="text-danger">*</span></label>
-                  <input type="date" class="form-control" name="created_at" id="created_at" required>
-                </div>
-              </div>
+              
 			 
                   
 					<div class="form-group text-right">

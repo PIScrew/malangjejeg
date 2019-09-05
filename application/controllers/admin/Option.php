@@ -37,14 +37,16 @@ class Option extends PIS_Controller {
       $config['upload_path']='./assets/img/content/option/';
       $config['allowed_types']='jpg|png|ico';
       $config['encrypt_name'] = TRUE;
-      $this->load->library('upload',$config);
+      $this->load->library('upload');
+      $this->upload->initialize($config);
+      if(!empty($_FILES['img_path']['name'])){
       if($this->upload->do_upload('img_path'))
       {
           $img='img/content/option/';
           $img.=  $this->upload->data('file_name');
       }
      $data = array(
-       'id'                       => $_POST['id'],
+       
        'title'                    => $_POST['title'] ,
        'img_path'                 => @$img ,
        'content'                  => $_POST['content'] ,
@@ -52,6 +54,7 @@ class Option extends PIS_Controller {
     );
 
     $data = $this->option->createOption($data);
+  }
     redirect(base_url('admin/Option/index'));
 
     }

@@ -19,31 +19,40 @@
 					</div>
 					<?php endif;?>
 					<div class="table-responsive">
-						<table id="listGalery" class="table table-striped" style="width:100%">
+						<table id="listProduct" class="table table-striped" style="width:100%">
 							<thead>
 								<tr>
 									<th></th>
-									<th>Nama Kegiatan</th>
+									<th>Judul Berita</th>
 									<th width="50%" >Image </th>
-									<th>Description</th>
-                                    <th>Video</th>
-                                    
+                                    <th>Date & Time </th>
+                                    <th>Content</th>
+									<th>Link Berita</th>
+                                    <th>Created By</th>
+
 								</tr>
 							</thead>
 							<tbody>
               <?php
               $no = 1;
-              foreach ($galery as $g):?>
+              foreach ($news as $n):?>
                 <tr>
                     <td><?= $no?></td>
-					td><?= $g['title']?></td>
-                    <td><img src="<?= img_url($g['img_path'])?>" alt="user" class="img-tumbnail" width="100"/></td>
-                    <td><?= $g['desc']?></td>
-                    <td><?= $g['created_at']?></td>
+                    <td><?= $n['news_title']?></td>
+                    <td><img src="<?= img_url($n['news_img'])?>" alt="user" class="img-tumbnail" width="100"/></td>
+                    <td><?= $n['created_at']?></td>
+                    <td><?= $n['news_content']?></td>
+					<td><?= $n['news_url']?></td>
+                    <td><?php 
+                    if($n['created_by']==0){
+                         echo "None";
+                        }
+                         else {echo "Superadmin";}; ?></td>
+
                     <td>
                       
-                      <a href="<?php echo base_url('admin/galery/editGalery/'.$g['id_galery'])?>"><button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>
-					  <a href="<?php echo base_url('admin/galery/deleteGalery/'.$g['id_galery'])?>"><button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button"><i class="fas fa-trash-alt"></i></button></a>
+                      <a href="<?php echo base_url('admin/news/editNews/'.$n['id_news'])?>"><button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>
+					  <a href="<?php echo base_url('admin/news/deleteNews/'.$n['id_news'])?>"><button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button"><i class="fas fa-trash-alt"></i></button></a>
                     </td>
                 </tr>                
               <?php

@@ -27,6 +27,7 @@
 									<th width="50%" >Image </th>
                                     <th>Content</th>
                                     <th>Created At</th>
+									<th>Updated At</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -39,6 +40,8 @@
                     <td><img src="<?= img_url($o['img_path'])?>" alt="user" class="img-tumbnail" width="100"/></td>
                     <td><?= $o['content']?></td>
                     <td><?= $o['created_at']?></td>
+					<td><?= $o['updated_at']?></td>
+
                     <td>
                       
                       <a href="<?php echo base_url('admin/option/editOption/'.$o['id'])?>"><button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>

@@ -12,13 +12,7 @@
                 
                 </div>
               </div>
-			  <div class="col-sm-12 col-md-8">
-                <div class="form-group">
-                  <label for="updated_at" class="control-label col-form-label">Updated At<span
-                      class="text-danger">*</span></label>
-                      <input type="date" placeholder="Update At" name="updated_at"  class="form-control form-control-line" value="<?= $youtube['updated_at']?>">
-                </div>
-              </div>
+			  
 			  
 					<div class="form-group text-right">
 						<button class="btn btn-danger btn-sm waves-effect waves-light" type="submit" name="submit"><span

@@ -24,17 +24,11 @@
                 <div class="form-group">
                   <label for="content" class="control-label col-form-label">Content<span
                       class="text-danger">*</span></label>
-                      <input type="text" placeholder="Content" name="content"  class="form-control form-control-line" value="<?= $option['content']?>">
+                      <textarea rows="4"  class="form-control" name="content" id="content"  required ><?php echo htmlspecialchars($option['content']); ?></textarea>
                 </div>
               </div>
 			  
-              <div class="col-sm-12 col-md-8">
-                <div class="form-group">
-                  <label for="updated_at" class="control-label col-form-label">Updated at<span
-                      class="text-danger">*</span></label>
-                      <input type="date" placeholder="Updated At" name="updated_at"  class="form-control form-control-line" value="<?= $option['updated_at']?>">
-                </div>
-              </div>
+              
 			  
 					<div class="form-group text-right">
 						<button class="btn btn-danger btn-sm waves-effect waves-light" type="submit" name="submit"><span

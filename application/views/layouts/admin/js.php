@@ -88,3 +88,24 @@
   <?php endif;?>
   <script src="<?php echo assets_url('js','custom.back.js'); ?>"></script>
 <?php endif;?>
+
+<?php if (@$codepage =="back_hero"):?>
+
+    <!-- <script src="<?php echo vendor_url('plugins/dropzone/dropzone.min.js') ?>"></script> -->
+    <script src="<?php echo vendor_url('plugins/dropzone/dropzone.js') ?>"></script>
+    <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
+    <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>
+
+
+    <!-- charts -->
+    <script src="<?php echo vendor_url('plugins/chartist/chartist.min.js'); ?>"></script>
+    <script src="<?php echo vendor_url('plugins/chartist/chartist-plugin-tooltip.min.js');?>"></script>
+    <!-- End charts -->
+    <!-- Ci3 -->
+    <script src="<?php echo vendor_url('plugins/c3/c3.min.js'); ?>"></script>
+    <script src="<?php echo vendor_url('plugins/c3/d3.min.js'); ?>"></script>
+    <!-- End charts -->
+    <script src="<?php echo vendor_url('back/js/dashboard3.js'); ?>"></script>
+    <script src="<?php echo vendor_url('plugins/datatables/datatables.min.js') ?>"></script>
+    <script src="<?php echo vendor_url('plugins/datatables/dataTables.responsive.js') ?>"></script>
+    <?php endif;?>

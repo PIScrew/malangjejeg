@@ -1081,7 +1081,7 @@ else if(codepage == "back_hero"){
 		});
 		var drDestroy = $('#input-file-to-destroy').dropify();
 		drDestroy = drDestroy.data('dropify')
-	});
+	
 
 	$('#listProduct').on("click",'.del-product',function () {
 		var id = $(this).attr('data-id');
@@ -1125,4 +1125,65 @@ else if(codepage == "back_hero"){
 			}
 		});
 	});
+
+	//SummerNote JS Add Hero
+	$(document).ready(function(){
+		$('#description').summernote({
+			height: "300px",
+			callbacks: {
+				onImageUpload: function(image) {
+					uploadImage(image[0]);
+				},
+				onMediaDelete : function(target) {
+					deleteImage(target[0].src);
+				}
+			}
+		});
+		function uploadImage(image) {
+			var data = new FormData();
+			data.append("image", image);
+			$.ajax({
+				url: "<?php echo site_url('admin/Product/upload_image')?>",
+				cache: false,
+				contentType: false,
+				processData: false,
+				data: data,
+				type: "POST",
+				success: function(url) {
+					$('#description').summernote("insertImage", url);
+				},
+				error: function(data) {
+					console.log(data);
+				}
+			});
+		}
+		function deleteImage(src) {
+			$.ajax({
+				data: {src : src},
+				type: "POST",
+				url: "<?php echo site_url('admin/Product/delete_image')?>",
+				cache: false,
+				success: function(response) {
+					console.log(response);
+				}
+			});
+		}
+	});
+
+	//Dropzone
+	var url_upload = $('#myDropzone').attr('data-url');
+	$('#myDropzone').empty();
+	Dropzone.autoDiscover = false;
+	var product = new Dropzone(".dropzone", {
+		url: url_upload,
+		maxFilesize: 20,
+		method: "post",
+		acceptedFiles: "image/*",
+		paramName: "userfile",
+		parallelUploads:100,
+		dictInvalidFileType: "Type file ini tidak dizinkan",
+		addRemoveLinks: true,
+		autoProcessQueue:true
+	});
+});
 }
