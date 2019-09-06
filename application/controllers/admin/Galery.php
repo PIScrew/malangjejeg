@@ -20,15 +20,16 @@ class Galery extends PIS_Controller {
 
   public function index()
   {
-    $data['codepage']     = "back_hero";
+    $data['codepage']     = "back_galery";
+    $data['subpage']      = "index";
     $data['page_title']   = 'Galery';
     $data['galery']       = $this->galery->getGaleryAll()->result_array();
     $this->template->admin_views('site/back/galeryList',$data);    
   }
   public function addGalery(){
-    $data['codepage']       = "back_hero";
-    //$data['subpage']       = "add_product";
-    $data['page_title'] 	= 'Tambah Galery';
+    $data['codepage']       = "back_galery";
+    $data['subpage']        = "add_galery";
+    $data['page_title'] 	  = 'Tambah Galery';
     $data['galery']         = $this->galery->getGaleryAll()->result_array();
   
     if(isset($_POST['submit'])){
@@ -58,16 +59,17 @@ class Galery extends PIS_Controller {
 }
 
   public function formAddGalery(){
-    $data['codepage']     = "back_hero";
-    //$data['codepage']       = "back_addProduct";
-    //$data['subpage']       = "add_product";
+    $data['codepage']     = "back_galery";
+    $data['subpage']      = "add_galery";
+   
     $data['page_title'] 	= 'Add Galery';
     $this->template->admin_views('site/back/galeryAdd',$data);
 
   }
 
   public function listGalery(){
-    $data['codepage']     = "back_hero";
+    $data['codepage']     = "back_galery";
+    $data['subpage']      = "list_galery";
     $data['page_title'] 	= 'List Galery';
     $data['galery']      = $this->carousel->getGaleryAll()->result_array();
     $this->template->admin_views('site/back/galeryList',$data);

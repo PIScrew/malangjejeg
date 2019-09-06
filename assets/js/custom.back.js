@@ -1,21 +1,24 @@
 var codepage = $(".container-fluid").attr('data-codepage');
 var subpage = $(".container-fluid").attr('data-subpage');
-$(document).ready(function(){
+
+$(document).ready(function () {
 	setInterval(count_notif, 500);
 })
+
 function count_notif() {
 	$.ajax({
-		type:'POST',
-		url: location.origin+"/Notification/count",
-		'dataType':'json',
-		success: function(data){
+		type: 'POST',
+		url: location.origin + "/Notification/count",
+		'dataType': 'json',
+		success: function (data) {
 			$('#notif-b ').text(data);
 		}
 	});
 }
 
+// begin product
 if (codepage == "back_product") {
-	if (subpage == "list_product"){
+	if (subpage == "list_product") {
 		//List Product
 		var produk = $('#listProduct').DataTable({
 			responsive: true,
@@ -32,9 +35,9 @@ if (codepage == "back_product") {
 		$("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
 			produk.responsive.recalc();
 		});
-		
+
 		// ban product
-		$('#listProduct').on("click",'.ban-product',function () {
+		$('#listProduct').on("click", '.ban-product', function () {
 			var id = $(this).attr('data-id');
 			var dir = $(this).attr('data-dir');
 			var _url = dir + id;
@@ -80,7 +83,7 @@ if (codepage == "back_product") {
 		});
 		// end ban product
 		// unban product
-		$('#listProduct').on("click",'.unban-product',function () {
+		$('#listProduct').on("click", '.unban-product', function () {
 			var id = $(this).attr('data-id');
 			var dir = $(this).attr('data-dir');
 			var _url = dir + id;
@@ -127,7 +130,7 @@ if (codepage == "back_product") {
 		// end unban product
 
 		// delete product
-		$('#listProduct').on("click",'.del-product',function () {
+		$('#listProduct').on("click", '.del-product', function () {
 			var id = $(this).attr('data-id');
 			var dir = $(this).attr('data-dir');
 			var _url = dir + id;
@@ -168,9 +171,9 @@ if (codepage == "back_product") {
 					swal("Cancelled", "", "error");
 				}
 			});
-			});
-		}
-	
+		});
+	}
+
 	var url_upload = $('#myDropzone').attr('data-url');
 	$('#myDropzone').empty();
 	Dropzone.autoDiscover = false;
@@ -180,10 +183,10 @@ if (codepage == "back_product") {
 		method: "post",
 		acceptedFiles: "image/*",
 		paramName: "userfile",
-		parallelUploads:100,
+		parallelUploads: 100,
 		dictInvalidFileType: "Type file ini tidak dizinkan",
 		addRemoveLinks: true,
-		autoProcessQueue:true
+		autoProcessQueue: true
 	});
 
 	//Event ketika Memulai mengupload
@@ -194,21 +197,22 @@ if (codepage == "back_product") {
 	// bootstrap switch
 	$(".bt-switch input[type='checkbox']").bootstrapSwitch();
 	// End bootstrap switch
-	
+
 
 	//SummerNote JS Add Product
-	$(document).ready(function(){
+	$(document).ready(function () {
 		$('#description').summernote({
 			height: "300px",
 			callbacks: {
-				onImageUpload: function(image) {
+				onImageUpload: function (image) {
 					uploadImage(image[0]);
 				},
-				onMediaDelete : function(target) {
+				onMediaDelete: function (target) {
 					deleteImage(target[0].src);
 				}
 			}
 		});
+
 		function uploadImage(image) {
 			var data = new FormData();
 			data.append("image", image);
@@ -219,28 +223,34 @@ if (codepage == "back_product") {
 				processData: false,
 				data: data,
 				type: "POST",
-				success: function(url) {
+				success: function (url) {
 					$('#description').summernote("insertImage", url);
 				},
-				error: function(data) {
+				error: function (data) {
 					console.log(data);
 				}
 			});
 		}
+
 		function deleteImage(src) {
 			$.ajax({
-				data: {src : src},
+				data: {
+					src: src
+				},
 				type: "POST",
 				url: "<?php echo site_url('admin/Product/delete_image')?>",
 				cache: false,
-				success: function(response) {
+				success: function (response) {
 					console.log(response);
 				}
 			});
 		}
 	});
-}
-else if(codepage == "back_hero"){
+} 
+// end product 
+
+// begin hero
+else if (codepage == "back_hero") {
 	$(document).ready(function () {
 		// Basic
 		$('.dropify').dropify();
@@ -259,166 +269,55 @@ else if(codepage == "back_hero"){
 		var drDestroy = $('#input-file-to-destroy').dropify();
 		drDestroy = drDestroy.data('dropify')
 	});
-	
+}
+// end hero
 
-	// List Product
-	// var produk = $('#listProduct').DataTable({
-	// 	responsive: true,
-	// 	columnDefs: [{
-	// 		responsivePriority: 1,
-	// 		targets: 0
-	// 	},
-	// 	{
-	// 		responsivePriority: 3,
-	// 		targets: -3
-	// 	}
-	// 	]
-	// });
-	// $("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
-	// 	produk.responsive.recalc();
-	// });
-	
-	// // ban product
-	// $('#listProduct').on("click",'.ban-product',function () {
-	// 	var id = $(this).attr('data-id');
-	// 	var dir = $(this).attr('data-dir');
-	// 	var _url = dir + id;
-	// 	console.log("U", _url);
+// begin Galery
+else if (codepage == "back_galery") {
+	if (subpage == "add_galery") {
+		
+		var url_upload = $('#galeryDropzone').attr('data-url');
+		$('#galeryDropzone').empty();
+		Dropzone.autoDiscover = false;
+		var product = new Dropzone(".dropzone", {
+			url: url_upload,
+			maxFilesize: 20,
+			method: "post",
+			acceptedFiles: "image/*",
+			paramName: "userfile",
+			parallelUploads: 100,
+			dictInvalidFileType: "Type file ini tidak dizinkan",
+			addRemoveLinks: true,
+			autoProcessQueue: true
+		});
 
-	// 	swal({
-	// 		title: "Apakah Anda yakin untuk mem-ban produk ini?",
-	// 		text: "Produk yang telah di-ban tidak akan ditampilkan!",
-	// 		type: "warning",
-	// 		showCancelButton: true,
-	// 		confirmButtonColor: "#DD6B55",
-	// 		confirmButtonText: "Yes",
-	// 		cancelButtonText: "No",
-	// 		closeOnConfirm: false,
-	// 		closeOnCancel: false
-	// 	}, function (isConfirm) {
-	// 		if (isConfirm) {
-	// 			$.ajax({
-	// 				type: "POST",
-	// 				//data:{id:id},
-	// 				url: _url,
-	// 				//dataType: 'json',
-	// 				success: function (data) {
-	// 					swal({
-	// 						title: "Ban Produk Berhasil!",
-	// 						text: "Produk Berhasil Di-ban.",
-	// 						type: "success"
-	// 					},
-	// 						function () {
-	// 							location.reload();
-	// 						}
-	// 					);
-	// 				},
-	// 				error: function (data) {
-	// 					// console.log(data);
-	// 					swal("Error", "Server Error", "error");
-	// 				}
-	// 			})
-	// 		} else {
-	// 			swal("Cancelled", "", "error");
-	// 		}
-	// 	});
-	// });
-	// // end ban product
-	// // unban product
-	// $('#listProduct').on("click",'.unban-product',function () {
-	// 	var id = $(this).attr('data-id');
-	// 	var dir = $(this).attr('data-dir');
-	// 	var _url = dir + id;
-	// 	console.log("U", _url);
+			//Repeat Form
+		$(document).ready(function () {
+			$("#repeater").createRepeater();
+			$('#repeater_yt_link').on('submit', function (event) {
+				event.preventDefault();
+				$.ajax({
+					url: "insert.php",
+					method: "POST",
+					data: $(this).serialize(),
+					success: function (data) {
+						$('#repeater_form')[0].reset();
+						$("#repeater").createRepeater();
+						$('#success_result').html(data);
+						/*setInterval(function(){
+								location.reload();
+						}, 3000);*/
+					}
+				});
+			});
 
-	// 	swal({
-	// 		title: "Apakah Anda yakin untuk meng-unban produk ini?",
-	// 		text: "Produk yang telah di-unban akan ditampilkan kembali!",
-	// 		type: "info",
-	// 		showCancelButton: true,
-	// 		confirmButtonColor: "#DD6B55",
-	// 		confirmButtonText: "Yes",
-	// 		cancelButtonText: "No",
-	// 		closeOnConfirm: false,
-	// 		closeOnCancel: false
-	// 	}, function (isConfirm) {
-	// 		if (isConfirm) {
-	// 			$.ajax({
-	// 				type: "POST",
-	// 				//data:{id:id},
-	// 				url: _url,
-	// 				//dataType: 'json',
-	// 				success: function (data) {
-	// 					swal({
-	// 						title: "Unban Berhasil!",
-	// 						text: "Produk Berhasil Di-unban.",
-	// 						type: "success"
-	// 					},
-	// 						function () {
-	// 							location.reload();
-	// 						}
-	// 					);
-	// 				},
-	// 				error: function (data) {
-	// 					// console.log(data);
-	// 					swal("Error", "Server Error", "error");
-	// 				}
-	// 			})
-	// 		} else {
-	// 			swal("Cancelled", "", "error");
-	// 		}
-	// 	});
-	// });
-	// // end unban product
+		});
+	}
+} 
+// end of galery 
 
-	// // delete product
-	// $('#listProduct').on("click",'.del-product',function () {
-	// 	var id = $(this).attr('data-id');
-	// 	var dir = $(this).attr('data-dir');
-	// 	var _url = dir + id;
-	// 	swal({
-	// 		title: "Apakah Anda yakin untuk menghapus produk ini?",
-	// 		text: "Anda tidak akan dapat memulihkan produk ini!",
-	// 		type: "warning",
-	// 		showCancelButton: true,
-	// 		confirmButtonColor: "#DD6B55",
-	// 		confirmButtonText: "Yes",
-	// 		cancelButtonText: "No",
-	// 		closeOnConfirm: false,
-	// 		closeOnCancel: false
-	// 	}, function (isConfirm) {
-	// 		if (isConfirm) {
-	// 			$.ajax({
-	// 				type: "POST",
-	// 				//data:{id:id},
-	// 				url: _url,
-	// 				//dataType: 'json',
-	// 				success: function (data) {
-	// 					swal({
-	// 						title: "Hapus Berhasil!",
-	// 						text: "Data Berhasil Dihapus.",
-	// 						type: "success"
-	// 					},
-	// 						function () {
-	// 							location.reload();
-	// 						}
-	// 					);
-	// 				},
-	// 				error: function (data) {
-	// 					// console.log(data);
-	// 					swal("Error", "Server Error", "error");
-	// 				}
-	// 			})
-	// 		} else {
-	// 			swal("Cancelled", "", "error");
-	// 		}
-	// 	});
-	// });
-	// end delete product
-	
-  // end List Produk
-} else if(codepage == "back_transaction"){
-  // List Transaction
+else if (codepage == "back_transaction") {
+	// List Transaction
 	var trx = $('#listTransaction').DataTable({
 		responsive: true,
 		columnDefs: [{
@@ -434,8 +333,8 @@ else if(codepage == "back_hero"){
 	$("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
 		trx.responsive.recalc();
 	});
-	
-	$('#listTransaction').on("click",'.del-trans',function () {
+
+	$('#listTransaction').on("click", '.del-trans', function () {
 		var id = $(this).attr('data-id');
 		var dir = $(this).attr('data-dir');
 		var _url = dir + id;
@@ -479,8 +378,8 @@ else if(codepage == "back_hero"){
 			}
 		});
 	});
-	
-	$('#listTransaction').on("click",'.approve-trans',function () {
+
+	$('#listTransaction').on("click", '.approve-trans', function () {
 		var id = $(this).attr('data-id');
 		var dir = $(this).attr('data-dir');
 		var _url = dir + id;
@@ -524,7 +423,7 @@ else if(codepage == "back_hero"){
 			}
 		});
 	});
-	$('#listTransaction').on("click",'.doapprove-trans',function () {
+	$('#listTransaction').on("click", '.doapprove-trans', function () {
 		var id = $(this).attr('data-id');
 		var dir = $(this).attr('data-dir');
 		var _url = dir + id;
@@ -568,9 +467,9 @@ else if(codepage == "back_hero"){
 			}
 		});
 	});
-  // end List Produk
-} else if(codepage == "back_earning"){
-  var earning = $('#listEarningMonth').DataTable({
+	// end List Produk
+} else if (codepage == "back_earning") {
+	var earning = $('#listEarningMonth').DataTable({
 		responsive: true,
 		columnDefs: [{
 			responsivePriority: 1,
@@ -585,7 +484,7 @@ else if(codepage == "back_hero"){
 	$("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
 		earning.responsive.recalc();
 	});
-} else if(codepage == "back_addProduct" ){
+} else if (codepage == "back_addProduct") {
 	var url_upload = $('#myDropzone').attr('data-url');
 	$('#myDropzone').empty();
 	Dropzone.autoDiscover = false;
@@ -595,10 +494,10 @@ else if(codepage == "back_hero"){
 		method: "post",
 		acceptedFiles: "image/*",
 		paramName: "userfile",
-		parallelUploads:100,
+		parallelUploads: 100,
 		dictInvalidFileType: "Type file ini tidak dizinkan",
 		addRemoveLinks: true,
-		autoProcessQueue:true
+		autoProcessQueue: true
 	});
 
 	//Event ketika Memulai mengupload
@@ -609,21 +508,22 @@ else if(codepage == "back_hero"){
 	// bootstrap switch
 	$(".bt-switch input[type='checkbox']").bootstrapSwitch();
 	// End bootstrap switch
-	
+
 
 	//SummerNote JS Add Product
-	$(document).ready(function(){
+	$(document).ready(function () {
 		$('#description').summernote({
 			height: "300px",
 			callbacks: {
-				onImageUpload: function(image) {
+				onImageUpload: function (image) {
 					uploadImage(image[0]);
 				},
-				onMediaDelete : function(target) {
+				onMediaDelete: function (target) {
 					deleteImage(target[0].src);
 				}
 			}
 		});
+
 		function uploadImage(image) {
 			var data = new FormData();
 			data.append("image", image);
@@ -634,27 +534,30 @@ else if(codepage == "back_hero"){
 				processData: false,
 				data: data,
 				type: "POST",
-				success: function(url) {
+				success: function (url) {
 					$('#description').summernote("insertImage", url);
 				},
-				error: function(data) {
+				error: function (data) {
 					console.log(data);
 				}
 			});
 		}
+
 		function deleteImage(src) {
 			$.ajax({
-				data: {src : src},
+				data: {
+					src: src
+				},
 				type: "POST",
 				url: "<?php echo site_url('admin/Product/delete_image')?>",
 				cache: false,
-				success: function(response) {
+				success: function (response) {
 					console.log(response);
 				}
 			});
 		}
 	});
-}else if(codepage == "back_editProduct"){
+} else if (codepage == "back_editProduct") {
 	var url_upload = $('#myDropzone').attr('data-url');
 	$('#myDropzone').empty();
 	Dropzone.autoDiscover = false;
@@ -664,33 +567,33 @@ else if(codepage == "back_hero"){
 		method: "post",
 		acceptedFiles: "image/*",
 		paramName: "userfile",
-		parallelUploads:100,
+		parallelUploads: 100,
 		dictInvalidFileType: "Type file ini tidak dizinkan",
 		addRemoveLinks: true,
-		autoProcessQueue:true
+		autoProcessQueue: true
 	});
-	$(document).on("click",'.del-img',function () {
+	$(document).on("click", '.del-img', function () {
 		var id = $(this).attr('data-id');
 		var dir = $(this).attr('data-dir');
 		var _url = dir + id;
-	
-				$.ajax({
-					type: "POST",
-					//data:{id:id},
-					url: _url,
-					//dataType: 'json',
-					cache: false,
-                    success: function(html) {
-                        $(".delete_img" + id).fadeOut('slow');
-                    },
-					error: function (data) {
-						// console.log(data);
-						swal("Error", "Server Error", "error");
-					}
-				})
-			
+
+		$.ajax({
+			type: "POST",
+			//data:{id:id},
+			url: _url,
+			//dataType: 'json',
+			cache: false,
+			success: function (html) {
+				$(".delete_img" + id).fadeOut('slow');
+			},
+			error: function (data) {
+				// console.log(data);
+				swal("Error", "Server Error", "error");
+			}
+		})
+
 	});
-	
+
 	//Event ketika Memulai mengupload
 	product.on("sending", function (a, b, c) {
 		//c.append("id_product", $('#token').val());
@@ -699,32 +602,32 @@ else if(codepage == "back_hero"){
 	// bootstrap switch
 	$(".bt-switch input[type='checkbox']").bootstrapSwitch();
 	// End bootstrap switch
-}else if(codepage == "back_transaction_detail"){
-	$("#print").click(function() {
-			var mode = 'iframe'; //popup
-			var close = mode == "popup";
-			var options = {
-					mode: mode,
-					popClose: close
-			};
-			$("div.printableArea").printArea(options);
+} else if (codepage == "back_transaction_detail") {
+	$("#print").click(function () {
+		var mode = 'iframe'; //popup
+		var close = mode == "popup";
+		var options = {
+			mode: mode,
+			popClose: close
+		};
+		$("div.printableArea").printArea(options);
 	});
 
 	$('.approve').click(function () {
-			var id = $(this).attr('data-id');
-			$.ajax({
-				type: "POST",
-				url: location.origin+"/admin/Transaction/approve/"+id,
-				success: function (data) {
-					location.reload();
-				},
-				error: function (data) {
-					// console.log(data);
-					swal("Error", "Server Error", "error");
-				}
-			})
+		var id = $(this).attr('data-id');
+		$.ajax({
+			type: "POST",
+			url: location.origin + "/admin/Transaction/approve/" + id,
+			success: function (data) {
+				location.reload();
+			},
+			error: function (data) {
+				// console.log(data);
+				swal("Error", "Server Error", "error");
+			}
+		})
 	});
-}else if(codepage == "back_setHomePage"){
+} else if (codepage == "back_setHomePage") {
 	$(document).ready(function () {
 		// Basic
 		$('.dropify').dropify();
@@ -743,23 +646,23 @@ else if(codepage == "back_hero"){
 		var drDestroy = $('#input-file-to-destroy').dropify();
 		drDestroy = drDestroy.data('dropify')
 	});
-}else if(codepage == "back_category"){
+} else if (codepage == "back_category") {
 	var category = $('#listCategory').DataTable({
-		  responsive: true,
-		  columnDefs: [{
-			  responsivePriority: 1,
-			  targets: 0
-		  },
-		  {
-			  responsivePriority: 3,
-			  targets: -3
-		  }
-		  ]
-	  });
-	  $("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
+		responsive: true,
+		columnDefs: [{
+			responsivePriority: 1,
+			targets: 0
+		},
+		{
+			responsivePriority: 3,
+			targets: -3
+		}
+		]
+	});
+	$("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
 		category.responsive.recalc();
-	  });
-	  $('#listCategory').on("click",'.deleted_category',function () {
+	});
+	$('#listCategory').on("click", '.deleted_category', function () {
 		var id = $(this).attr('data-id');
 		var dir = $(this).attr('data-dir');
 		var _url = dir + id;
@@ -801,8 +704,8 @@ else if(codepage == "back_hero"){
 			}
 		});
 	});
-	
-	  /*$('.deleted_category').click(function () {
+
+	/*$('.deleted_category').click(function () {
 	  	var id = $(this).attr('data-id');
 	  	var _url = location.origin+"/admin/Category/deleted/" + id;
 		
@@ -845,62 +748,62 @@ else if(codepage == "back_hero"){
 	  
 	 */
 
-}else if(codepage == "back_slider"){
-		var slider = $('#listSlider').DataTable({
-			  responsive: true,
-			  columnDefs: [{
-				  responsivePriority: 1,
-				  targets: 0
-			  },
-			  {
-				  responsivePriority: 3,
-				  targets: -3
-			  }
-			  ]
-		  });
-		  $("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
-			slider.responsive.recalc();
-		  });
-		  $('.deleted_slider').click(function () {
-			  var id = $(this).attr('data-id');
-			  var _url = location.origin+"/admin/Slider/deleted/" + id;
-			  swal({
-				  title: "Apakah Anda yakin untuk Menghapus Slider",
-				  type: "warning",
-				  showCancelButton: true,
-				  confirmButtonColor: "#DD6B55",
-				  confirmButtonText: "Yes",
-				  cancelButtonText: "No",
-				  closeOnConfirm: false,
-				  closeOnCancel: false
-			  }, function (isConfirm) {
-				  if (isConfirm) {
-					  $.ajax({
-						  type: "POST",
-						  //data:{id:id},
-						  url: _url,
-						  //dataType: 'json',
-						  success: function (data) {
-							  swal({
-									  title: "Berhasil Menghapus Slider!",
-									  type: "success"
-								  },
-								  function () {
-									  location.reload();
-								  }
-							  );
-						  },
-						  error: function (data) {
-							  // console.log(data);
-							  swal("Error", "Server Error", "error");
-						  }
-					  })
-				  } else {
-					  swal("Cancelled", "", "error");
-				  }
-			  });
-		  });
-}else if(codepage == "back_category_detail" || codepage == "back_slider_detail"){
+} else if (codepage == "back_slider") {
+	var slider = $('#listSlider').DataTable({
+		responsive: true,
+		columnDefs: [{
+			responsivePriority: 1,
+			targets: 0
+		},
+		{
+			responsivePriority: 3,
+			targets: -3
+		}
+		]
+	});
+	$("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
+		slider.responsive.recalc();
+	});
+	$('.deleted_slider').click(function () {
+		var id = $(this).attr('data-id');
+		var _url = location.origin + "/admin/Slider/deleted/" + id;
+		swal({
+			title: "Apakah Anda yakin untuk Menghapus Slider",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "Yes",
+			cancelButtonText: "No",
+			closeOnConfirm: false,
+			closeOnCancel: false
+		}, function (isConfirm) {
+			if (isConfirm) {
+				$.ajax({
+					type: "POST",
+					//data:{id:id},
+					url: _url,
+					//dataType: 'json',
+					success: function (data) {
+						swal({
+							title: "Berhasil Menghapus Slider!",
+							type: "success"
+						},
+							function () {
+								location.reload();
+							}
+						);
+					},
+					error: function (data) {
+						// console.log(data);
+						swal("Error", "Server Error", "error");
+					}
+				})
+			} else {
+				swal("Cancelled", "", "error");
+			}
+		});
+	});
+} else if (codepage == "back_category_detail" || codepage == "back_slider_detail") {
 	$(document).ready(function () {
 		// Basic
 		$('.dropify').dropify();
@@ -919,50 +822,50 @@ else if(codepage == "back_hero"){
 		var drDestroy = $('#input-file-to-destroy').dropify();
 		drDestroy = drDestroy.data('dropify')
 	});
-}else if(codepage == "set_address"){
+} else if (codepage == "set_address") {
 	console.log(citya);
-	$('.select-district').change(function(){
-		  var subdistrict=$(".select-district option:selected").text();
-		  $('input[name=subdistrict]').val(subdistrict);
-	  });
-  
-	  $('.select-city').change(function(){
-		  var city=$(".select-city option:selected").text();
-		  $('input[name=city]').val(city);
-		  var id_city = $(".select-city").val();
-		  var url = $(this).attr('data-url');
-		  $.ajax({
-			  method: "POST",
-			  url: url,
-			  data: {
-				  id_city: id_city
-			  },
-			  success: function(data) {
-				  $('.select-district').html(data);
-			  }
-		  });
-	  });
-  
-	  $('.select-province').change(function(){
-		  var province_name=$(".select-province option:selected").text();
-		  $('input[name=province_name]').val(province_name);
-		  var id_province = $(".select-province").val();
-		  var url = $(".codepage").attr('data-url');
-		  $.ajax({
-			  method: "POST",
-			  url: url,
-			  data: {
-				  id_province: id_province
-			  },
-			  success: function(data) {
-				  $('.select-city').html(data);
-			  }
-		  });
-	  });
-  }else if(codepage == "back_useradmin"){
+	$('.select-district').change(function () {
+		var subdistrict = $(".select-district option:selected").text();
+		$('input[name=subdistrict]').val(subdistrict);
+	});
+
+	$('.select-city').change(function () {
+		var city = $(".select-city option:selected").text();
+		$('input[name=city]').val(city);
+		var id_city = $(".select-city").val();
+		var url = $(this).attr('data-url');
+		$.ajax({
+			method: "POST",
+			url: url,
+			data: {
+				id_city: id_city
+			},
+			success: function (data) {
+				$('.select-district').html(data);
+			}
+		});
+	});
+
+	$('.select-province').change(function () {
+		var province_name = $(".select-province option:selected").text();
+		$('input[name=province_name]').val(province_name);
+		var id_province = $(".select-province").val();
+		var url = $(".codepage").attr('data-url');
+		$.ajax({
+			method: "POST",
+			url: url,
+			data: {
+				id_province: id_province
+			},
+			success: function (data) {
+				$('.select-city').html(data);
+			}
+		});
+	});
+} else if (codepage == "back_useradmin") {
 	$('.ban-admin').click(function () {
 		var id = $(this).attr('data-id');
-		var _url = location.origin+"/admin/User/banAdmin/" + id;
+		var _url = location.origin + "/admin/User/banAdmin/" + id;
 		swal({
 			title: "Apakah Anda yakin untuk non aktifkan user ini?",
 			type: "warning",
@@ -981,9 +884,9 @@ else if(codepage == "back_hero"){
 					//dataType: 'json',
 					success: function (data) {
 						swal({
-								title: "Berhasil Menonaktifkan User!",
-								type: "success"
-							},
+							title: "Berhasil Menonaktifkan User!",
+							type: "success"
+						},
 							function () {
 								location.reload();
 							}
@@ -999,8 +902,8 @@ else if(codepage == "back_hero"){
 			}
 		});
 	});
-}else if(codepage == "back_page"){
-	
+} else if (codepage == "back_page") {
+
 	var list = $('#listPage').DataTable({
 		responsive: true,
 		columnDefs: [{
@@ -1016,8 +919,8 @@ else if(codepage == "back_hero"){
 	$("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
 		list.responsive.recalc();
 	});
-	
-	$('#listPage').on("click",'.del',function () {
+
+	$('#listPage').on("click", '.del', function () {
 		var id = $(this).attr('data-id');
 		var dir = $(this).attr('data-dir');
 		var _url = dir + id;
@@ -1059,8 +962,8 @@ else if(codepage == "back_hero"){
 			}
 		});
 	});
-	
-}else if(codepage == "back_addPage"){
+
+} else if (codepage == "back_addPage") {
 	$(document).ready(function () {
 		// Basic
 		$('.dropify').dropify();
@@ -1081,11 +984,10 @@ else if(codepage == "back_hero"){
 	});
 	$('#pagecontent').summernote({
 		placeholder: 'Silahkan isi berita',
-		tabsize: 2,	
+		tabsize: 2,
 		height: 250
 	});
-}
-else if(codepage == "back_hero"){
+} else if (codepage == "back_hero") {
 	$(document).ready(function () {
 		// Basic
 		$('.dropify').dropify();
@@ -1105,7 +1007,7 @@ else if(codepage == "back_hero"){
 		drDestroy = drDestroy.data('dropify')
 	});
 
-	$('#listProduct').on("click",'.del-product',function () {
+	$('#listProduct').on("click", '.del-product', function () {
 		var id = $(this).attr('data-id');
 		var dir = $(this).attr('data-dir');
 		var _url = dir + id;
@@ -1149,18 +1051,19 @@ else if(codepage == "back_hero"){
 	});
 
 	//SummerNote JS Add Hero
-	$(document).ready(function(){
+	$(document).ready(function () {
 		$('#description').summernote({
 			height: "300px",
 			callbacks: {
-				onImageUpload: function(image) {
+				onImageUpload: function (image) {
 					uploadImage(image[0]);
 				},
-				onMediaDelete : function(target) {
+				onMediaDelete: function (target) {
 					deleteImage(target[0].src);
 				}
 			}
 		});
+
 		function uploadImage(image) {
 			var data = new FormData();
 			data.append("image", image);
@@ -1171,21 +1074,24 @@ else if(codepage == "back_hero"){
 				processData: false,
 				data: data,
 				type: "POST",
-				success: function(url) {
+				success: function (url) {
 					$('#description').summernote("insertImage", url);
 				},
-				error: function(data) {
+				error: function (data) {
 					console.log(data);
 				}
 			});
 		}
+
 		function deleteImage(src) {
 			$.ajax({
-				data: {src : src},
+				data: {
+					src: src
+				},
 				type: "POST",
 				url: "<?php echo site_url('admin/Product/delete_image')?>",
 				cache: false,
-				success: function(response) {
+				success: function (response) {
 					console.log(response);
 				}
 			});
@@ -1202,34 +1108,11 @@ else if(codepage == "back_hero"){
 		method: "post",
 		acceptedFiles: "image/*",
 		paramName: "userfile",
-		parallelUploads:100,
+		parallelUploads: 100,
 		dictInvalidFileType: "Type file ini tidak dizinkan",
 		addRemoveLinks: true,
-		autoProcessQueue:true
+		autoProcessQueue: true
 	});
 
-	//Repeat Form
-	$(document).ready(function(){
 
-        $("#repeater").createRepeater();
-
-        $('#repeater_form').on('submit', function(event){
-            event.preventDefault();
-            $.ajax({
-                url:"insert.php",
-                method:"POST",
-                data:$(this).serialize(),
-                success:function(data)
-                {
-                    $('#repeater_form')[0].reset();
-                    $("#repeater").createRepeater();
-                    $('#success_result').html(data);
-                    /*setInterval(function(){
-                        location.reload();
-                    }, 3000);*/
-                }
-            });
-        });
-
-    });
 }
