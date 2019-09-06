@@ -20,14 +20,14 @@
 					<?php endif;?>
 					<div class="table-responsive">
                         <div class="mb-4 text-right">
-                            <a href="<?= base_url('admin/Category/formAddCategory');?>"><button type="button" class="btn btn-primary btn-rounded"><i class="mdi mdi-open-in-new"></i> Tambah Donatur</button></a>
+                            <a href="<?= base_url('admin/Category/formAddCategory');?>"><button type="button" class="btn btn-primary btn-rounded"><i class="mdi mdi-open-in-new"></i> Tambah Category</button></a>
                         </div>
 						<table id="listProduct" class="table table-striped" style="width:100%">
 							<thead>
 								<tr>
 									<th>No</th>
-									<th width="40%" >Nama Donatur</th>
-									<th>Nominal</th>
+									<th width="40%" >Nama Category</th>
+									<th>Image </th>
 									<th>Aksi</th>
 								</tr>
 							</thead>
@@ -38,11 +38,11 @@
                 <tr>
                     <td><?= $no?></td>
                     <td><?= $d['title_category']?></td>
-                    <td><?= $d['slug_category']?></td>
+					<td><img src="<?= img_url($d['img_path'])?>" alt="user" class="img-tumbnail" width="100"/></td>
                     <td>
-                      <a href="<?php echo base_url('admin/Category/detail/'.$d['id'])?>">
+                      <a href="<?php echo base_url('admin/Category/editCategory/'.$d['id'])?>">
 					  <button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>
-                      <button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button" data-id="<?= $d['id']?>" data-dir="<?php echo base_url('admin/Category/deleted/')?>"><i class="fas fa-trash-alt"></i></button>
+                      <button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button" data-id="<?= $d['id']?>" data-dir="<?php echo base_url('admin/Category/deleteCategory/')?>"><i class="fas fa-trash-alt"></i></button>
                     </td>
                 </tr>                
               <?php

@@ -9,7 +9,7 @@
   <?php elseif(@$subpage == "add_product" || @$subpage == "edit_product"):?>
     <link rel="stylesheet" href="<?php echo vendor_url('plugins/summernote/summernote-bs4.css') ?>">
     <link rel="stylesheet" href="<?php echo vendor_url('plugins/bootstrapswitch/bootstrap-switch.min.css') ?>">
-    <link rel="stylesheet" href="<?php echo vendor_url('plugins/dropzone/dropzone.min.css') ?>">
+    <link rel="stylesheet" href="<?php echo vendor_url('plugins/dropzone/dropzone.css') ?>">
     <link rel="stylesheet" href="<?php echo vendor_url('plugins/datatables/dataTables.bootstrap4.css') ?>">
     <link rel="stylesheet" href="<?php echo vendor_url('plugins/datatables/responsive.dataTables.css') ?>">
     <link rel="stylesheet" href="<?php echo vendor_url('plugins/dropify/dropify.min.css') ?>">
@@ -22,8 +22,9 @@
   <!-- <link rel="stylesheet" href="<?php echo vendor_url('plugins/dropzone/dropzone.min.css') ?>"> -->
   <link rel="stylesheet" href="<?php echo vendor_url('plugins/bootstrapswitch/bootstrap-switch.min.css') ?>">
 
-
-
+  <?php elseif(@$codepage == "back_category"):?>
+  <link rel="stylesheet" href="<?php echo vendor_url('plugins/dropify/dropify.min.css') ?>">
+  <link rel="stylesheet" href="<?php echo vendor_url('plugins/summernote/summernote-bs4.css') ?>">
 <?php endif; ?>
 
   <link href="<?php echo vendor_url('back/css/style.min.css'); ?>" rel="stylesheet">

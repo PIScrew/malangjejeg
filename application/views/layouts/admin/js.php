@@ -83,11 +83,16 @@
     @$subpage == "edit_product"):?>
       <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>
       <script src="<?php echo vendor_url('plugins/bootstrapswitch/bootstrap-switch.min.js') ?>"></script>
-      <script src="<?php echo vendor_url('plugins/dropzone/dropzone.min.js') ?>"></script>
+      <script src="<?php echo vendor_url('plugins/dropzone/dropzone.js') ?>"></script>
     <?php endif;?>
   <?php endif;?>
   <script src="<?php echo assets_url('js','custom.back.js'); ?>"></script>
 <?php endif;?>
+
+<?php if (@$codepage =="back_category"):?>
+    <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
+    <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>
+    <?php endif;?>
 
 <?php if (@$codepage =="back_hero"):?>
 

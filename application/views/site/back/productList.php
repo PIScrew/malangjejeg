@@ -41,7 +41,7 @@
                     <!-- <td><?= count_view_product($p['id'])?></td>
                     <td><?= count_variant_product($p['id'])?></td> -->
                     <td>
-                      <button class="btn btn-twitter waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button" onclick="location.href='<?php echo base_url('admin/product/edit/'.$p['slug_product'])?>" ><i class="fas fa-pencil-alt"></i></button>
+                      <!-- <button class="btn btn-twitter waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button" onclick="location.href='<?php echo base_url('admin/product/edit/'.$p['slug_product'])?>" ><i class="fas fa-pencil-alt"></i></button> -->
                       <a href="<?php echo base_url('admin/product/editProduct/'.$p['id'])?>"><button class="btn btn-facebook waves-effect btn-rounded waves-light btn-info btn-sm edit-product " type="button"><i class="fas fa-pencil-alt"></i></button></a>
                       <button class="btn btn-googleplus waves-effect btn-rounded waves-light btn-danger btn-sm del-product" type="button" data-id="<?= $p['id']?>" data-dir="<?php echo base_url('admin/Product/del_product/')?>"><i class="fas fa-trash-alt"></i></button>
                     </td>

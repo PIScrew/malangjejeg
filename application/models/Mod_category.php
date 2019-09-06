@@ -26,7 +26,7 @@ class Mod_category extends CI_Model {
       $this->db->limit(1);
       return $this->db->get($this->category); 
   }
-  public function update($data,$id){
+  public function update($id=0, $data=0){
     $this->db->set($data);
     $this->db->where('id', $id);
     $this->db->update($this->category);

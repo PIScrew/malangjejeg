@@ -724,7 +724,7 @@ else if(codepage == "back_hero"){
 				}
 			})
 	});
-}else if(codepage == "back_setHomePage"){
+}else if(codepage == "back_category"){
 	$(document).ready(function () {
 		// Basic
 		$('.dropify').dropify();
