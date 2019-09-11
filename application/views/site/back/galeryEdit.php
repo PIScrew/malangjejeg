@@ -15,9 +15,8 @@
       
       <div class="col-sm-12 col-md-8">
                 <div class="form-group">
-                  <label for="img_path" class="control-label col-form-label">Image<span
-                      class="text-danger">*</span></label>
-                      <input type="file"  placeholder="Image"   class="form-control form-control-line" name="img_path" value="<?= $galery['img_path'] ?> ">
+                <label for="productpicture" class="control-label col-form-label">Upload Gambar</label>
+                  <div name ="userfile"id="myDropzone" class="dropzone" data-url="	<?php  echo base_url('admin/Galery/editGalery');?>">  </div>
                 
                 </div>
               </div>

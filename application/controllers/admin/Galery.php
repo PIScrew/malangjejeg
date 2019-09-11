@@ -9,6 +9,7 @@ class Galery extends PIS_Controller {
     $this->load->model('Mod_galery','galery');
     $this->check_login();
     $this->load->model('Mod_user','user');
+    $this->load->library('upload');
   }
   
   function check_login() {   
@@ -19,22 +20,20 @@ class Galery extends PIS_Controller {
 
   public function index()
   {
-    $data['codepage']     = "back_hero";
+    $data['codepage']     = "back_galery";
+    $data['subpage']      = "index";
     $data['page_title']   = 'Galery';
     $data['galery']       = $this->galery->getGaleryAll()->result_array();
     $this->template->admin_views('site/back/galeryList',$data);    
   }
   public function addGalery(){
-    $data['codepage']       = "back_hero";
-    $data['page_title'] 	= 'Tambah Galery';
+    $data['codepage']       = "back_galery";
+    $data['subpage']        = "add_galery";
+    $data['page_title'] 	  = 'Tambah Galery';
     $data['galery']         = $this->galery->getGaleryAll()->result_array();
   
     if(isset($_POST['submit'])){
-      if (isset($_POST['status']) == null ) {
-        $status = 1;
-      }else{
-        $status = 0;
-      }
+      
 
       $config['upload_path']='./assets/img/content/galery/';
       $config['allowed_types']='jpg|png|ico';
@@ -46,7 +45,7 @@ class Galery extends PIS_Controller {
           $img.=  $this->upload->data('file_name');
       }
      $data = array(
-       'id_galery'                => $_POST['id_galery'],
+       
        'title'                    => $_POST['title'],
        'img_path'                 => @$img ,
        'desc'                     => $_POST['desc'] ,
@@ -60,14 +59,17 @@ class Galery extends PIS_Controller {
 }
 
   public function formAddGalery(){
-    $data['codepage']     = "back_hero";
+    $data['codepage']     = "back_galery";
+    $data['subpage']      = "add_galery";
+   
     $data['page_title'] 	= 'Add Galery';
     $this->template->admin_views('site/back/galeryAdd',$data);
 
   }
 
   public function listGalery(){
-    $data['codepage']     = "back_hero";
+    $data['codepage']     = "back_galery";
+    $data['subpage']      = "list_galery";
     $data['page_title'] 	= 'List Galery';
     $data['galery']      = $this->carousel->getGaleryAll()->result_array();
     $this->template->admin_views('site/back/galeryList',$data);

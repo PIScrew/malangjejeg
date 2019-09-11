@@ -22,9 +22,8 @@
   @$codepage == "back_product" ||
   @$codepage == "back_donator" ||
   @$codepage == "back_member"||
-  @$codepage == "banned_member"||
   @$codepage == "back_transaction"||
-  @$codepage == "back_ticket"||
+  @$codepage == "back_galery"||
   @$codepage == "back_page" ||
   @$codepage == "back_user" ||
   @$codepage == "profile" ||
@@ -78,39 +77,41 @@
       <script src="<?php echo vendor_url('plugins/datatables/datatables.min.js') ?>"></script>
       <script src="<?php echo vendor_url('plugins/datatables/dataTables.responsive.js') ?>"></script>
       <script src="<?php echo vendor_url('plugins/datatables/vfs_fonts.js') ?>"></script>
-    <?php elseif (@$subpage == "add_product" || 
-    @$subpage == "edit_product" ||
-    @$subpage == "edit_product"):?>
+    <?php elseif (@$subpage == "add_product" ||  @$subpage == "edit_product"):?>
       <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>
       <script src="<?php echo vendor_url('plugins/bootstrapswitch/bootstrap-switch.min.js') ?>"></script>
       <script src="<?php echo vendor_url('plugins/dropzone/dropzone.js') ?>"></script>
     <?php endif;?>
+
+  <?php elseif (@$codepage =="back_category"):?>
+    
+    <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
+    <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>
+    
+  
+  <?php elseif (@$codepage =="back_hero"):?>
+    <?php if (@$subpage == "index"):?>
+
+    <?php elseif (@$subpage == "add_hero"):?>
+
+    <?php endif ?>
+
+  <?php elseif (@$codepage =="back_galery"):?>
+    <?php if (@$subpage == "index"):?>
+
+    <?php elseif (@$subpage == "add_galery"):?>
+      <script src="<?php echo vendor_url('plugins/dropzone/dropzone.js') ?>"></script>
+      <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
+      <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>
+      <script src="<?php echo vendor_url('plugins/repeater/repeater.js') ?>"></script>
+      <script src="<?php echo vendor_url('plugins/repeater/repeater.min.js') ?>"></script>
+    <?php endif ?>
+
+    
   <?php endif;?>
+
+
+
   <script src="<?php echo assets_url('js','custom.back.js'); ?>"></script>
 <?php endif;?>
 
-<?php if (@$codepage =="back_category"):?>
-    <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>
-    <?php endif;?>
-
-<?php if (@$codepage =="back_hero"):?>
-
-    <!-- <script src="<?php echo vendor_url('plugins/dropzone/dropzone.min.js') ?>"></script> -->
-    <script src="<?php echo vendor_url('plugins/dropzone/dropzone.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/dropify/dropify.min.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/summernote/summernote-bs4.js') ?>"></script>
-
-
-    <!-- charts -->
-    <script src="<?php echo vendor_url('plugins/chartist/chartist.min.js'); ?>"></script>
-    <script src="<?php echo vendor_url('plugins/chartist/chartist-plugin-tooltip.min.js');?>"></script>
-    <!-- End charts -->
-    <!-- Ci3 -->
-    <script src="<?php echo vendor_url('plugins/c3/c3.min.js'); ?>"></script>
-    <script src="<?php echo vendor_url('plugins/c3/d3.min.js'); ?>"></script>
-    <!-- End charts -->
-    <script src="<?php echo vendor_url('back/js/dashboard3.js'); ?>"></script>
-    <script src="<?php echo vendor_url('plugins/datatables/datatables.min.js') ?>"></script>
-    <script src="<?php echo vendor_url('plugins/datatables/dataTables.responsive.js') ?>"></script>
-    <?php endif;?>
