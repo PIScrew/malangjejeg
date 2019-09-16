@@ -54,14 +54,9 @@ class Category extends PIS_Controller {
                 'img_path'                 => @$img,
                 'created_at'               => date('Y-m-j H:i:s'),
              );
-             $data = $this->category->create($data_array);
-  
-            
+             $data = $this->category->create($data_array);            
         }
-     
-
       redirect(base_url('admin/Category/index'));
-  
       }
   }
 
